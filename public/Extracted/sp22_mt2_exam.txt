@@ -1,0 +1,499 @@
+                                                                                                            1
+
+EECS 16A     Designing Information Devices and Systems I
+Spring 2022
+                                                                Midterm 2
+
+PRINT your student ID:
+
+PRINT AND SIGN your name:                            ,
+                                  (last name)
+                                                        (first name)                  (signature)
+                                                                      and left:
+PRINT the time of your discussion section and your GSI(s) name:
+PRINT the student IDs of the person sitting on your right:
+
+1. HONOR CODE
+   Please read the following statements of the honor code, and sign your name (you don't need to copy it).
+   I will respect my classmates and the integrity of this exam by following this honor code. I affirm:
+
+       � I have read the instructions for this exam. I understand them and will follow them.
+       � All of the work submitted here is my original work.
+       � I did not reference any sources other than my one reference cheat sheet.
+       � I did not collaborate with any other human being on this exam.
+
+2. Tell us about something that something you like about this class (1 point) All answers will be awarded
+   full credit.
+
+EECS 16A, Spring 2022, Midterm 2                                                                            1
+                                                                                                                                                                 2
+
+    PRINT your student ID:
+
+3. KCL and KVL (3.5 points)
+     (a) (1.5 points) Given the circuit below, label all the missing element voltages and currents using passive
+          sign convention. You do not need to label the voltage source or node voltages.
+
+             elem1                u1         elem3
+          + V1 -
+                                             - V3 +
++V
+-                                 i2                   i4
+                                      elem2                elem4
+
+                                                elem5
+                                             - V5 +
+
+                                                                            elem6
+                                                                        + V6 -
+
+(b) (1 point) Using your labeled voltages/currents, write the KCL equation for node u1.
+
+(c) (1 point) Using your labeled voltages/currents, write the KVL equation for the loop containing elem2, elem3, elem4
+    and elem5.
+
+EECS 16A, Spring 2022, Midterm 2                                                         2
+                                                                                                                                                                 3
+
+    PRINT your student ID:
+
+4. Potentiometers (10 Points)
+     (a) (2 points) A potentiometer is a component that can provide variable resistance. As shown in the figure,
+          terminals 1 and 3 of the potentiometer are fixed, and the resistance between them is always equal to R.
+          By moving the wiper at terminal 2 up and down, the length between terminals 1 & 2 and 2 & 3 vary,
+          changing R12 (the resistance between terminals 1,2) and R23 (The resistance between terminals 2,3).
+                                                                                             1
+
+                                            2
+
+                                  Vs  -  R  +
+                                      +
+
+                                            V2
+
+                                            -
+
+                                            3
+
+In the figure, the potentiometer is connected to a voltage source. Express the output voltage, V2 (the
+voltage at terminal 2), as a function of the source voltage Vs, R12, and R23.
+
+EECS 16A, Spring 2022, Midterm 2                3
+                                                                                                                                                          4
+
+     PRINT your student ID:
+
+(b) (3 points) Now you are given a different type of variable resistor Rvar with initial length L0 (mm), area
+     A0 (mm2), and resistivity  ( � mm). By squeezing the variable resistor, you decrease its length and
+     increase its area: each squeeze of 1 mm will cause the length to decrease by 1 mm and the area to
+     increase by 1/10 of A0. Suppose the variable resistor is squeezed by d (mm), express the resistance
+     Rvar as a function of d and other variables in the problem.
+
+EECS 16A, Spring 2022, Midterm 2  4
+                                                                                                                                                          5
+
+     PRINT your student ID:
+
+(c) (5 points) You would like to use a variable resistor as a pressure sensor. To do so you must choose an
+    R fix and setup the following circuit to measure the voltage change across Rvar with a voltmeter. Assume
+    initially Rvar is 2k. When the pressure increases, Rvar becomes 3k. You only have resistors of three
+    values: 2, 2k, 2M to choose for R fix. If your voltmeter can only detect changes larger than 0.5V,
+    which one of these resistors would you choose? Justify your answer mathematically.
+
+                                                                R f ix
+
+                                  10 V  -  Rvar  V
+                                        +
+
+EECS 16A, Spring 2022, Midterm 2                    5
+                                                                                                                                                                 6
+
+    PRINT your student ID:
+
+5. Physical Capacitors (5.5 points)
+     (a) (1.5 point) A parallel plate capacitor with area, A, separated by a gap, g, and contains an insulating
+          layer with permittivity, , is shown below. The plates are perfectly aligned in the w direction. Express
+          the capacitance with the given variables.
+
+(b) (4 points) For the capacitors in the following questions, assume air is between the plates, and permi-
+     tivity of air is . For each of the following statements, decide if it is true or false. Circle your answer
+     and justify (intuitive arguments are valid) with a sentence or two.
+
+       i. Inserting an infinitely thin, uncharged, conductive plate between a parallel plate capacitor
+          changes the overall capacitance between A and B.
+
+True False
+
+EECS 16A, Spring 2022, Midterm 2  6
+                                                                                                                                                  7
+
+    PRINT your student ID:
+ii. Inserting a finitely thick, uncharged, insulating plate between a parallel plate capacitor changes
+
+   the overall capacitance between A and B.
+
+       True False
+
+EECS 16A, Spring 2022, Midterm 2  7
+                                                                                                                                                                 8
+
+    PRINT your student ID:
+
+6. 2D Resistive Touch (11 points)
+     (a) (3 points) Consider the 2x2 touchscreen below where the strips are equally spaced and connected by an
+          ideal conducting plate on each end. There is no contact being made between overlapping strips except
+          where the finger is touching. Draw an equivalent circuit diagram for when touch occurs at (2,2). Be
+          sure to include Vs, Vm in your diagram. You don't have to label the equivalent resistors.
+
+                                     1  2  A single top strip:                                                                                                      "
+
+                                  1
+
+                                  2        +
+
+                                           -
+                                                              A single bottom strip:
+                                                                                          !
+                                                                                        bottom
+
+EECS 16A, Spring 2022, Midterm 2           8
+                                                                                                                                                          9
+
+     PRINT your student ID:
+(b) (3 points) In this resistive touchscreen, the top strips are made of a material with resistivity top and
+
+     the bottom strips are made of a material with resistivity bottom.
+
+   1                              2     A single top strip:  "                               top
+
+1
+
+2                                       +
+
+                                        -
+                                                           A single bottom strip:
+                                                                                       !
+                                                                                     bottom
+
+What is Vm when touch occurs at (2,2)?
+
+EECS 16A, Spring 2022, Midterm 2                                                                  9
+                                                                                                                                                        10
+
+     PRINT your student ID:
+
+(c) (5 points) Now consider that the bottom strips are made from not one, but two materials such that the
+    first two thirds of the strip has resistivity 1 and the last third of the strip has resistivity 2 as shown.
+    What is Vm when touch occurs at (2,1)? You may express your answer in terms of the following
+    variables: L, W , 1, 2 and Vs.
+
+                                                                                                                              A single top strip:
+
+                                  1  2                                 1
+
+1                                                                               (2,1)
+                                                          +
+                                                             "! "
+2
+                                                             #" " 2
+                                                          -
+
+EECS 16A, Spring 2022, Midterm 2                                                       10
+                                                      11
+
+PRINT your student ID:
+
+7. Non-Ideal Measurement (20 points)
+
+     (a) (10 points) You are asked to find the power supplied by the current source in the circuit below. (Re-
+          member, the power supplied by an element to a circuit is the negative of the power dissipated by that
+          element.)
+             i. (2 points) Calculate the power supplied by the current source.
+
+                                      2A     5
+
+ii. (3 points) You would like to verify your calculation by measuring the voltage across the resistor.
+   Unfortunately, you only have a non-ideal voltmeter. We will model the voltmeter as a resistor
+   with resistance RVM. If RVM is 5, how much power will the current source supply to the circuit?
+
+                                  2A      5     RV M
+
+EECS 16A, Spring 2022, Midterm 2                      11
+                                                                                                                                                 12
+
+     PRINT your student ID:
+
+iii. (5 points) Let P0 be the power supplied by the source if the voltmeter is not present in the circuit
+    (i.e. your answer from part (i)), and PI the power supplied after adding the non-ideal voltmeter
+    (as shown in part (ii)). We would like to ensure PI  0.8  P0. You may again assume that the
+    voltmeter can be modeled as a resistance RVM. What constraint should you put on the value of
+    RV M?
+
+EECS 16A, Spring 2022, Midterm 2  12
+                                                                                    13
+
+     PRINT your student ID:
+
+(b) (4 points) You want to measure the voltage at node u in the following circuit:
+                                                           i u R1
+
+                                  5V  -        R2
+                                      +
+You decide to attach a non-ideal voltmeter into the circuit below.
+                                                      i u R1-
+                                      +
+                                  5V     RV M  R2
+
+How will adding the voltmeter change the voltage at node u and the current i? Circle your answer, and
+justify with math or a brief written explanation.
+
+u will: Increase Decrease Stay the same
+
+i will: Increase Decrease Stay the same
+
+EECS 16A, Spring 2022, Midterm 2                                                    13
+                                                                                                                                                        14
+
+     PRINT your student ID:
+(c) (6 points) Now you want to measure the current in the following circuit:
+
+                                                              R2
+
+                                                 -           i  uL
+                                   R1               uout           RL
+
+                                                 +
+
+                                           +
+                                  10 V -
+
+You attach a non-ideal ammeter, which can be modeled as a resistor with some finite non-zero resis-
+tance RAM, and the resulting circuit is shown below:
+
+                                                         R2
+
+                                                 -         RAM i
+                                   R1               uout uL
+
+                                                 +                      RL
+
+                                           +
+                                  10 V -
+
+How will adding the ammeter change the following quantities? You may assume the op amp is ideal.
+Circle your answer and justify with math or a brief written explanation.
+
+uout will: Increase Decrease Stay the same
+
+EECS 16A, Spring 2022, Midterm 2                                            14
+                                                 15
+
+PRINT your student ID:            Stay the same
+uL will: Increase Decrease
+
+i will: Increase Decrease Stay the same
+
+EECS 16A, Spring 2022, Midterm 2                 15
+                                                                                                              16
+
+PRINT your student ID:
+
+8. Equivalence and Superposition (15 points)
+
+(a) (12 points)
+
+                        2                     6     6
+                                                                       a
+
+                                                                    +
+
++ Vs                              I              8  Vab
+-
+
+                                                                                                        -
+                                                                                                           b
+
+i. (4 points) Find the Thevenin equivalent resistance between terminals a and b.
+
+EECS 16A, Spring 2022, Midterm 2                                                                              16
+                                                                                                                                                17
+
+    PRINT your student ID:
+ii. (8 points) Use superposition to find the Thevenin equivalent voltage between terminals a, b as a
+
+   function of I and Vs.
+
+EECS 16A, Spring 2022, Midterm 2  17
+                                                                                                                                           18
+
+PRINT your student ID:
+
+EECS 16A, Spring 2022, Midterm 2  18
+                                                   19
+
+PRINT your student ID:
+
+(b) (3 points) Now you are given a new mystery circuit! You connect a load resistor RL to your circuit,
+     as shown below. You know that the Norton equivalent circuit from nodes a and b has Ino = 3A and
+     Rno = 2. Find the value of RL such that Vab = 4V .
+
+                                  Circuit      a
+                                               +
+                                           RL Vab
+                                               -
+                                               b
+
+EECS 16A, Spring 2022, Midterm 2                   19
+                                                                                                                                                               20
+
+    PRINT your student ID:
+
+9. Capacitors in the Wild (10 points)
+     (a) (2 points) Find the equivalent capacitance between nodes A and B in terms of each of the capacitors,
+          Ci. You can use the parallel operator ( ) for simplification.
+                                                                                                   A
+
+                                  C1  C2      C3
+
+                                  C4      C5
+
+                                                                             B
+                                      C6
+
+EECS 16A, Spring 2022, Midterm 2                                                20
+                                                     21
+
+PRINT your student ID:
+
+(b) (8 points) In the following circuit, switches labeled 1 are closed during phase 1 and open during phase
+     2; switches labeled 2 are closed during phase 2 and open during phase 1. Assume before phase 1 both
+     capacitors are fully discharged. Each phase is long enough that the circuit reaches steady-state. Find
+     Vout in phase 2 in terms of Vs, C1 and C2.
+
+                                     1      2
+
+                                               Vout
+
+                                      1 C1  2
+
+Vs                                -
+                                  +
+
+                                     1
+
+                                      1 C2  2
+
+EECS 16A, Spring 2022, Midterm 2                     21
+                                                                                                                                                  22
+
+PRINT your student ID:
+
+EECS 16A, Spring 2022, Midterm 2  22
+                                                                                                                                                                 23
+
+      PRINT your student ID:
+
+10. Op-amps and Comparators (9 points)
+       (a) (3 points) You are given the following op-amp in negative feedback. Find vout.
+                                                                            4 k
+
+                                     12 k                              +
+                                                                -  vout
+
+                                           2 k                         -
+                                                                +
+
+                                  +                                       2 k
+                                  -
+                                     5 V 3 k
+
+EECS 16A, Spring 2022, Midterm 2                                               23
+                                                         24
+
+PRINT your student ID:
+
+(b) (3 points) You are given the circuit below. The capacitor is initially uncharged. At time t = 0, the
+     current source is turned on. Find Vc(t).
+
+                                           5V
+
+                                  +
+
+                      +                               +
+1mA VC 5mF -                                   vLED
+
+                      -                               -
+                                 5V +
+                                        -
+
+EECS 16A, Spring 2022, Midterm 2                         24
+                                                                                                                                                        25
+
+     PRINT your student ID:
+(c) (3 points) The LED turns on when the voltage across it is greater than 3.3V. Using the same setup as
+
+    part (b), at what time t does the LED turn on?
+
+EECS 16A, Spring 2022, Midterm 2  25
+                                                                                                                                                                 26
+
+      PRINT your student ID:
+
+11. Eigen Circuits (19 points)
+       (a) (7 points) You are given the following op-amp circuit in negative feedback.
+              i. (5 points) Express u1 and u2 in terms of V1, V2, R1 and R2. Assume the op-amp is ideal.
+                                                                                   R2
+
+                                             u1 - u2
+                                  R1
+
+                                              +
+
+                                  + V1  + V2
+                                  -     -
+
+EECS 16A, Spring 2022, Midterm 2                      26
+                                                                                       27
+
+PRINT your student ID:
+
+ii. (2 points) Write the above equations in the form of Ax = b. x is V1 and b is u1 .
+                                  V2  u2
+
+EECS 16A, Spring 2022, Midterm 2                                                       27
+                                                                                                                                                         28
+
+     PRINT your student ID:
+(b) (6 points) Assume that after plugging in values for R1 and R2, the matrix A you get is 0 1 , find
+
+                                                                                                                -2 3
+     the eigenvalue(s) and the eigenvector(s) of this matrix.
+
+EECS 16A, Spring 2022, Midterm 2  28
+                                                                                                                                                        29
+
+     PRINT your student ID:
+
+(c) (6 points) Assume you are given another linear circuit with inputs V1 and V2 and outputs u1 and u2.
+    The eigenvalues for this circuit are 1 = 1 and 2 = 2. The corresponding eigenvectors are v1 = 1 ,
+                                                                                                                            1
+    v2 = 1 . If we want u1 = 3V , u2 = 7V , what would the input values be?
+            3
+
+EECS 16A, Spring 2022, Midterm 2  29
+                                                                                                                                                          30
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+                                      Work on this page will NOT be graded.
+
+EECS 16A, Spring 2022, Midterm 2  30
+                                                                                                                                                          31
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+                                      Work on this page will NOT be graded.
+
+EECS 16A, Spring 2022, Midterm 2  31

@@ -1,0 +1,624 @@
+                                                                                                  1
+
+EECS 16A   Designing Information Devices and Systems I
+Fall 2023
+                                                              Midterm 2
+
+                                Exam Location: Wheeler 150
+
+PRINT your student ID:
+
+PRINT AND SIGN your name:                          ,
+                                (last name)
+                                                      (first name)            (signature)
+
+PRINT your discussion section and GSI:
+
+Name and SID of the person to your left:
+
+Name and SID of the person to your right:
+
+1. (0 Points) Honor Code
+   Acknowledge that you have read and agree to the following statement by signing your name below:
+   As a member of the UC Berkeley community, I act with honesty, integrity, and respect for others. I will
+
+   follow the rules and do this exam on my own.
+   If you do not sign your name, you will get a 0 on the exam.
+
+2. (2 Points) When the exam starts, write your SID at the top of every page.
+   No extra time will be given for this task.
+
+3. (1 Point) Tell us about something that makes you happy.
+   Any written answer will be awarded full credit.
+
+4. (1 Point) What is one course you're excited for next semester?
+   Any written answer will be awarded full credit.
+
+Do not turn this page until the proctor tells you to do so. You may work on the questions above.
+
+EECS 16A, Fall 2023, Midterm 2                                                                    1
+                                                                                                                                                           2
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+If you want any work on this page to be graded, please tell us exactly where to look in the problem's
+
+                                                       solution area.
+
+EECS 16A, Fall 2023, Midterm 2  2
+                                                                                                        3
+
+    PRINT your student ID:
+
+5. 16A (Taylor's Version) (22 points)
+   After attending Taylor Swift's Eras Tour, you are excited to make your own LED-based synchronized wrist-
+   bands. For the course of this problem, we will model our LEDs as resistors.
+
+(a) (2 points) Examine the following layout of LEDs in your first bracelet model, shown in Figure 5.1:
+
+                                i1  i2                                       i3
+
+                                R1  R2                                       R3
+
+                                        i5                               R5
+
+-  Vs                               R4 i7 i8 i4
++
+
+is R6 R7 R8
+                   i6
+
+                                     Figure 5.1: Initial Bracelet Model
+How many nodes are there in this circuit?
+
+EECS 16A, Fall 2023, Midterm 2                                                                          3
+                                                                                                                                                          4
+
+     PRINT your student ID:
+(b) (4 points) Label the element voltages on Vs, R4, R5, and R6 in the circuit below (identical to Figure
+
+     5.1) such that the current flow abides by passive sign convention.
+
+                                    i1  i2          i3
+
+                                    R1  R2          R3
+
+                                            i5  R5
+
+-                               Vs      R4 i7 i8 i4
++
+
+is R6 R7 R8
+                   i6
+
+(c) (3 points) Once again, consider the circuit in Figure 5.1 (also repeated above in part (b)). Let Vs = 12V.
+    Write Kirchhoff's Current Law (KCL) equations for all nodes with unknown node potentials.
+
+EECS 16A, Fall 2023, Midterm 2                          4
+                                                                         5
+
+     PRINT your student ID:
+
+(d) (4 points) To create a light pattern, we want to turn off the LEDs corresponding to R4 and R5 in the
+     circuit in Figure 5.1, repeated below. An LED is off if there is zero current flowing through it. The
+     values of R4 and R5 are fixed at 10 .
+     Select values for R1, R2, R3, R6, R7, and R8 such that the current flowing through R4 and R5 is
+     zero. Due to component availability, these resistors can be either 1  or 10 . List the values, with
+     units, on the appropriate lines. Use the box to justify your answer.
+
+   R1:                                  R2:                     R3:
+
+   R6:                                  R7:                     R8:
+
+Circuit reproduced for your reference.
+
+                                i1                  i2               i3
+
+                                R1                  R2               R3
+
+                                                        i5  R5
+
+-  Vs                                   R4 i7 i8 i4
++
+
+is R6 R7 R8
+                   i6
+
+                                        Figure 5.1
+
+EECS 16A, Fall 2023, Midterm 2                                           5
+                                                                                                                                                           6
+
+PRINT your student ID:
+
+(e) (4 points) Kanav suggests a different LED bracelet that uses a network of capacitors to store and release
+     energy for the lights, as shown below:
+
+                    C1          C    C4  C2
+a
+                                  3
+
+                                             b
+
+                                C6
+
+Write the expression for the equivalent capacitance between nodes a and b. You may use the 
+operator in your answer. You do not need to simplify or justify your expression.
+
+EECS 16A, Fall 2023, Midterm 2                  6
+                                                                                     7
+
+PRINT your student ID:
+
+(f) (5 points) Manooshree is at the Taylor Swift concert, and is wearing a different bracelet, as shown
+
+in Figure 5.2. It has six LEDs (modeled as resistors) -- two red, two yellow, and two blue. You
+
+want to identify which color is dissipating the most power (i.e. shining the brightest). Each color
+corresponds to a different Era that Taylor is singing, as in the following table. Identify which color
+(pair of resistors) is dissipating the most power, and which Era this corresponds to. Justify your
+answer.
+
+                                Era Brightest Color
+
+                                Fearless  Yellow
+
+                                Red       Red
+
+                                1989      Blue
+
+Note: You can rigorously justify which color is dissipating the most power without explicility calcu-
+lating all the powers, though you may calculate them if you prefer.
+
+-           8                             6                                  3
++         R1(red)                     R3(yellow)                         R5(yellow)
+
+   12 V                                     6                                 9
+    Vs                                    R4(red)                          R6(blue)
+
+           4
+        R2(blue)
+
+                                Figure 5.2: Manooshree's Bracelet Model
+
+EECS 16A, Fall 2023, Midterm 2                                                       7
+                                                                                                                                                           8
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+If you want any work on this page to be graded, please tell us exactly where to look in the problem's
+
+                                                       solution area.
+
+EECS 16A, Fall 2023, Midterm 2  8
+                                                                                                                                                                 9
+
+    PRINT your student ID:
+
+6. Anti-Hero (2 points)
+   Is the circuit below in negative feedback? Select your answer by completely filling in the appropriate circle.
+   No justification is required.
+
+                                      -
+
+                                      +           +
+
+                                         Rtop     Vout
+
+                                + Vs              -
+                                -
+
+                                         Rbottom
+
+In negative feedback                              Not in negative feedback
+
+EECS 16A, Fall 2023, Midterm 2                                              9
+                                                                                                                                                               10-
+                                +
+    PRINT your student ID:
+
+7. Mastermind (11 points)
+   Sunash is studying neurons. The outer and inner layers of the neuron's cell membrane can be modeled as
+   resistors with resistances R2 and R3, respectively. Current is driven by an ion-pump protein that can be
+   modeled as a voltage source Vs with internal resistance R1. The full model for the neuron cell membrane is
+   shown below.
+                                                                   IR2 +
+                                          R1 R2 VR2 "outer layer"
+                                                                        -
+
+                                        Vs R3 "inner layer"
+
+                                                              Figure 7.1
+   Sunash's primary interest is in the protein behavior in the outer layer, so he aims to measure the voltage drop
+   across this layer, VR2.
+
+     (a) (4 points) Find an expression for VR2 in terms of Vs and the resistances R1, R2, and R3, in Figure
+          7.1.
+
+EECS 16A, Fall 2023, Midterm 2     10
+                                                            11
+
+PRINT your student ID:                IR2 +
+Circuit repeated for your reference.  R2 VR2 "outer layer"
+
+                               R1           -
+
+                                -Vs R3 "inner layer"
+                                +
+
+                                                         Figure 7.1
+(b) (3 points) We wish to measure VR2 using an ideal voltmeter and IR2 (the current through R2) using an
+
+     ideal ammeter. Redraw the circuit in Figure 7.1 with the ideal voltmeter and ammeter correctly
+     connected.
+
+EECS 16A, Fall 2023, Midterm 2                              11
+                                                                        12
+
+PRINT your student ID:
+
+(c) (4 points) Sunash discovers he can modify how the neuron behaves. He can add up to five parallel
+    paths for current, each with a finite resistance RC, as shown in Figure 9.2.
+
+                                          ···
+
+                        +          +
+
+R1 R2 VR2 R1 R2 VR2,C
+
+                        -          -      RC · · ·
+
+                                      RC                                RC
+
++Vs R3 Vs R3                    +
+-                               -
+
+                                          ···
+
+   Figure 7.1                                        up to 5 new paths
+                                      Figure 7.2
+
+Which choice below most accurately describes the relationship between VR2, the voltage drop across
+R2 in the original circuit of Figure 7.1, and VR2,C, the voltage drop across R2 in Figure 9.2 when exactly
+five parallel paths are added?
+
+     VR2 > VR2,C
+     VR2 < VR2,C
+     VR2 = VR2,C
+     VR2  VR2,C
+     VR2  VR2,C
+
+EECS 16A, Fall 2023, Midterm 2                                          12
+                                                                                                                                                               13
+
+    PRINT your student ID:
+
+8. Getaway Car (8 Points)
+   You would like to design a sensor that detects if a driver is touching the steering wheel, as part of an
+   autonomous driving system. Anastasia offers to help you with the warning system design.
+
+     (a) (3 points) You first need to design a new parallel plate capacitor. You are given the following require-
+          ments and information:
+             · The capacitor must have a total capacitance of 4000 · 10-2 · m (recall the units of 0 are F/m).
+             · The cross-sectional area of the plates is 10-3 m2.
+             · The dielectric (i.e. the material between the capacitor plates), has a permittivity 80 times that of
+                vacuum (i.e. 800).
+          Finalize your design by determining the distance between the plates of the capacitor in meters.
+          Show your work.
+
+EECS 16A, Fall 2023, Midterm 2  13
+                                                                                                                                                          14
+
+PRINT your student ID:
+
+(b) (5 points) You are given the following waveform of voltage across your capacitor, Vc, in the touch and
+     no-touch cases.
+
+                                       Figure 8.1: Voltage Waveform
+
+You would like to use this voltage, Vc, and utilize it to beep a speaker (i.e. turn on and off repeatedly)
+when there is no touch. You discover this circuit schematic, but the value of VREF is erased. The
+speaker turns on when the voltage across it, VSPEAKER, is +5 Volts.
+
+                                                                    5V
+                                                                       +
+
+                                  +               -      +
+                                Vc -  + V -5 V       VSPEAKER
+                                      - REF
+
+                                                     -
+
+Select an appropriate value, with units, for VREF such that the speaker beeps on and off when
+there is no touch, and is quiet when there is a touch. Justify your answer.
+
+EECS 16A, Fall 2023, Midterm 2                                 14
+                                                                                                                                                               15-
+                                     +
+    PRINT your student ID:
+
+9. Sparks Fly (22 points)
+     (a) (4 points) Ryan is trying to use old circuits and devices from a junk pile to light up a lightbulb. He
+          finds the following device in the junk pile.
+
+                                                                                   a
+                                                              Device
+
+                                                                                   b
+
+          The device has the following Thévenin equivalent circuit:
+
+                                                                Device
+                                                                    2
+                                                                                       a
+
+                                                              4V
+
+                                                                            b
+Plot the I-V curve of this device on the grid lines below.
+
+                                                               I
+                                                        4A
+
+                                        2A
+
+                                                                                   V
+
+-4V                             -2V          2V                                4V
+
+                                        -2A
+
+                                        -4A
+
+EECS 16A, Fall 2023, Midterm 2                                                        15
+                                                                                                                                                         16
+
+     PRINT your student ID:
+
+(b) (6 points) Suppose Ryan instead finds the circuit shown in Figure 9.1 in the junk pile. To simplify
+     the analysis of this circuit, Ryan finds out that the circuit has a Thévenin equivalent circuit from the
+     perspective of nodes a and b, shown in Figure 9.2:
+
+20                              5                       Rth
+                                                                           a
+    +  10 V                         a
+                                                   Vth
+    -                                           +
+                                                                           b
+5                               20              -      Figure 9.2
+
+                                             b
+                   Figure 9.1
+Find Vth and Rth. Show your work.
+
+EECS 16A, Fall 2023, Midterm 2                                                16
+                                                                                                                                                        17-
+                                +
+     PRINT your student ID:
+(c) (7 points) Suppose that Ryan finds a different circuit that has the following Thévenin equivalent circuit:
+
+                                                              5
+                                                                                 a
+
+                                                        10V
+
+                                                                          b
+Ryan wants to light up a lightbulb with load RL = 10. However, the light bulb is very sensitive and
+needs exactly 5V across it in order to function. After searching around, he finds a variable resistor
+whose resistance, Rextra, can be adjusted to any resistance.
+
+RL = 10                            0  Rextra  
+
+Design a circuit using RL, Rextra, and the circuit above so that the voltage across RL is 5V . Specify what
+the value of Rextra is if you decide to use it. Draw the circuit you design in the space below. Justify
+your answer.
+
+EECS 16A, Fall 2023, Midterm 2                  17
+                                                                                         18
+
+PRINT your student ID:
+
+(d) (5 points) Ryan now connects up two circuits he finds to get the following circuit:
+                                                  5
+
+                                   +
+
+                                -  10V VLED RLED  4A
+                                +
+
+                                   -
+
+If RLED = 5, what is VLED, the voltage across RLED? Show your work.
+
+EECS 16A, Fall 2023, Midterm 2                                                           18
+                                                                                  19
+
+PRINT your student ID:
+
+10. London Boy (16 points)
+
+     Taylor Swift has hired you to design her personal electric scooter using your new circuits knowledge from
+     EECS16A. You must build a circuit to produce a pulse-width modulation (PWM) signal used to control the
+     motor's speed. Note: you do not need to know how PWM signals work for this problem.
+
+(a) (5 points) You are given a circuit that contains a time-varying current source Is(t) connected to a
+    capacitor, with capacitance C, as shown below:
+
+                                                              +
+
+                                     Is (t )             C Vout(t)
+
+                                                              -
+
+You are told that C = 1 µF and Is(t) outputs a square wave shown below:
+                                    Is (t )
+
+                         10 mA
+
+                                                                              ms
+
+                                                 0.5  1  1.5  2          2.5
+
+                        -10 mA
+
+Assuming Vout(0) = 0 V, plot Vout(t) from t = 0 ms to t = 2.5 ms in the space provided below. Clearly
+label the minimum and maximum values.
+
+                                      Vout (t )
+                                5V
+
+                        2.5V
+
+                                                                              ms
+
+                                     0.5              1  1.5  2          2.5
+
+                        -2.5V
+
+                                -5V
+
+EECS 16A, Fall 2023, Midterm 2                                                    19
+                                                                                      20
+
+PRINT your student ID:
+
+(b) (4 points) In order to create the desired PWM signal VPWM(t), you connect Vout(t) to the comparator
+     circuit below.
+
+                                Vout (t )                         5V
+                                                               +
+
+      Is (t )                              C                   -         +
+
+                                              Vref  -          -5 V      VPWM
+                                                    +
+
+                                                                         -
+
+For this part, assume Vout(t) is the following triangle wave:
+
+      Vout (t )
+
+2V
+
+  0V                                                                           ms
+-2 V
+                                1                   2                 3            4
+
+VPWM(t) will also be a periodic signal that switches between -5 V and +5 V. Find the value of Vref
+such that VPWM(t) = +5 V for 50% of the time (also called a 50% duty cycle). Justify your answer.
+
+EECS 16A, Fall 2023, Midterm 2                                                        20
+                                                                                  21
+
+PRINT your student ID:
+
+Your scooter's microcontroller outputs two digital control voltages V0,V1 to control your scooter's speed.
+You come across the op-amp circuit below and think it may be helpful but you are unsure of exactly how it
+operates. You may assume that VDD = -VSS for this op-amp, and that it is ideal and in negative feedback.
+
+                                                               i2 R2
+                                      R0
+
+                                      R1 i- u- -
+
+V0 +                                  +                               +
+      -
+                                + V1                                  Vmid
+                                -
+
+                                                                      -
+
+(c) (2 points) What is the voltage at the negative terminal of the op-amp, u-?
+
+(d) (2 points) What is the current into the negative terminal of the op-amp, i-?
+
+(e) (3 points) What is the current i2 through the upper resistor (R2) in terms of V0, V1, R0, R1, and R2?
+    Note that you may not need to use all of these quantities in your expression. Show your work and
+    justify your answer.
+
+    Hint: Use superposition and KCL at the u- node.
+
+EECS 16A, Fall 2023, Midterm 2                                                    21
+                                                                                                                                                          22
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+If you want any work on this page to be graded, please tell us exactly where to look in the problem's
+
+                                                       solution area.
+
+EECS 16A, Fall 2023, Midterm 2  22
+                                                                                                                                                          23
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+If you want any work on this page to be graded, please tell us exactly where to look in the problem's
+
+                                                       solution area.
+
+EECS 16A, Fall 2023, Midterm 2  23
+                                                                                                                                                          24
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+If you want any work on this page to be graded, please tell us exactly where to look in the problem's
+
+                                                       solution area.
+
+EECS 16A, Fall 2023, Midterm 2  24
+                                                                                                                                                          25
+
+PRINT your student ID:
+
+                                                       Doodle page!
+             Draw us something if you want or give us suggestions, compliments, or complaints.
+            You can also use this page to report anything suspicious that you might have noticed.
+
+EECS 16A, Fall 2023, Midterm 2  25
+EECS 16A   Designing Information Devices and Systems I
+Fall 2023
+                                             Midterm 2 Instructions
+
+                   Read the following instructions before the exam.
+
+There are 10 problems of varying numbers of points. Not all subparts of a question are related to each
+other. You have 80 minutes for the exam. The problems are of varying difficulty, so pace yourself accord-
+ingly and avoid spending too much time on any one question until you have gotten all of the other points
+you can.
+
+There are 26 pages on the exam, so there should be 13 sheets of paper in the exam. The exam is printed
+double-sided. Do not forget the problems on the back sides of the pages! Notify a proctor immediately if a
+page is missing. Do not tear out or remove any of the pages. Do not remove the exam from the exam
+room.
+No collaboration is allowed, and do not attempt to cheat in any way. Cheating will not be tolerated.
+Write your student ID on each page before time is called. If a page is found without a student ID, we
+are not responsible for identifying the student who wrote that page.
+
+You may consult TWO handwritten 8.5 × 11 note sheets (front and back). No phones, calculators, tablets,
+computers, other electronic devices, or scratch paper are allowed.
+
+Please write your answers legibly in the boxed spaces provided on the exam. The space provided
+should be adequate. If you still run out of space, please use a blank page and clearly tell us in the
+original problem space where to look for your solution.
+
+Show all of your work in order to receive full credit. Partial credit will be given for substantial progress on
+each problem. Do not forget units when relevant.
+
+If you need to use the restroom during the exam, bring your student ID card, your phone, and your exam to
+a proctor. You can collect them once you return from the restrooms.
+
+Our advice to you: if you can't solve the problem, state and solve a simpler one that captures at least some
+of its essence. You might get some partial credit, and more importantly, you will perhaps find yourself on a
+path to the solution.
+
+Good luck!
+
+                              Do not turn this page until the proctor tells you to do so.
+
+EECS 16A, Fall 2023, Midterm 2 Instructions

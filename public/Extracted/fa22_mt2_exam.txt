@@ -1,0 +1,489 @@
+                                                                                                            1
+
+EECS 16A   Designing Information Devices and Systems I
+Fall 2022
+                                                              Midterm 2
+
+PRINT your student ID:
+
+PRINT AND SIGN your name:                          ,
+                                (last name)
+                                                      (first name)                  (signature)
+                                                                    and left:
+PRINT the time of your discussion section and your GSI(s) name:
+PRINT the student IDs of the person sitting on your right:
+
+1. HONOR CODE
+   Please read the following statements of the honor code, and sign your name (you don't need to copy it).
+   I will respect my classmates and the integrity of this exam by following this honor code. I affirm:
+
+       � I have read the instructions for this exam. I understand them and will follow them.
+       � All of the work submitted here is my original work.
+       � I did not reference any sources other than my one reference cheat sheet.
+       � I did not collaborate with any other human being on this exam.
+
+2. Tell us a joke or pun about circuits (1 point) All answers will be awarded full credit.
+
+EECS 16A, Fall 2022, Midterm 2                                                                              1
+                                                                                                            2
+
+PRINT your student ID:
+
+3. Why is the ammeter so hot? (14 points)
+   In the following circuit, we would like to measure the current Im through resistor RL using an ammeter.
+
+                                        Im
+                                             +
+
+                                        A
+
+                                IS  RS     -
+
+                                           RL
+
+(a) (4 points) If IS = 4 A, RS = 3 m, and RL = 1 m, then what is the measured current Im? Assume an
+    ideal ammeter.
+
+(b) (4 points) Now suppose we have different values of Is and Rs such that Im = 2 A, then what is the
+     power dissipated by RL = 1 m? How much energy does RL dissipate in 20 seconds?
+
+EECS 16A, Fall 2022, Midterm 2                                                                              2
+                                              3
+
+(c) (6 points) Now assume the ammeter is not ideal and can instead be modeled with equivalent resistance
+    RA. That is, we can replace the ammeter with a resistor RA:
+
+                                        Im +
+
+                                        RA
+
+                                IS  RS  -
+
+                                        RL
+
+If IS = 4 A, RS = 3 m, RL = 1 m, and the current measured by the ammeter (i.e., the current through
+RA ) is Im = 2 A, then what must be the internal resistance RA of the ammeter? How much power
+is dissipated by the ammeter?
+
+EECS 16A, Fall 2022, Midterm 2                3
+                                                                                                                                                                 4
+
+    PRINT your student ID:
+
+4. Just Solvin' a Circuit (18 points)
+     (a) (2 points) For this part only, consider the following circuit. For each element in the circuit (including
+          the sources!), label the missing current or voltage using passive sign convention. Please label directly
+          on the given circuit below. Voltage labels should have +/- terminals. For example, the voltage source
+          Vs1 has its voltage already labeled (V5) but is missing its current label.
+
+                      R1                             R2  i2  R3
+             +                  -
+                                                             +                -
+                      V1                +                             V3          i8
+                                                                                    + Vs2
+           +                    Is     V6                      C                    -
+Vs1 + V5
+                                                             i7               -
+       -                                                                  R4
+           -
+                                                                +
+                                    -                                     V4
+
+EECS 16A, Fall 2022, Midterm 2                                                             4
+                                                                                                5
+
+Now, for the remaining parts, consider an entirely different circuit which is already labeled.
+
+                                u1 i7 Is1                   R5  i5 u4
+
+                                        +       -        +  V5  -
+
+                                + V7
+
++ V2 R2                                                             - i8
+
+                                - i2        V3  - u2
+                                u3 +
+R1 V1                           - i3 R3                         V8                              Is2
+
+                                                   i4 -
+
+i1 -                            V0 +    Vs         R4 V4            +
+
+                                     -
+
+                                + i0               +        V6
+
+                                                         +      -
+
+                                                            R6 i6 u5
+
+(b) (2 points) Write the KVL equation for the labeled loop in terms of element voltages (V1, V2, ... ,V8)
+     only.
+
+(c) (4 points) Write the KCL equations for nodes u1 and u2 ONLY in terms of Is1, Is2, node voltages (not
+    element voltages!), and resistances.
+
+EECS 16A, Fall 2022, Midterm 2                                                                  5
+                                                                                        6
+
+Here the circuit is redrawn for your convenience:
+
+                                u1 i7 Is1                         R5  i5 u4
+
+                                +      +           -  +           V5  -
+
+                                           V7
+
++ V2 R2                                                                   - i8
+
+R1 V1                            - i2 + V3         - u2               V8           Is2
+  i1 -
+                                u3                    i4 -
+
+                                - i3 R3             R4 V4
+
+                                V0 +   Vs                  +                    +
+                                                               +
+                                    -                             V6
+
+                                + i0                                        -
+
+                                                                  R i 6 6 u5
+
+(d) (10 points) Solve for the voltage V1 across and current I1 through R1 given the following values:
+
+                             R1 = 4, R2 = 2, R3 = 1, R4 = 1, R5 = 7, R6 = 4
+                                                 Vs = 6V, Is1 = 9A, Is2 = 3A
+
+     You do NOT need to solve for all quantities in the circuit nor use all of the above given values in your
+     answer.
+
+EECS 16A, Fall 2022, Midterm 2                                                          6
+                                                                                  7
+
+Here the circuit is redrawn for your convenience:
+
+                                u1 Is1             i7        R5 i5 u4
+
+      +                            ++              -+                -
+
+R1 V1                                          V7  - u2      V5
+  i1 -                          V2 R2                                  - i8
+                                                     i4 -
+                                 - i2+ V3          R4 V4     V8              Is2
+
+                                u3                       ++
+
+                                - i3 R3
+
+                                V0 +  Vs                                +
+
+                                   -                         V6
+
+                                + i0                                 -
+
+                                                             R6 i6 u5
+
+EECS 16A, Fall 2022, Midterm 2                                                    7
+                                                                                                                                                                 8
+
+    PRINT your student ID:
+
+5. Op Amps and Comparators (17 points)
+     (a) (2 point) Consider the following op-amp for this part only. Notice the + and - signs are missing on
+          the op-amp input. Please label them such that the op-amp is in negative feedback.
+
+                                              4 k
+
+                                   12 k                +
+                                         2 k       vout
+
+                                +                      -  2 k
+                                -
+                                   5 V 3 k
+
+EECS 16A, Fall 2022, Midterm 2                                 8
+                                                                                                                                                    9
+
+For the next two parts consider an entirely new op-amp circuit. Determine the following (you can
+assume that the op-amp is ideal and in negative feedback):
+
+                                                    R3
+
+                                        (b)
+                                                    -
+
+                                   R1   R2                    +
+
+                                            +          RL Vout,1
+                                                       Iout -
+                                +  Vin
+                                -
+
+(b) (3 point) What is the voltage held at the negative terminal of the op-amp (the node labeled (b))? Express
+     your answer in terms of the variables shown in the circuit diagram.
+
+(c) (6 points) What is Iout, the current flowing through RL? Express your answer ONLY in terms of
+    Vin, R1, R2, R3, RL. You cannot use Vout,1 in your final expression.
+
+EECS 16A, Fall 2022, Midterm 2                                    9
+                                                                          10
+
+(d) (3 points)
+     Now consider attaching an ideal comparator to the output of the op-amp circuit from the previous part.
+
+                                           R3
+
+                                                          5V
+
+                                (b)
+                                            -
+
+   R1                           R2                    +        +
+                                                               -
+                                    +          RL Vout,1  +
+                                               Iout - 3V  - -5V
++  Vin
+-
+
+                                                                     +
+
+                                                                  Vout,2
+
+                                                                     -
+
+Suppose the output voltage of the op-amp is Vout,1 = -2V What is Vout,2, the voltage outputted by the
+comparator?
+
+(e) (3 points) Sketch the output behavior of the comparator on the plot provided for different values ofVout,2(V )
+    Vout,1.
+
+                                      5
+                                      4
+                                      3
+                                      2
+                                      1
+                                      0
+                                    -1
+                                    -2
+                                    -3
+                                    -4
+                                    -5
+
+                                               -9 -6 -3 0 3 6 9
+                                                                   Vout,1(V )
+
+EECS 16A, Fall 2022, Midterm 2                                            10
+                                                                                                                                                               11
+
+    PRINT your student ID:
+
+6. Oski is Soldering a Resistive Touchscreen (12 points)
+     (a) (4 points) Oski attended Touchscreen 2 lab and was able to make a resistive touchscreen model that
+          supports 9 touches. The schematic of the touchscreen bottom mesh is shown on Fig. 1.
+
+                                                        R     u2 R
+
+                                                 u1                  u3
+
+                                                     R        R      R
+
+                                                        R     u5 R
+
+VS                              -                u4                  u6
+                                +
+
+                                                     R        R      R
+
+                                                 u7           u8     u9
+
+                                                        R         R
+
+                           Fig. 1: The bottom mesh of a 2D touchscreen schematic.
+
+Knowing that the lab model suggests to take all 12 resistors to have the same value, and Vs = 8V , what
+are the voltage values on each node? Fill out the table:
+
+                                   node name     voltage (V)
+                                             u1
+                                             u2
+                                             u3
+                                             u4
+                                             u5
+                                             u6
+                                             u7
+                                             u8
+                                             u9
+
+EECS 16A, Fall 2022, Midterm 2                                           11
+                                                                                                                                                         12
+
+(b) (2 points) The lab Oski is in only has a two different types of resistor, R1 and R2. They are both 4-band
+     resistors but have different colored bands: R1 has yellow-violet-red-gold and R2 has red-violet-yellow-
+     gold. What are the values of resistances R1 (yellow-violet-red-gold) and R2 (red-violet-yellow-gold).
+     Include the tolerance value in your answer (you may leave it as a percentage). You may put your answer
+     in scientific notation. Refer to Fig. 2 for the color code convention.
+
+                                   Fig. 2: 4-band resistor color code convention table.
+
+EECS 16A, Fall 2022, Midterm 2  12
+                                                                                                                                                        13
+
+(c) (6 points) It turns out that Oski's bottom mesh does not work as it is proposed in the lab. Looking at
+    the photo of Oski's circuit in Fig. 3, we see that Oski accidentally used R2 instead of R1 on the right
+    side of the circuit. As a result, not all the resistor values are the same, which was a requirement we
+    saw in part (a). Regardless of the values in the previous parts, assume that R1 = 1k and R2 = 2k
+    and the voltage source Vs = 8V remains the same as part a). What are the voltages at nodes u3 and u6?
+
+                                   Fig. 3: A buggy bottom mesh of a 2D touchscreen.
+
+EECS 16A, Fall 2022, Midterm 2  13
+                                                                              14
+
+    PRINT your student ID:
+
+7. Making circuits equivalent (18 points)
+     (a) (8 points) Suppose you are given a mysterious circuit element shown below. You are also given the IV
+          curve of the circuit at nodes a and b (also shown below).
+
+                                     Iout          Iout (A)
+                                     +a          4
+                                                 2
+
+?                                    Vout                          Vout (V )
+
+                                     - b -8 -4               4  8
+
+                                                 -2
+
+                                                 -4
+
+Now you would like to model this mysterious circuit two different ways. One with each circuit below:
+
+                                Rth
+
+                                              a                         a
+
++ Vth                                            Ino            Rno
+-
+
+                                           b                         b
+
+Find the values Vth, Rth, Ino, and Rno such that all 3 circuits (the mystery circuit and the two above) are
+equivalent. Note the direction of Iout in the mysterious circuit!
+
+EECS 16A, Fall 2022, Midterm 2                                                14
+                                                                                                                                                         15
+
+(b) (10 points) Suppose now we are given a new circuit (shown below), but this time we know all the
+     components except one resistor R:
+
+                                                                     R
+                                                                                               a
+
+                                -  10 V  15   5
+                                +
+
+                                              20
+                                                                         b
+
+We also know that we can model the circuit at nodes a and b using the following equivalent circuit:
+
+                                                   a
+
+                                         Ieq  Req
+
+                                                                            b
+Find the resistor value R in the new circuit such that Ieq = 0.25A.
+
+EECS 16A, Fall 2022, Midterm 2                                                                       15
+                                                                                                                                                   16
+
+The circuit is redrawn here for your convenience:
+                                                                R
+                                                                                          a
+
+                                -  10 V  15  5
+                                +
+
+                                             20
+                                                                        b
+
+EECS 16A, Fall 2022, Midterm 2                                             16
+                                                                       17
+
+PRINT your student ID:
+
+8. Capacitors in the Wild (20 points)
+
+     (a) For the following circuit, find the equivalent capacitance between the specified nodes in terms of the
+          given capacitors, Ci. You may use the parallel operator  for simplification (e.g. a valid answer format
+          could be Ceq = C6 + (C7  (C8 +C9))).
+
+                                X                  Z
+
+                                       C1
+
+                                   C2          C4
+
+                                           C3
+
+                                       C5
+
+                                Y
+
+i. (4 points) Find the equivalent capacitance between nodes X and Y .
+
+ii. (4 points) Find the equivalent capacitance between nodes Y and Z.
+
+EECS 16A, Fall 2022, Midterm 2                                         17
+                                                                                      18
+
+PRINT your student ID:
+
+(b) (12 points) In the following circuit, switches labeled 1 are closed during phase 1 and open during
+     phase 2; switches labeled 2 are closed during phase 2 and open during phase 1. Assume before phase
+     1 all capacitors are fully discharged. Each phase is long enough that the circuit reaches steady-state.
+     Find Vout in phase 2 in terms of Vs, C1, C2, C3, and C4. You may use the parallel operator  in your
+     final answer.
+
+                                1
+                                                                                Vout
+
+                                   C1
+
+Vs  -                                     C3  C4
+    +
+
+                                2  C2  1
+
+EECS 16A, Fall 2022, Midterm 2                                                        18
+                                                                           19
+
+The circuit is redrawn here for your convenience.                    Vout
+                                                 1
+-                                                                C3  C4
+                                                          C1+
+                  Vs
+                                                              1
+                                                          C2
+                                                 2
+
+EECS 16A, Fall 2022, Midterm 2                                             19
+                                                                                                                                                          20
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+                                      Work on this page will NOT be graded.
+
+EECS 16A, Fall 2022, Midterm 2  20
+                                                                                                                                                          21
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+                                      Work on this page will NOT be graded.
+
+EECS 16A, Fall 2022, Midterm 2  21

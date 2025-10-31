@@ -1,0 +1,464 @@
+{
+  "sp24_mt2_MT2.1": {
+    "exam": "sp24_mt2",
+    "title": "MT2.1 - Permutation Matrices",
+    "topic": "vectors-matrices",
+    "points": 37,
+    "description": "Studies properties of permutation matrices including orthogonality and invariance of statistical properties under permutations.",
+    "concepts": [
+      "Permutation matrices: binary matrices with exactly one 1 per row and column",
+      "Orthogonal matrices: P^T P = I",
+      "Mean and variance under linear transformations",
+      "Invariance properties"
+    ],
+    "problem_statement": {
+      "definition": "P is n×n matrix with: (1) all entries 0 or 1, (2) exactly one 1 per column, (3) exactly one 1 per row",
+      "part_a": "Show P^T P = I",
+      "part_b": "For P=[[0,1,0],[0,0,1],[1,0,0]] and A=[[e,0,d],[0,a,0],[c,0,b]], determine PAP^T",
+      "part_c": "For y = Px, show: (i) mean(y) = mean(x), (ii) variance(y) = variance(x), (iii) find covariance(x,y)"
+    },
+    "solution": {
+      "part_a": {
+        "key_observation": "P^T has exactly one 1 per row (from P's column structure) and one 1 per column (from P's row structure)",
+        "diagonal_entries": "For (P^T P)_ii: dot product of i-th row of P^T with i-th column of P",
+        "analysis": "i-th row of P^T is i-th column of P, which has exactly one 1 at position k. i-th column of P also has exactly one 1 at the same position k. Therefore (P^T P)_ii = 1",
+        "off_diagonal_entries": "For (P^T P)_ij where i≠j: i-th column of P has 1 at position k, j-th column has 1 at position ℓ≠k. Since each row has exactly one 1, positions k and ℓ are different, so dot product is 0",
+        "answer": "P^T P = I (identity matrix)",
+        "consequence": "P is orthogonal matrix, so P^(-1) = P^T"
+      },
+      "part_b": {
+        "given_matrices": {
+          "P": "[[0, 1, 0],[0, 0, 1],[1, 0, 0]]",
+          "A": "[[e, 0, d],[0, a, 0],[c, 0, b]]"
+        },
+        "step1_compute_AP_T": {
+          "note": "P^T = [[0, 0, 1],[1, 0, 0],[0, 1, 0]] (transpose of P)",
+          "multiply": "AP^T = [[e,0,d],[0,a,0],[c,0,b]] [[0,0,1],[1,0,0],[0,1,0]]",
+          "result": "AP^T = [[d, e, 0],[0, 0, a],[b, c, 0]]"
+        },
+        "step2_compute_P_AP_T": {
+          "multiply": "P(AP^T) = [[0,1,0],[0,0,1],[1,0,0]] [[d,e,0],[0,0,a],[b,c,0]]",
+          "row1": "[0,1,0]·columns = [0, 0, a]",
+          "row2": "[0,0,1]·columns = [b, c, 0]",
+          "row3": "[1,0,0]·columns = [d, e, 0]"
+        },
+        "answer": "PAP^T = [[0, 0, a],[b, c, 0],[d, e, 0]]",
+        "interpretation": "PAP^T performs a simultaneous row and column permutation of A"
+      },
+      "part_c": {
+        "setup": {
+          "mean_x": "μ_x = (x₁ + ... + x_n)/n = (1/n)1^T x",
+          "variance_x": "σ²_x = (1/n)||x - μ_x 1||² = (1/n)||x||² - μ²_x",
+          "transformation": "y = Px"
+        },
+        "part_c_i": {
+          "compute_mean_y": "μ_y = (1/n)1^T y = (1/n)1^T(Px) = (1/n)(1^T P)x",
+          "key_property": "1^T P = 1^T because P sums each row to 1 (exactly one 1 per row)",
+          "proof_1T_P": "Each entry of 1^T P is sum of entries in corresponding column of P, which equals 1",
+          "conclusion": "μ_y = (1/n)1^T x = μ_x",
+          "answer": "Mean is preserved: μ_y = μ_x"
+        },
+        "part_c_ii": {
+          "variance_formula": "σ²_y = (1/n)||y - μ_y 1||² = (1/n)||Px - μ_x 1||²",
+          "substitute": "σ²_y = (1/n)||Px - P(μ_x P^T 1)||² = (1/n)||P(x - μ_x P^T 1)||²",
+          "use_P_T_1_equals_1": "P^T 1 = 1 (same reasoning: sum of each column of P is 1)",
+          "simplify": "σ²_y = (1/n)||P(x - μ_x 1)||²",
+          "use_orthogonality": "||Pv||² = (Pv)^T(Pv) = v^T P^T P v = v^T v = ||v||² (since P^T P = I)",
+          "conclude": "σ²_y = (1/n)||x - μ_x 1||² = σ²_x",
+          "answer": "σ²_y = σ²_x (variance is preserved)"
+        },
+        "part_c_iii": {
+          "definition": "σ_xy = (1/n)⟨x - μ_x 1, y - μ_y 1⟩ = (1/n)x^T y - μ_x μ_y",
+          "substitute_y": "σ_xy = (1/n)x^T(Px) - μ_x μ_y",
+          "use_means_equal": "μ_y = μ_x, so σ_xy = (1/n)x^T Px - μ²_x",
+          "alternative_form": "Using variance: σ²_x = (1/n)x^T x - μ²_x, so (1/n)x^T x = σ²_x + μ²_x",
+          "final_expression": "σ_xy = (1/n)x^T Px - μ²_x",
+          "answer": "σ_xy = (1/n)x^T Px - μ²_x or equivalently σ_xy = σ²_x (when P=I, covariance equals variance)"
+        }
+      }
+    },
+    "formulas": [
+      "Permutation matrix: exactly one 1 per row and column",
+      "Orthogonality: P^T P = PP^T = I",
+      "Mean: μ = (1/n)1^T x",
+      "Variance: σ² = (1/n)||x - μ1||² = (1/n)||x||² - μ²",
+      "Covariance: σ_xy = (1/n)⟨x-μ_x 1, y-μ_y 1⟩",
+      "Norm preservation: ||Px|| = ||x|| for orthogonal P"
+    ]
+  },
+
+  "sp24_mt2_MT2.2": {
+    "exam": "sp24_mt2",
+    "title": "MT2.2 - Correlation Coefficient",
+    "topic": "least-squares",
+    "points": 37,
+    "description": "Analyzes correlation coefficient for 2-vectors, showing it must be ±1 and relating it to affine relationships.",
+    "concepts": [
+      "Correlation coefficient: ρ_xy = ⟨x̃,ỹ⟩/(||x̃||||ỹ||)",
+      "De-meaned vectors",
+      "Affine transformations",
+      "Cauchy-Schwarz inequality",
+      "Linear dependence in R²"
+    ],
+    "problem_statement": {
+      "given": "x, y ∈ ℝ² with x₁ ≠ x₂ and y₁ ≠ y₂",
+      "definitions": "x̃ = x - μ_x 1, ỹ = y - μ_y 1, ρ_xy = ⟨x̃,ỹ⟩/(||x̃||||ỹ||)",
+      "part_a": "Show ρ_xy = ±1",
+      "part_b": "For y = βx + γ1, show: (i) β ≠ 0, (ii) γ = μ_y - βμ_x, (iii) ρ_xy = -1 if β<0, +1 if β>0",
+      "part_c": "True or False: any x,y in ℝ² can be expressed as affine functions of each other"
+    },
+    "solution": {
+      "part_a": {
+        "dimension_argument": "In ℝ², any two nonzero vectors are either parallel or span the entire space",
+        "key_insight": "x̃ and ỹ are both nonzero (since x₁≠x₂ and y₁≠y₂) and both lie in ℝ²",
+        "de_meaned_structure": "x̃ = [x₁-μ_x, x₂-μ_x]^T = [(x₁-x₂)/2, (x₂-x₁)/2]^T = ((x₁-x₂)/2)[1, -1]^T",
+        "similarly": "ỹ = ((y₁-y₂)/2)[1, -1]^T",
+        "conclusion": "Both x̃ and ỹ are parallel to [1,-1]^T in ℝ²",
+        "correlation": "Since x̃ = α[1,-1]^T and ỹ = β[1,-1]^T where α = (x₁-x₂)/2 and β = (y₁-y₂)/2",
+        "compute_rho": "ρ_xy = ⟨x̃,ỹ⟩/(||x̃||||ỹ||) = αβ||[1,-1]^T||²/(|α|||[1,-1]^T|| · |β|||[1,-1]^T||) = αβ/(|α||β|) = sgn(α)sgn(β)",
+        "answer": "ρ_xy = ±1 (specifically, +1 if (x₁-x₂)(y₁-y₂) > 0, and -1 if (x₁-x₂)(y₁-y₂) < 0)"
+      },
+      "part_b_i": {
+        "assumption": "Suppose β = 0",
+        "then": "y = γ1 means y₁ = y₂ = γ (all components equal)",
+        "contradiction": "But given y₁ ≠ y₂",
+        "answer": "Therefore β ≠ 0"
+      },
+      "part_b_ii": {
+        "given": "y = βx + γ1",
+        "take_mean": "μ_y = (y₁+y₂)/2 = (β(x₁+x₂) + 2γ)/2 = βμ_x + γ",
+        "solve_for_gamma": "γ = μ_y - βμ_x",
+        "rewrite": "y = βx + (μ_y - βμ_x)1",
+        "de_mean": "ỹ = y - μ_y 1 = βx + (μ_y-βμ_x)1 - μ_y 1 = βx - βμ_x 1 = β(x - μ_x 1) = βx̃",
+        "conclusion": "ỹ = βx̃"
+      },
+      "part_b_iii": {
+        "from_part_ii": "ỹ = βx̃",
+        "compute_correlation": "ρ_xy = ⟨x̃,ỹ⟩/(||x̃||||ỹ||) = ⟨x̃,βx̃⟩/(||x̃||||βx̃||)",
+        "simplify_numerator": "⟨x̃,βx̃⟩ = β⟨x̃,x̃⟩ = β||x̃||²",
+        "simplify_denominator": "||x̃||||βx̃|| = ||x̃|| · |β| · ||x̃|| = |β|||x̃||²",
+        "result": "ρ_xy = β||x̃||²/(|β|||x̃||²) = β/|β| = sgn(β)",
+        "answer": "ρ_xy = -1 if β < 0, and ρ_xy = +1 if β > 0"
+      },
+      "part_c": {
+        "statement": "True or False: Any x,y ∈ ℝ² with x₁≠x₂ and y₁≠y₂ can be expressed as affine functions of each other",
+        "answer": "True",
+        "explanation": "From part (a), we showed ρ_xy = ±1, meaning x̃ and ỹ are parallel (linearly dependent)",
+        "details": "Since ỹ = λx̃ for some λ ≠ 0, we have: y - μ_y 1 = λ(x - μ_x 1)",
+        "rearrange": "y = λx + (μ_y - λμ_x)1",
+        "so_y_of_x": "y = βx + γ1 where β = λ and γ = μ_y - λμ_x",
+        "reverse_direction": "Similarly, x̃ = (1/λ)ỹ, so x = (1/λ)y + (μ_x - μ_y/λ)1",
+        "so_x_of_y": "x = β'y + γ'1 where β' = 1/λ and γ' = μ_x - μ_y/λ",
+        "conclusion": "Yes, any such pair can be expressed as affine functions of each other"
+      }
+    },
+    "formulas": [
+      "Correlation: ρ_xy = ⟨x̃,ỹ⟩/(||x̃||||ỹ||) where x̃ = x - μ_x 1",
+      "De-meaning: x̃ = x - (1^T x / n)1",
+      "Affine function: y = βx + γ1",
+      "Sign function: sgn(α) = α/|α| = +1 if α>0, -1 if α<0",
+      "Linear dependence in ℝ²: any two nonzero vectors are parallel",
+      "Cauchy-Schwarz: |⟨x,y⟩| ≤ ||x||||y|| with equality iff x,y parallel"
+    ]
+  },
+
+  "sp24_mt2_MT2.3": {
+    "exam": "sp24_mt2",
+    "title": "MT2.3 - Gram-Schmidt Algorithm and Solving Ax=b",
+    "topic": "gram-schmidt-qr",
+    "points": 37,
+    "description": "Applies Gram-Schmidt orthogonalization to three vectors in ℝ³ and uses the result to solve a linear system.",
+    "concepts": [
+      "Gram-Schmidt orthogonalization",
+      "Orthonormal basis construction",
+      "QR decomposition",
+      "Solving Ax = b using QR factorization",
+      "Projection and orthogonalization"
+    ],
+    "problem_statement": {
+      "vectors": "a₁ = [1,0,0]^T, a₂ = [0,1,1]^T, a₃ = [1,0,1]^T",
+      "part_a": "Apply Gram-Schmidt to get q₁, q₂, q₃ orthonormal with span(a₁,...,aₖ) = span(q₁,...,qₖ)",
+      "part_b": "Solve Ax = b where A = [a₁ a₂ a₃] and b = [1, √2, √2]^T"
+    },
+    "solution": {
+      "part_a": {
+        "step1_q1": {
+          "formula": "q₁ = a₁/||a₁||",
+          "compute_norm": "||a₁|| = ||[1,0,0]^T|| = √(1² + 0² + 0²) = 1",
+          "result": "q₁ = [1, 0, 0]^T"
+        },
+        "step2_q2": {
+          "remove_projection": "v₂ = a₂ - ⟨a₂,q₁⟩q₁",
+          "inner_product": "⟨a₂,q₁⟩ = [0,1,1]·[1,0,0] = 0",
+          "orthogonal_part": "v₂ = [0,1,1]^T - 0·q₁ = [0,1,1]^T",
+          "normalize": "||v₂|| = √(0² + 1² + 1²) = √2",
+          "result": "q₂ = v₂/||v₂|| = [0, 1/√2, 1/√2]^T"
+        },
+        "step3_q3": {
+          "remove_projections": "v₃ = a₃ - ⟨a₃,q₁⟩q₁ - ⟨a₃,q₂⟩q₂",
+          "inner_product_q1": "⟨a₃,q₁⟩ = [1,0,1]·[1,0,0] = 1",
+          "inner_product_q2": "⟨a₃,q₂⟩ = [1,0,1]·[0,1/√2,1/√2] = 0 + 0 + 1/√2 = 1/√2",
+          "projection_onto_q1": "⟨a₃,q₁⟩q₁ = 1·[1,0,0]^T = [1,0,0]^T",
+          "projection_onto_q2": "⟨a₃,q₂⟩q₂ = (1/√2)[0,1/√2,1/√2]^T = [0,1/2,1/2]^T",
+          "orthogonal_part": "v₃ = [1,0,1]^T - [1,0,0]^T - [0,1/2,1/2]^T = [0,-1/2,1/2]^T",
+          "normalize": "||v₃|| = √(0² + 1/4 + 1/4) = √(1/2) = 1/√2",
+          "result": "q₃ = v₃/||v₃|| = [0,-1/2,1/2]^T · √2 = [0, -1/√2, 1/√2]^T"
+        },
+        "verification": {
+          "orthogonality": "⟨q₁,q₂⟩ = 0, ⟨q₁,q₃⟩ = 0, ⟨q₂,q₃⟩ = (1/√2)(-1/√2) + (1/√2)(1/√2) = -1/2 + 1/2 = 0 ✓",
+          "normalization": "||q₁|| = 1, ||q₂|| = 1, ||q₃|| = 1 ✓"
+        },
+        "answer": {
+          "q1": "[1, 0, 0]^T",
+          "q2": "[0, 1/√2, 1/√2]^T",
+          "q3": "[0, -1/√2, 1/√2]^T"
+        }
+      },
+      "part_b": {
+        "setup": "A = QR where Q = [q₁ q₂ q₃] is orthogonal",
+        "compute_R": "R = Q^T A (using orthogonality Q^T Q = I)",
+        "R_entries": {
+          "r11": "⟨q₁,a₁⟩ = 1",
+          "r12": "⟨q₁,a₂⟩ = 0",
+          "r13": "⟨q₁,a₃⟩ = 1",
+          "r22": "⟨q₂,a₂⟩ = √2",
+          "r23": "⟨q₂,a₃⟩ = 1/√2",
+          "r33": "⟨q₃,a₃⟩ = 1/√2"
+        },
+        "R_matrix": "R = [[1, 0, 1],[0, √2, 1/√2],[0, 0, 1/√2]]",
+        "solve_Ax_equals_b": {
+          "rewrite": "Ax = b becomes QRx = b",
+          "multiply_by_QT": "Rx = Q^T b (using Q^T Q = I)",
+          "compute_QT_b": {
+            "component1": "q₁^T b = [1,0,0]·[1,√2,√2] = 1",
+            "component2": "q₂^T b = [0,1/√2,1/√2]·[1,√2,√2] = 0 + 1 + 1 = 2",
+            "component3": "q₃^T b = [0,-1/√2,1/√2]·[1,√2,√2] = 0 - 1 + 1 = 0"
+          },
+          "QT_b": "Q^T b = [1, 2, 0]^T"
+        },
+        "back_substitution": {
+          "system": "[[1,0,1],[0,√2,1/√2],[0,0,1/√2]][x₁,x₂,x₃]^T = [1,2,0]^T",
+          "equation3": "(1/√2)x₃ = 0 → x₃ = 0",
+          "equation2": "√2 x₂ + (1/√2)·0 = 2 → x₂ = 2/√2 = √2",
+          "equation1": "x₁ + 0·x₂ + 1·x₃ = 1 → x₁ = 1"
+        },
+        "answer": "x = [1, √2, 0]^T",
+        "verification": "Ax = 1·a₁ + √2·a₂ + 0·a₃ = [1,0,0]^T + √2[0,1,1]^T = [1,√2,√2]^T = b ✓"
+      }
+    },
+    "formulas": [
+      "Gram-Schmidt: vₖ = aₖ - Σᵢ₌₁^(k-1) ⟨aₖ,qᵢ⟩qᵢ, then qₖ = vₖ/||vₖ||",
+      "QR decomposition: A = QR where Q^T Q = I and R upper-triangular",
+      "R entries: rᵢⱼ = ⟨qᵢ,aⱼ⟩ for i ≤ j",
+      "Solving Ax = b: Rx = Q^T b (then back-substitution)",
+      "Orthonormality: ⟨qᵢ,qⱼ⟩ = δᵢⱼ"
+    ]
+  },
+
+  "sp24_mt2_MT2.4": {
+    "exam": "sp24_mt2",
+    "title": "MT2.4 - Projection Matrices",
+    "topic": "least-squares",
+    "points": 37,
+    "description": "Studies projection matrix P = aa^T/(a^T a) that projects vectors onto span(a), exploring its properties and the complementary projection S = I - P.",
+    "concepts": [
+      "Projection onto one-dimensional subspace",
+      "Projection matrix: P = aa^T/(a^T a)",
+      "Orthogonal projection",
+      "Idempotent matrices: P² = P",
+      "Symmetric matrices: P^T = P",
+      "Complementary projection: S = I - P",
+      "Rank and nullspace"
+    ],
+    "problem_statement": {
+      "setup": "a,b ∈ ℝⁿ nonzero, b ∉ span(a), find b̂ = αa ∈ span(a) closest to b",
+      "part_a": "Show P = aa^T/(a^T a) where b̂ = Pb",
+      "part_b": "Determine rank(P)",
+      "part_c": "Show: (i) P^T = P, (ii) P^k = P for all k≥1 with geometric interpretation",
+      "part_d": "If Py = 0, determine ⟨a,y⟩",
+      "part_e": "For S = I - P: (i) Find S^k, (ii) If Py=0 find Sy, (iii) Show {a} is basis for N(S), (iv) Find rank(S)"
+    },
+    "solution": {
+      "part_a": {
+        "orthogonality_condition": "ε = b - b̂ must be orthogonal to a: ⟨a, b-b̂⟩ = 0",
+        "substitute_bhat": "b̂ = αa, so ⟨a, b-αa⟩ = 0",
+        "expand": "⟨a,b⟩ - α⟨a,a⟩ = 0",
+        "solve_for_alpha": "α = ⟨a,b⟩/⟨a,a⟩ = a^T b/(a^T a)",
+        "express_bhat": "b̂ = αa = (a^T b)/(a^T a) · a = [aa^T/(a^T a)]b",
+        "identify_P": "P = aa^T/(a^T a)",
+        "answer": "P = aa^T/(a^T a) where a^T a is scalar and aa^T is n×n matrix"
+      },
+      "part_b": {
+        "column_space": "C(P) = C(aa^T/(a^T a)) = C(aa^T) = span{a}",
+        "reasoning": "aa^T has all columns proportional to a (each column is (a_j)a where a_j is component of a)",
+        "dimension": "dim(span{a}) = 1 since a ≠ 0",
+        "answer": "rank(P) = 1",
+        "alternative": "P maps ℝⁿ onto span(a) which is 1-dimensional, so rank = 1"
+      },
+      "part_c_i": {
+        "compute_transpose": "P^T = [aa^T/(a^T a)]^T = (aa^T)^T/(a^T a) = (a^T)^T a^T/(a^T a) = aa^T/(a^T a) = P",
+        "answer": "P^T = P (P is symmetric)"
+      },
+      "part_c_ii": {
+        "compute_P2": "P² = P·P = [aa^T/(a^T a)]·[aa^T/(a^T a)]",
+        "expand": "P² = [aa^T/(a^T a)²]·[aa^T]",
+        "middle_term": "a^T(aa^T) = (a^T a)a^T (scalar times vector transpose)",
+        "simplify": "P² = a(a^T a)a^T/(a^T a)² = aa^T/(a^T a) = P",
+        "induction": "By induction: P^k = P·P^(k-1) = P·P = P² = P for all k ≥ 1",
+        "answer": "P^k = P for all k ≥ 1",
+        "geometric_interpretation": "P projects onto span(a). Projecting twice (or k times) is same as projecting once, because once a vector is in span(a), projecting it again doesn't change it."
+      },
+      "part_d": {
+        "given": "Py = 0",
+        "expand_P": "[aa^T/(a^T a)]y = 0",
+        "multiply": "a(a^T y)/(a^T a) = 0",
+        "simplify": "(a^T y)/(a^T a) · a = 0",
+        "since_a_nonzero": "a ≠ 0, so must have (a^T y)/(a^T a) = 0",
+        "conclude": "a^T y = 0",
+        "answer": "⟨a,y⟩ = a^T y = 0",
+        "interpretation": "y is orthogonal to a. Geometric meaning: if projection of y onto span(a) is zero, then y must be perpendicular to a."
+      },
+      "part_e_i": {
+        "compute_S2": "S² = (I-P)² = I² - 2IP + P² = I - 2P + P²",
+        "use_P2_equals_P": "S² = I - 2P + P = I - P = S",
+        "induction": "S^k = S·S^(k-1) = S·S = S² = S for all k ≥ 2",
+        "answer": "S^k = S for all k ≥ 1 (S is idempotent)"
+      },
+      "part_e_ii": {
+        "given": "Py = 0",
+        "compute": "Sy = (I-P)y = y - Py = y - 0 = y",
+        "answer": "Sy = y",
+        "interpretation": "If y is in nullspace of P (i.e., perpendicular to a), then S acts as identity on y. This makes sense: P projects onto span(a), S projects onto orthogonal complement of span(a)."
+      },
+      "part_e_iii": {
+        "need_to_show": "{a} is basis for N(S) = {v : Sv = 0}",
+        "check_a_in_NS": "Sa = (I-P)a = a - Pa = a - [aa^T/(a^T a)]a = a - a(a^T a)/(a^T a) = a - a = 0 ✓",
+        "so": "a ∈ N(S)",
+        "show_spans_NS": "Suppose Sv = 0 for some v",
+        "expand": "(I-P)v = 0 → v = Pv",
+        "meaning": "v equals its projection onto span(a), so v ∈ span(a)",
+        "therefore": "v = αa for some scalar α",
+        "conclusion": "N(S) ⊆ span{a}. Combined with a ∈ N(S), we have N(S) = span{a}",
+        "basis": "Since a ≠ 0, {a} forms a basis for N(S)",
+        "answer": "{a} is basis for N(S)"
+      },
+      "part_e_iv": {
+        "rank_nullity": "rank(S) + dim(N(S)) = n",
+        "from_part_iii": "dim(N(S)) = 1 (since {a} is basis)",
+        "solve": "rank(S) = n - 1",
+        "answer": "rank(S) = n - 1",
+        "geometric_explanation": "S projects onto (n-1)-dimensional orthogonal complement of span(a)"
+      }
+    },
+    "formulas": [
+      "Projection matrix: P = aa^T/(a^T a)",
+      "Projection formula: b̂ = Pb = [⟨a,b⟩/⟨a,a⟩]a",
+      "Idempotent: P² = P (projecting twice = projecting once)",
+      "Symmetric: P^T = P",
+      "Orthogonal complement projection: S = I - P",
+      "Rank-nullity: rank(A) + dim(N(A)) = n",
+      "Nullspace: N(S) = {v : Sv = 0}"
+    ]
+  },
+
+  "sp24_mt2_MT2.5": {
+    "exam": "sp24_mt2",
+    "title": "MT2.5 - Inner Products with Matrices",
+    "topic": "vectors-matrices",
+    "points": 37,
+    "description": "Explores conditions on matrix W for ⟨x,y⟩_W = x^T Wy to be a valid inner product, including symmetry, positive-definiteness, and invertibility.",
+    "concepts": [
+      "Inner product axioms",
+      "Bilinear forms",
+      "Symmetric matrices",
+      "Positive definiteness",
+      "Matrix invertibility",
+      "Quadratic forms"
+    ],
+    "problem_statement": {
+      "definition": "⟨x,y⟩_W = x^T Wy",
+      "inner_product_properties": "(1) ⟨x,y⟩ = ⟨y,x⟩, (2) ⟨x+y,z⟩ = ⟨x,z⟩+⟨y,z⟩, (3) ⟨cx,y⟩ = c⟨x,y⟩, (4) ⟨x,x⟩ ≥ 0 with equality iff x=0",
+      "part_a": "Find W such that ⟨x,y⟩_W = x^T y (Euclidean inner product)",
+      "part_b": "Show W=[[0,3],[1,0]] is not inner product",
+      "part_c": "Show W=[[2,1],[1,2]] is inner product",
+      "part_d": "Show if any diagonal entry of W is 0, then not inner product",
+      "part_e": "Show if W not invertible, then not inner product"
+    },
+    "solution": {
+      "part_a": {
+        "requirement": "x^T Wy = x^T y for all x,y",
+        "observe": "x^T Iy = x^T y where I is identity matrix",
+        "answer": "W = I (identity matrix)",
+        "verification": "⟨x,y⟩_I = x^T Iy = x^T y ✓"
+      },
+      "part_b": {
+        "given": "W = [[0, 3],[1, 0]]",
+        "check_symmetry": "W^T = [[0,1],[3,0]] ≠ W",
+        "property_1_fails": {
+          "compute": "⟨x,y⟩_W = x^T Wy vs ⟨y,x⟩_W = y^T Wx",
+          "note": "⟨y,x⟩_W = y^T Wx = (x^T W^T y)^T = x^T W^T y",
+          "comparison": "Need x^T Wy = x^T W^T y for all x,y, which requires W = W^T"
+        },
+        "answer": "Not inner product because W is not symmetric",
+        "alternative_violation": {
+          "choose": "z = [a, b]^T",
+          "compute": "⟨z,z⟩_W = [a,b][[0,3],[1,0]][a,b]^T = [a,b][3b,a]^T = 3ab + ab = 4ab",
+          "counterexample": "If a=1, b=-1: ⟨z,z⟩_W = 4(1)(-1) = -4 < 0",
+          "violates": "Property 4: ⟨x,x⟩ must be ≥ 0"
+        }
+      },
+      "part_c": {
+        "given": "W = [[2, 1],[1, 2]]",
+        "check_symmetry": "W^T = [[2,1],[1,2]] = W ✓ (symmetric)",
+        "property_1": "⟨x,y⟩_W = x^T Wy = x^T W^T y = (Wx)^T y = ⟨Wx,y⟩ = ⟨y,x⟩_W ✓ (when W symmetric)",
+        "properties_2_3": "Bilinearity follows from matrix multiplication properties ✓",
+        "property_4": {
+          "compute_zz": "⟨z,z⟩_W = z^T Wz = [a,b][[2,1],[1,2]][a,b]^T",
+          "expand": "= [a,b][2a+b, a+2b]^T = a(2a+b) + b(a+2b) = 2a² + ab + ab + 2b² = 2a² + 2ab + 2b²",
+          "hint_form": "Factor as (a-b)² + α(a+b)²",
+          "try": "2a² + 2ab + 2b² = 2(a² + ab + b²)",
+          "rewrite": "= 2[(a² - 2ab + b²)/2 + (a² + 2ab + b²)/2 + ab] = (a-b)² + (a+b)² + 2ab",
+          "alternative": "= (a-b)² + (a+b)² + 2ab = (a-b)² + 3(a+b)²/3 + ...",
+          "correct_form": "2a² + 2ab + 2b² = (a-b)² + (a+b)²",
+          "verify": "(a-b)² + (a+b)² = a² - 2ab + b² + a² + 2ab + b² = 2a² + 2b² ✗",
+          "recompute": "Let's use completing the square properly",
+          "factor": "2a² + 2ab + 2b² = 2(a² + ab + b²) = 2(a + b/2)² + 2b² - 2b²/4 = 2(a+b/2)² + 3b²/2",
+          "simpler": "Following hint: ⟨z,z⟩_W = α(a-b)² + β(a+b)²",
+          "expand_hint": "α(a²-2ab+b²) + β(a²+2ab+b²) = (α+β)a² + 2(-α+β)ab + (α+β)b²",
+          "match_coefficients": "α+β = 2, -α+β = 1, so β = 3/2, α = 1/2",
+          "result": "⟨z,z⟩_W = (1/2)(a-b)² + (3/2)(a+b)²",
+          "nonnegativity": "Both terms ≥ 0 always",
+          "zero_iff": "(a-b)² = 0 and (a+b)² = 0 ⟺ a=b and a=-b ⟺ a=b=0 ⟺ z=0"
+        },
+        "answer": "W = [[2,1],[1,2]] defines a valid inner product ✓"
+      },
+      "part_d": {
+        "assumption": "WLOG, assume w₁₁ = 0",
+        "choose": "z = [1, 0, 0, ..., 0]^T (first standard basis vector e₁)",
+        "compute": "⟨z,z⟩_W = z^T Wz = e₁^T We₁",
+        "evaluate": "e₁^T We₁ = (first row of W)·e₁ = w₁₁ = 0",
+        "but": "z = e₁ ≠ 0",
+        "violation": "⟨z,z⟩_W = 0 but z ≠ 0 violates property 4",
+        "answer": "If any diagonal entry is 0, cannot be inner product"
+      },
+      "part_e": {
+        "assumption": "W is not invertible",
+        "consequence": "dim(N(W)) ≥ 1, so ∃ nonzero v with Wv = 0",
+        "choose": "Take such nonzero v ∈ N(W)",
+        "compute": "⟨v,v⟩_W = v^T Wv = v^T(Wv) = v^T 0 = 0",
+        "but": "v ≠ 0",
+        "violation": "⟨v,v⟩_W = 0 but v ≠ 0 violates property 4",
+        "answer": "If W not invertible, cannot be inner product",
+        "note": "This implies W must be invertible (and hence full rank) for ⟨·,·⟩_W to be inner product"
+      }
+    },
+    "formulas": [
+      "Inner product axioms: (1) symmetry, (2) additivity, (3) homogeneity, (4) positive-definiteness",
+      "Matrix inner product: ⟨x,y⟩_W = x^T Wy",
+      "Symmetry requires: W = W^T",
+      "Positive-definiteness: ⟨x,x⟩_W > 0 for all x ≠ 0",
+      "Quadratic form: x^T Wx = Σᵢⱼ wᵢⱼxᵢxⱼ",
+      "Invertibility: W invertible ⟺ N(W) = {0} ⟺ Wv = 0 implies v = 0"
+    ]
+  }
+}

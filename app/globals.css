@@ -2,26 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-color: #ffffff;
+    --text-color: #1f2937;
+    --border-color: #e5e7eb;
+    --hover-bg: #f3f4f6;
+  }
+
+  .dark {
+    --bg-color: #1f2937;
+    --text-color: #f3f4f6;
+    --border-color: #374151;
+    --hover-bg: #374151;
+  }
+
+  body {
+    @apply bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .topic-notes {
+    @apply bg-blue-50 dark:bg-blue-950/30 border-l-4 border-primary rounded-md p-3 my-2;
+  }
+
+  .problem-card {
+    @apply border border-[var(--border-color)] rounded-lg p-3 my-2.5
+           hover:shadow-md transition-shadow duration-200;
+  }
+
+  .answer-box {
+    @apply mt-2.5 p-3 bg-green-50 dark:bg-green-950/30
+           border-l-4 border-success rounded-md;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* MathJax styling fixes */
+mjx-container {
+  display: inline-block !important;
+  margin: 0 0.1em !important;
+}
+
+mjx-container[display="true"] {
+  display: block !important;
+  text-align: center !important;
+  margin: 1em 0 !important;
+}
+
+.topic-notes mjx-container {
+  font-size: inherit !important;
+}
+
+.topic-notes p {
+  margin: 0.5em 0;
+  line-height: 1.8;
 }

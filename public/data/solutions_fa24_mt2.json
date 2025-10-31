@@ -1,0 +1,448 @@
+{
+  "fa24_mt2_MT2.1": {
+    "exam": "fa24_mt2",
+    "title": "MT2.1 - Rotation! Rotation! Rotation!",
+    "topic": "eigenanalysis",
+    "points": 40,
+    "description": "Studies rotation matrices, their powers, and dynamic systems with rotation and exponential decay. Combines eigenvalue analysis with geometric transformations.",
+    "concepts": [
+      "Rotation matrix: R(θ) = [[cos θ, -sin θ],[sin θ, cos θ]]",
+      "Orthogonal matrices: R^T R = I",
+      "Matrix powers and eigenvalues",
+      "Geometric interpretation of eigenvalues",
+      "Spiral dynamics with decay"
+    ],
+    "problem_statement": {
+      "matrix": "R = [[cos θ, -sin θ],[sin θ, cos θ]]",
+      "part_a": "Find R^(-1) with geometric explanation",
+      "part_b": "Compute Gramian G_R = R^T R, interpret for columns and rows",
+      "part_c": "Determine R^n in closed form",
+      "part_d": "Analyze z(n) = (1/2)^n [[cos(nπ/2), -sin(nπ/2)],[sin(nπ/2), cos(nπ/2)]] z(0), find limit"
+    },
+    "solution": {
+      "part_a": {
+        "answer": "R^(-1) = [[cos θ, sin θ],[-sin θ, cos θ]] = R^T = R(-θ)",
+        "geometric_explanation": "Inverse of rotation by θ is rotation by -θ. For orthogonal matrices, inverse equals transpose.",
+        "verification": "RR^T = [[cos²θ + sin²θ, 0],[0, cos²θ + sin²θ]] = I"
+      },
+      "part_b": {
+        "calculation": "G_R = R^T R = [[cos²θ + sin²θ, -cos θ sin θ + sin θ cos θ],[-cos θ sin θ + sin θ cos θ, sin²θ + cos²θ]] = I",
+        "answer": "G_R = I (identity matrix)",
+        "column_interpretation": "Columns of R are orthonormal: ⟨r₁,r₁⟩ = ⟨r₂,r₂⟩ = 1 and ⟨r₁,r₂⟩ = 0",
+        "row_interpretation": "Since G_R = I also means RR^T = I, rows are also orthonormal"
+      },
+      "part_c": {
+        "approach": "Use eigenvalue decomposition or direct multiplication pattern",
+        "pattern_observation": [
+          "R² rotates by 2θ: R² = [[cos 2θ, -sin 2θ],[sin 2θ, cos 2θ]]",
+          "R³ rotates by 3θ: R³ = [[cos 3θ, -sin 3θ],[sin 3θ, cos 3θ]]",
+          "General pattern: R^n rotates by nθ"
+        ],
+        "answer": "R^n = [[cos(nθ), -sin(nθ)],[sin(nθ), cos(nθ)]]",
+        "proof": "By induction or eigenvalue analysis: eigenvalues are e^(±iθ) with |λ| = 1"
+      },
+      "part_d": {
+        "setup": "z(0) = [16, 0]^T, z(n) = (1/2)^n R(nπ/2) z(0)",
+        "calculations": {
+          "z1": "n=1: (1/2)[[0,-1],[1,0]][16,0]^T = (1/2)[0,16]^T = [0,8]^T",
+          "z2": "n=2: (1/4)[[-1,0],[0,-1]][16,0]^T = (1/4)[-16,0]^T = [-4,0]^T",
+          "z3": "n=3: (1/8)[[0,1],[-1,0]][16,0]^T = (1/8)[0,-16]^T = [0,-2]^T",
+          "z4": "n=4: (1/16)[[1,0],[0,1]][16,0]^T = (1/16)[16,0]^T = [1,0]^T"
+        },
+        "pattern": "Spiraling inward, rotating 90° each step while decaying by factor 1/2",
+        "limit": "lim_{n→∞} z(n) = [0,0]^T because (1/2)^n → 0 exponentially fast",
+        "geometric_description": "Exponential decay with rotation creates inward spiral to origin"
+      }
+    },
+    "formulas": [
+      "Rotation matrix: R(θ) = [[cos θ, -sin θ],[sin θ, cos θ]]",
+      "Orthogonality: R^T R = RR^T = I",
+      "Matrix power: R(θ)^n = R(nθ)",
+      "Eigenvalues of rotation: λ = e^(±iθ) = cos θ ± i sin θ",
+      "Spiral dynamics: r(n) = ρ^n e^(inθ) where ρ < 1 gives inward spiral"
+    ]
+  },
+
+  "fa24_mt2_MT2.2": {
+    "exam": "fa24_mt2",
+    "title": "MT2.2 - Triangular Matrices",
+    "topic": "fundamental-subspaces",
+    "points": 40,
+    "description": "Explores properties of triangular matrices including invertibility conditions and the four fundamental subspaces.",
+    "concepts": [
+      "Lower/upper triangular matrices",
+      "Invertibility criterion for triangular matrices",
+      "Four fundamental subspaces: N(A), C(A), N(A^T), C(A^T)",
+      "Rank-nullity theorem",
+      "Matrix inverse computation"
+    ],
+    "problem_statement": {
+      "part_a": "Prove upper-triangular U is invertible iff diagonal entries are nonzero",
+      "part_b": "For A = [[1,0,0],[2,0,0],[3,2,1]], find bases for all 4 fundamental subspaces",
+      "part_c": "For A = [[1,0,0],[2,3,0],[4,5,6]], find inverse matrix B"
+    },
+    "solution": {
+      "part_a": {
+        "given": "Lower-triangular L invertible ⟺ all diagonal entries nonzero",
+        "goal": "Prove same for upper-triangular U",
+        "proof": [
+          "Key insight: If L is lower-triangular, then L^T is upper-triangular",
+          "Given: L invertible ⟺ ℓᵢᵢ ≠ 0 for all i",
+          "For upper-triangular U, consider L = U^T (lower-triangular)",
+          "By given result: L = U^T invertible ⟺ diagonal(L) all nonzero",
+          "But diagonal(U^T) = diagonal(U)",
+          "So: U^T invertible ⟺ uᵢᵢ ≠ 0 for all i",
+          "By transpose property: (U^T)^(-1) = (U^(-1))^T",
+          "Therefore: U invertible ⟺ U^T invertible ⟺ uᵢᵢ ≠ 0 for all i ✓"
+        ],
+        "key_property": "(A^T)^(-1) = (A^(-1))^T for invertible matrices"
+      },
+      "part_b": {
+        "matrix": "A = [[1,0,0],[2,0,0],[3,2,1]]",
+        "rank_analysis": "rank(A) = 2 (columns 1 and 3 are independent, column 2 is zero)",
+        "nullspace_N_A": {
+          "definition": "N(A) = {x : Ax = 0}",
+          "system": "[[1,0,0],[2,0,0],[3,2,1]][[x₁],[x₂],[x₃]] = 0",
+          "equations": ["x₁ = 0", "2x₁ = 0 (redundant)", "3x₁ + 2x₂ + x₃ = 0"],
+          "free_variable": "x₂ is free, x₃ = -2x₂",
+          "basis": "N(A) = span{[0,1,-2]^T}"
+        },
+        "column_space_C_A": {
+          "definition": "C(A) = span{columns of A}",
+          "pivot_columns": "Columns 1 and 3 are pivot columns",
+          "basis": "C(A) = span{[1,2,3]^T, [0,0,1]^T}"
+        },
+        "left_nullspace_N_AT": {
+          "definition": "N(A^T) = {y : A^T y = 0}",
+          "A_transpose": "A^T = [[1,2,3],[0,0,2],[0,0,1]]",
+          "system": "[[1,2,3],[0,0,2],[0,0,1]][[y₁],[y₂],[y₃]] = 0",
+          "equations": ["y₁ + 2y₂ + 3y₃ = 0", "2y₃ = 0", "y₃ = 0"],
+          "solution": "y₃ = 0, y₁ = -2y₂, y₂ free",
+          "basis": "N(A^T) = span{[-2,1,0]^T}"
+        },
+        "row_space_CAT": {
+          "definition": "C(A^T) = span{rows of A}",
+          "non_zero_rows": "Rows 1 and 3 are independent",
+          "basis": "C(A^T) = span{[1,0,0]^T, [3,2,1]^T}",
+          "alternative": "Equivalently span{[1,2,3]^T, [0,0,1]^T} in row form"
+        },
+        "verification": {
+          "rank_nullity_columns": "rank(A) + nullity(A) = 2 + 1 = 3 ✓",
+          "rank_nullity_rows": "rank(A^T) + nullity(A^T) = 2 + 1 = 3 ✓",
+          "orthogonality": "C(A) ⊥ N(A^T) and C(A^T) ⊥ N(A)"
+        }
+      },
+      "part_c": {
+        "matrix": "A = [[1,0,0],[2,3,0],[4,5,6]]",
+        "inverse_form": "B = [[a,0,0],[b,c,0],[d,e,f]]",
+        "condition": "AB = BA = I",
+        "solve_AB_I": {
+          "multiply_AB": "[[1,0,0],[2,3,0],[4,5,6]][[a,0,0],[b,c,0],[d,e,f]]",
+          "result": "[[a,0,0],[2a+3b,3c,0],[4a+5b+6d,5c+6e,6f]]",
+          "equations_from_AB_I": [
+            "a = 1",
+            "2a + 3b = 0 → b = -2/3",
+            "3c = 1 → c = 1/3",
+            "4a + 5b + 6d = 0 → 4 - 10/3 + 6d = 0 → d = -1/9",
+            "5c + 6e = 0 → 5/3 + 6e = 0 → e = -5/18",
+            "6f = 1 → f = 1/6"
+          ]
+        },
+        "answer": "B = [[1,0,0],[-2/3,1/3,0],[-1/9,-5/18,1/6]]",
+        "verification": "Can verify BA = I as well"
+      }
+    },
+    "formulas": [
+      "Null space: N(A) = {x ∈ ℝⁿ : Ax = 0}",
+      "Column space: C(A) = span{columns of A}",
+      "Left null space: N(A^T) = {y ∈ ℝᵐ : A^T y = 0}",
+      "Row space: C(A^T) = span{rows of A}",
+      "Rank-nullity: rank(A) + nullity(A) = n",
+      "Orthogonality: C(A) ⊥ N(A^T), C(A^T) ⊥ N(A)",
+      "Transpose-inverse: (A^T)^(-1) = (A^(-1))^T"
+    ]
+  },
+
+  "fa24_mt2_MT2.3": {
+    "exam": "fa24_mt2",
+    "title": "MT2.3 - Solving Systems with Singular Matrices",
+    "topic": "fundamental-subspaces",
+    "points": 35,
+    "description": "Analyzes systems Ax = b where A is singular (not invertible). Studies conditions for solution existence and uniqueness using fundamental subspaces.",
+    "concepts": [
+      "Invertibility and rank",
+      "Column space and consistency",
+      "Nullspace and solution sets",
+      "Rank-nullity theorem",
+      "Infinite solutions vs. no solutions"
+    ],
+    "problem_statement": {
+      "matrix": "A = [[1, -2],[3, -6]]",
+      "part_a": "Explain why A is not invertible",
+      "part_b": "Solve Ax = b for b = [1, 12]^T. Does unique solution exist?",
+      "part_c": "Solve Ax = b for b = [2, 6]^T. Does unique solution exist?"
+    },
+    "solution": {
+      "part_a": {
+        "observation": "Second column is -2 times the first column: [-2, -6]^T = -2[1, 3]^T",
+        "rank_analysis": "rank(A) = 1 < 2, so A is rank-deficient",
+        "determinant": "det(A) = (1)(-6) - (-2)(3) = -6 + 6 = 0",
+        "answer": "A is not invertible because its columns are linearly dependent (rank 1), equivalently det(A) = 0",
+        "geometric_interpretation": "Columns of A lie on same line through origin, so image is 1-dimensional"
+      },
+      "part_b": {
+        "given": "b = [1, 12]^T",
+        "consistency_check": {
+          "method": "Check if b ∈ C(A) = span{[1, 3]^T}",
+          "calculation": "Need b = α[1, 3]^T for some α",
+          "first_component": "1 = α(1) → α = 1",
+          "second_component": "12 = α(3) → α = 4",
+          "contradiction": "No single α works: α = 1 ≠ 4",
+          "conclusion": "b ∉ C(A), system is inconsistent"
+        },
+        "answer": "No solution exists",
+        "explanation": "The vector b = [1, 12]^T is not in the column space of A. For a solution to exist, b must be a linear combination of A's columns."
+      },
+      "part_c": {
+        "given": "b = [2, 6]^T",
+        "consistency_check": {
+          "method": "Check if b ∈ C(A) = span{[1, 3]^T}",
+          "calculation": "b = α[1, 3]^T?",
+          "first_component": "2 = α(1) → α = 2",
+          "second_component": "6 = α(3) → α = 2",
+          "conclusion": "b = 2[1, 3]^T ∈ C(A), system is consistent"
+        },
+        "particular_solution": {
+          "method": "Find one solution x_p",
+          "guess": "Try x_p = [2, 0]^T",
+          "verification": "A[2, 0]^T = [1, -2; 3, -6][2, 0]^T = [2, 6]^T = b ✓"
+        },
+        "nullspace": {
+          "definition": "N(A) = {x : Ax = 0}",
+          "system": "[1, -2; 3, -6][x₁, x₂]^T = [0, 0]^T",
+          "equations": ["x₁ - 2x₂ = 0", "3x₁ - 6x₂ = 0 (redundant)"],
+          "solution": "x₁ = 2x₂, x₂ free",
+          "basis": "N(A) = span{[2, 1]^T}"
+        },
+        "general_solution": {
+          "form": "x = x_p + x_n where x_n ∈ N(A)",
+          "expression": "x = [2, 0]^T + t[2, 1]^T = [2+2t, t]^T for any t ∈ ℝ",
+          "particular_solutions": {
+            "sol1": "[2, 0]^T (when t=0)",
+            "sol2": "[4, 1]^T (when t=1, linearly independent from sol1)"
+          }
+        },
+        "uniqueness": "No, infinitely many solutions exist",
+        "answer": "Solution exists: x = [2+2t, t]^T for any t ∈ ℝ. Two linearly independent solutions: [2, 0]^T and [4, 1]^T"
+      }
+    },
+    "formulas": [
+      "Invertibility: A invertible ⟺ rank(A) = n ⟺ det(A) ≠ 0",
+      "Consistency: Ax = b has solution ⟺ b ∈ C(A)",
+      "General solution: x = x_particular + x_nullspace",
+      "Solution uniqueness: Unique ⟺ N(A) = {0} ⟺ rank(A) = n",
+      "Rank-nullity: rank(A) + dim(N(A)) = n"
+    ]
+  },
+
+  "fa24_mt2_MT2.4": {
+    "exam": "fa24_mt2",
+    "title": "MT2.4 - QR Decomposition",
+    "topic": "gram-schmidt-qr",
+    "points": 30,
+    "description": "Applies the Gram-Schmidt algorithm to decompose matrix A into orthogonal matrix Q and upper-triangular matrix R.",
+    "concepts": [
+      "Gram-Schmidt orthogonalization process",
+      "QR decomposition: A = QR",
+      "Orthogonal matrices: Q^T Q = I",
+      "Upper-triangular matrices",
+      "Computing R from Q and A"
+    ],
+    "problem_statement": {
+      "matrix": "A = [[1, 1, 0],[1, 1, 1],[0, 1, 1]]",
+      "part_a": "Verify Q = (1/√2)[[1, 1, 0],[-1, 0, 1],[0, -√2, 0]] using Gram-Schmidt",
+      "part_b": "Determine upper-triangular matrix R such that A = QR"
+    },
+    "solution": {
+      "part_a": {
+        "columns_of_A": {
+          "a1": "[1, 1, 0]^T",
+          "a2": "[1, 1, 1]^T",
+          "a3": "[0, 1, 1]^T"
+        },
+        "gram_schmidt_step1": {
+          "compute_q1": "q₁ = a₁/‖a₁‖",
+          "norm_a1": "‖a₁‖ = √(1² + 1² + 0²) = √2",
+          "result": "q₁ = [1, 1, 0]^T/√2 = [1/√2, 1/√2, 0]^T"
+        },
+        "gram_schmidt_step2": {
+          "remove_projection": "v₂ = a₂ - ⟨a₂, q₁⟩q₁",
+          "inner_product": "⟨a₂, q₁⟩ = [1, 1, 1]·[1/√2, 1/√2, 0] = (1/√2 + 1/√2 + 0) = 2/√2 = √2",
+          "projection": "⟨a₂, q₁⟩q₁ = √2 · [1/√2, 1/√2, 0]^T = [1, 1, 0]^T",
+          "orthogonal_part": "v₂ = [1, 1, 1]^T - [1, 1, 0]^T = [0, 0, 1]^T",
+          "normalize": "q₂ = v₂/‖v₂‖ = [0, 0, 1]^T/1 = [0, 0, 1]^T"
+        },
+        "gram_schmidt_step3": {
+          "remove_projections": "v₃ = a₃ - ⟨a₃, q₁⟩q₁ - ⟨a₃, q₂⟩q₂",
+          "inner_products": {
+            "with_q1": "⟨a₃, q₁⟩ = [0, 1, 1]·[1/√2, 1/√2, 0] = 1/√2",
+            "with_q2": "⟨a₃, q₂⟩ = [0, 1, 1]·[0, 0, 1] = 1"
+          },
+          "projections": {
+            "onto_q1": "⟨a₃, q₁⟩q₁ = (1/√2)[1/√2, 1/√2, 0]^T = [1/2, 1/2, 0]^T",
+            "onto_q2": "⟨a₃, q₂⟩q₂ = 1·[0, 0, 1]^T = [0, 0, 1]^T"
+          },
+          "orthogonal_part": "v₃ = [0, 1, 1]^T - [1/2, 1/2, 0]^T - [0, 0, 1]^T = [-1/2, 1/2, 0]^T",
+          "norm": "‖v₃‖ = √(1/4 + 1/4 + 0) = √(1/2) = 1/√2",
+          "normalize": "q₃ = v₃/‖v₃‖ = [-1/2, 1/2, 0]^T/(1/√2) = [-1/√2, 1/√2, 0]^T"
+        },
+        "Q_matrix": {
+          "constructed": "Q = [q₁ | q₂ | q₃] = [[1/√2, 0, -1/√2],[1/√2, 0, 1/√2],[0, 1, 0]]",
+          "given_form": "Q = (1/√2)[[1, 0, -1],[1, 0, 1],[0, √2, 0]]",
+          "note": "The given Q has columns in different order or signs may differ (both valid)"
+        },
+        "verification_orthogonality": {
+          "check_QTQ": "Verify Q^T Q = I",
+          "column_norms": "‖q₁‖² = ‖q₂‖² = ‖q₃‖² = 1",
+          "orthogonality": "⟨qᵢ, qⱼ⟩ = 0 for i ≠ j",
+          "conclusion": "Q is orthogonal matrix ✓"
+        }
+      },
+      "part_b": {
+        "formula": "Since A = QR, then R = Q^T A",
+        "reason": "For orthogonal Q: Q^T Q = I, so Q^T A = Q^T(QR) = R",
+        "compute_QT": {
+          "Q_transpose": "Q^T = (1/√2)[[1, 1, 0],[0, 0, √2],[-1, 1, 0]]",
+          "note": "Using the given Q matrix"
+        },
+        "multiply_QTA": {
+          "calculation": "R = Q^T A = (1/√2)[[1, 1, 0],[0, 0, √2],[-1, 1, 0]] [[1, 1, 0],[1, 1, 1],[0, 1, 1]]",
+          "row1": "(1/√2)([1,1,0]·col₁, [1,1,0]·col₂, [1,1,0]·col₃) = (1/√2)(2, 2, 1) = [√2, √2, 1/√2]",
+          "row2": "(1/√2)([0,0,√2]·col₁, [0,0,√2]·col₂, [0,0,√2]·col₃) = (1/√2)(0, √2, √2) = [0, 1, 1]",
+          "row3": "(1/√2)([-1,1,0]·col₁, [-1,1,0]·col₂, [-1,1,0]·col₃) = (1/√2)(0, 0, 1) = [0, 0, 1/√2]"
+        },
+        "answer": "R = [[√2, √2, 1/√2],[0, 1, 1],[0, 0, 1/√2]]",
+        "verification_upper_triangular": "R has zeros below diagonal, confirming upper-triangular structure ✓",
+        "alternative_computation": "Can also compute R directly: r_ij = ⟨q_i, a_j⟩ for i ≤ j"
+      }
+    },
+    "formulas": [
+      "QR decomposition: A = QR where Q^T Q = I and R upper-triangular",
+      "Gram-Schmidt: v_k = a_k - Σ_{i=1}^{k-1} ⟨a_k, q_i⟩q_i, then q_k = v_k/‖v_k‖",
+      "Computing R: R = Q^T A (when Q is orthogonal)",
+      "R entries: r_ij = ⟨q_i, a_j⟩ for i ≤ j",
+      "Orthogonality check: ⟨q_i, q_j⟩ = δ_ij (Kronecker delta)"
+    ]
+  },
+
+  "fa24_mt2_MT2.5": {
+    "exam": "fa24_mt2",
+    "title": "MT2.5 - Discrete-Time Fourier Series (DTFS)",
+    "topic": "dtfs-dft",
+    "points": 40,
+    "description": "Analyzes properties of DTFS for periodic discrete-time signals, including symmetry properties and applications of Parseval's identity.",
+    "concepts": [
+      "DTFS synthesis and analysis equations",
+      "Odd signal properties: x(-n) = -x(n)",
+      "Conjugate symmetry and purely imaginary coefficients",
+      "Computing DTFS coefficients from signal samples",
+      "Parseval's identity for energy",
+      "Relating DTFS to sinusoidal representation"
+    ],
+    "problem_statement": {
+      "part_a_i": "For odd real-valued p-periodic signal x, show X_{-k} = -X_k",
+      "part_a_ii": "Show X_k are purely imaginary",
+      "part_b": "For signal with period 3: x(-2)=-1, x(-1)=1, x(0)=0, x(1)=-1, x(2)=1, x(3)=0, ...",
+      "part_b_i": "Determine all DTFS coefficients X_k",
+      "part_b_ii": "Express x(n) = α sin(βn), find α and β",
+      "part_b_iii": "Evaluate ⟨X, X⟩"
+    },
+    "solution": {
+      "part_a_i": {
+        "given": "x is real-valued, odd (x(-n) = -x(n)), and p-periodic",
+        "start_with_analysis": "X_k = (1/p) Σ_{n∈ℤ_p} x(n) e^(-ik ω₀ n) where ω₀ = 2π/p",
+        "apply_negative_k": {
+          "formula": "X_{-k} = (1/p) Σ_{n∈ℤ_p} x(n) e^(ik ω₀ n)",
+          "change_variables": "Let m = -n, then n = -m",
+          "substitution": "X_{-k} = (1/p) Σ_{m∈ℤ_p} x(-m) e^(-ik ω₀ m)",
+          "use_oddness": "x(-m) = -x(m)",
+          "result": "X_{-k} = (1/p) Σ_{m∈ℤ_p} (-x(m)) e^(-ik ω₀ m) = -X_k"
+        },
+        "conclusion": "X_{-k} = -X_k, so DTFS coefficients are odd in k"
+      },
+      "part_a_ii": {
+        "goal": "Show X_k = iβ for some real β (purely imaginary)",
+        "use_real_signal": "Since x is real: X_{-k} = X̄_k (conjugate)",
+        "combine_with_part_i": "X_{-k} = -X_k (from part i)",
+        "therefore": "X̄_k = -X_k",
+        "rearrange": "X_k + X̄_k = 0 → 2·Re(X_k) = 0 → Re(X_k) = 0",
+        "conclusion": "X_k has no real part, so X_k = i·Im(X_k) is purely imaginary"
+      },
+      "part_b_i": {
+        "signal_description": {
+          "period": "p = 3",
+          "one_period": "Choose n ∈ {0, 1, 2}: x(0)=0, x(1)=-1, x(2)=1",
+          "fundamental_frequency": "ω₀ = 2π/3"
+        },
+        "compute_X0": {
+          "formula": "X₀ = (1/3) Σ_{n=0}^{2} x(n) e^0 = (1/3)(x(0) + x(1) + x(2))",
+          "calculation": "X₀ = (1/3)(0 + (-1) + 1) = 0"
+        },
+        "compute_X1": {
+          "formula": "X₁ = (1/3) Σ_{n=0}^{2} x(n) e^(-i2πn/3)",
+          "expand": "X₁ = (1/3)[0·e^0 + (-1)e^(-i2π/3) + 1·e^(-i4π/3)]",
+          "euler": "e^(-i2π/3) = cos(-2π/3) + i sin(-2π/3) = -1/2 - i√3/2",
+          "euler2": "e^(-i4π/3) = cos(-4π/3) + i sin(-4π/3) = -1/2 + i√3/2",
+          "calculation": "X₁ = (1/3)[(-1)(-1/2 - i√3/2) + (1)(-1/2 + i√3/2)]",
+          "simplify": "X₁ = (1/3)[1/2 + i√3/2 - 1/2 + i√3/2] = (1/3)(i√3) = i√3/3"
+        },
+        "compute_X2": {
+          "formula": "X₂ = (1/3) Σ_{n=0}^{2} x(n) e^(-i4πn/3)",
+          "expand": "X₂ = (1/3)[0 + (-1)e^(-i4π/3) + 1·e^(-i8π/3)]",
+          "note": "e^(-i8π/3) = e^(-i8π/3 + i2π) = e^(-i2π/3)",
+          "calculation": "X₂ = (1/3)[(-1)(-1/2 + i√3/2) + (1)(-1/2 - i√3/2)]",
+          "simplify": "X₂ = (1/3)[1/2 - i√3/2 - 1/2 - i√3/2] = (1/3)(-i√3) = -i√3/3"
+        },
+        "periodicity": "X_{k+3} = X_k, so: X₃ = X₀ = 0, X₄ = X₁ = i√3/3, etc.",
+        "answer": "X₀ = 0, X₁ = i√3/3, X₂ = -i√3/3 (repeating with period 3)",
+        "verification_odd": "X_{-1} = X₂ = -i√3/3 = -X₁ ✓ (odd property confirmed)"
+      },
+      "part_b_ii": {
+        "synthesis_equation": "x(n) = Σ_{k=0}^{2} X_k e^(ik2πn/3)",
+        "substitute_coefficients": "x(n) = 0·e^0 + (i√3/3)e^(i2πn/3) + (-i√3/3)e^(i4πn/3)",
+        "simplify": "x(n) = (i√3/3)[e^(i2πn/3) - e^(i4πn/3)]",
+        "use_euler": "e^(i2πn/3) - e^(i4πn/3) = [cos(2πn/3) + i sin(2πn/3)] - [cos(4πn/3) + i sin(4πn/3)]",
+        "angle_identity": "cos(4πn/3) = cos(2π - 2πn/3) = cos(2πn/3)",
+        "sine_identity": "sin(4πn/3) = sin(2π - 2πn/3) = -sin(2πn/3)",
+        "subtract": "e^(i2πn/3) - e^(i4πn/3) = 2i sin(2πn/3)",
+        "result": "x(n) = (i√3/3)(2i sin(2πn/3)) = (2i²√3/3) sin(2πn/3) = -(2√3/3) sin(2πn/3)",
+        "final_form": "x(n) = (2√3/3) sin(-2πn/3) = (2√3/3) sin(2πn/3 + π)",
+        "standard_form": "x(n) = (2√3/3) sin(2πn/3)",
+        "answer": "α = 2√3/3, β = 2π/3 (or equivalently α = -2√3/3, β = 2π/3 depending on sign convention)"
+      },
+      "part_b_iii": {
+        "parseval_identity": "⟨X, X⟩ = Σ_k |X_k|² = (1/p) Σ_n |x(n)|²",
+        "method1_coefficients": {
+          "compute": "⟨X, X⟩ = |X₀|² + |X₁|² + |X₂|²",
+          "substitute": "⟨X, X⟩ = |0|² + |i√3/3|² + |-i√3/3|²",
+          "calculate": "⟨X, X⟩ = 0 + (√3/3)² + (√3/3)² = 3/9 + 3/9 = 6/9 = 2/3"
+        },
+        "method2_signal": {
+          "signal_energy": "(1/p) Σ_{n=0}^{2} |x(n)|² = (1/3)(|0|² + |-1|² + |1|²)",
+          "calculate": "(1/3)(0 + 1 + 1) = 2/3"
+        },
+        "answer": "⟨X, X⟩ = 2/3",
+        "verification": "Both methods agree ✓"
+      }
+    },
+    "formulas": [
+      "DTFS synthesis: x(n) = Σ_k X_k e^(ik ω₀ n) where ω₀ = 2π/p",
+      "DTFS analysis: X_k = (1/p) Σ_n x(n) e^(-ik ω₀ n)",
+      "Real signal: X_{-k} = X̄_k (conjugate symmetry)",
+      "Odd signal: x(-n) = -x(n) ⇒ X_{-k} = -X_k",
+      "Parseval: (1/p) Σ_n |x(n)|² = Σ_k |X_k|²",
+      "Euler's formula: e^(iθ) = cos(θ) + i sin(θ)",
+      "Sine from exponentials: sin(θ) = (e^(iθ) - e^(-iθ))/(2i)"
+    ]
+  }
+}

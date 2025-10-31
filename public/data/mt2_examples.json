@@ -1,0 +1,113 @@
+{
+  "sp25_mt2_exam": {
+    "sourceExam": "SP25 MT2",
+    "problems": [
+      {
+        "title": "E2.1 - Sum of Two Periodic Signals",
+        "topic": "complex-exponentials",
+        "snippet": "Analyzes the periodicity of the sum of two periodic discrete-time signals with different fundamental periods. Given \\(x[n]\\) with period \\(p\\) and \\(y[n]\\) with period \\(q\\), find the period of \\(z[n] = x[n] + y[n]\\). Explores how periods combine under addition using LCM concepts.",
+        "exam": "sp25_mt2"
+      },
+      {
+        "title": "E2.2 - Signal Fusion in Self-Driving Cars",
+        "topic": "gram-schmidt-qr",
+        "snippet": "Applies Gram-Schmidt orthogonalization to sensor signals from LiDAR, Radar, and GPS to remove correlation. Given vectors \\(a_1 = [1,1,0]^T\\), \\(a_2 = [-1,1,0]^T\\), \\(a_3 = [1,0,1]^T\\), compute cosine similarities and apply Gram-Schmidt to obtain orthonormal basis \\(\\{q_1, q_2, q_3\\}\\).",
+        "exam": "sp25_mt2"
+      },
+      {
+        "title": "E2.3 - Robot Motion in 2D",
+        "topic": "vectors-matrices",
+        "snippet": "Studies 2D transformations using homogeneous coordinates. Given rotation matrix \\(R(\\pi/2)\\) and translation \\(T(3,2)\\), examines non-commutativity of transformation compositions: \\(TR \\neq RT\\).",
+        "exam": "sp25_mt2"
+      },
+      {
+        "title": "E2.4 - Subspace Properties",
+        "topic": "fundamental-subspaces",
+        "snippet": "Verifies orthonormality and decomposes vectors using orthonormal basis. Given \\(\\phi_1 = [1,1,1]^T/\\sqrt{3}\\), \\(\\phi_2 = [1,0,-1]^T/\\sqrt{2}\\), \\(\\phi_3 = [1,-2,1]^T/\\sqrt{6}\\), prove they form an orthonormal basis and decompose \\(x = [3,4,12]^T\\). Applies Parseval's theorem: \\(||x||^2 = \\sum |X_i|^2\\).",
+        "exam": "sp25_mt2"
+      },
+      {
+        "title": "E2.5 - Discrete-Time Fourier Series",
+        "topic": "dtfs-dft",
+        "snippet": "Computes DTFS coefficients for a periodic signal with period \\(p=4\\). Given \\(x[0]=2, x[1]=-1, x[2]=-1, x[3]=2\\), find all coefficients \\(X_k\\) using \\(X_k = (1/p)\\sum x[n]e^{-jk\\omega_0 n}\\) where \\(\\omega_0 = 2\\pi/p\\). Express as \\(x[n] = \\alpha + \\beta \\cos(\\pi n)\\).",
+        "exam": "sp25_mt2"
+      },
+      {
+        "title": "E2.6 - Matching Null Spaces",
+        "topic": "fundamental-subspaces",
+        "snippet": "Proves the fundamental result \\(N(A) = N(A^T A)\\) by showing both subset inclusions. Uses norm properties and quadratic forms: \\(||Ax||^2 = x^T(A^T A)x\\). Important for understanding least squares and the normal equations \\(A^T Ax = A^T b\\).",
+        "exam": "sp25_mt2"
+      }
+    ]
+  },
+  "fa24_mt2_exam": {
+    "sourceExam": "FA24 MT2",
+    "problems": [
+      {
+        "title": "MT2.1 - Rotation! Rotation! Rotation!",
+        "topic": "eigenanalysis",
+        "snippet": "Studies rotation matrices and their powers. Shows \\(R^{-1} = R^T\\) for rotation matrix, proves \\(R^n = R(n\\theta)\\), and analyzes spiral dynamics \\(z(n) = (1/2)^n R(n\\pi/2) z(0)\\). The system combines rotation with exponential decay, creating an inward spiral to the origin.",
+        "exam": "fa24_mt2"
+      },
+      {
+        "title": "MT2.2 - Triangular Matrices",
+        "topic": "fundamental-subspaces",
+        "snippet": "Explores properties of triangular matrices. Proves upper-triangular \\(U\\) is invertible iff all diagonal entries are nonzero. For \\(A = [[1,0,0],[2,0,0],[3,2,1]]\\), finds bases for all four fundamental subspaces: \\(N(A)\\), \\(C(A)\\), \\(N(A^T)\\), \\(C(A^T)\\).",
+        "exam": "fa24_mt2"
+      },
+      {
+        "title": "MT2.3 - Solving Systems with Singular Matrices",
+        "topic": "fundamental-subspaces",
+        "snippet": "Analyzes \\(Ax = b\\) where \\(A\\) is singular. For \\(A = [[1,-2],[3,-6]]\\), explains why not invertible (\\(\\text{rank}(A) = 1\\)), and determines when solutions exist. Shows \\(b \\in C(A)\\) is necessary for consistency, and general solution has form \\(x = x_p + x_n\\) where \\(x_n \\in N(A)\\).",
+        "exam": "fa24_mt2"
+      },
+      {
+        "title": "MT2.4 - QR Decomposition",
+        "topic": "gram-schmidt-qr",
+        "snippet": "Applies Gram-Schmidt to decompose \\(A = [[1,1,0],[1,1,1],[0,1,1]]\\) into \\(A = QR\\). Verifies orthogonal matrix \\(Q\\) satisfies \\(Q^T Q = I\\), and determines upper-triangular \\(R\\) using \\(R = Q^T A\\).",
+        "exam": "fa24_mt2"
+      },
+      {
+        "title": "MT2.5 - DTFS",
+        "topic": "dtfs-dft",
+        "snippet": "Analyzes DTFS properties for periodic signals. For odd real-valued signal with period \\(p\\), proves \\(X_{-k} = -X_k\\) and \\(X_k\\) are purely imaginary. Computes all DTFS coefficients for signal with period 3, and expresses as sinusoidal form using Euler's formula.",
+        "exam": "fa24_mt2"
+      }
+    ]
+  },
+  "sp24_mt2_exam": {
+    "sourceExam": "SP24 MT2",
+    "problems": [
+      {
+        "title": "MT2.1 - Permutation Matrices",
+        "topic": "vectors-matrices",
+        "snippet": "Studies permutation matrices with exactly one 1 per row and column. Proves \\(P^T P = I\\) (orthogonality). For \\(y = Px\\), shows mean and variance are preserved: \\(\\mu_y = \\mu_x\\) and \\(\\sigma_y^2 = \\sigma_x^2\\). Computes \\(PAP^T\\) for simultaneous row/column permutation.",
+        "exam": "sp24_mt2"
+      },
+      {
+        "title": "MT2.2 - Correlation Coefficient",
+        "topic": "least-squares",
+        "snippet": "Analyzes correlation coefficient \\(\\rho_{xy} = \\langle \\tilde{x}, \\tilde{y} \\rangle / (||\\tilde{x}|| ||\\tilde{y}||)\\) for vectors in \\(\\mathbb{R}^2\\). Proves \\(\\rho_{xy} = \\pm 1\\) always. For affine relationship \\(y = \\beta x + \\gamma 1\\), shows \\(\\rho_{xy} = \\text{sgn}(\\beta)\\). Demonstrates any two such vectors can be expressed as affine functions of each other.",
+        "exam": "sp24_mt2"
+      },
+      {
+        "title": "MT2.3 - Gram-Schmidt Algorithm",
+        "topic": "gram-schmidt-qr",
+        "snippet": "Applies Gram-Schmidt to \\(a_1 = [1,0,0]^T\\), \\(a_2 = [0,1,1]^T\\), \\(a_3 = [1,0,1]^T\\) to obtain orthonormal basis. Uses QR decomposition to solve \\(Ax = b\\) where \\(b = [1, \\sqrt{2}, \\sqrt{2}]^T\\) by computing \\(Rx = Q^T b\\) and back-substitution.",
+        "exam": "sp24_mt2"
+      },
+      {
+        "title": "MT2.4 - Projection Matrices",
+        "topic": "least-squares",
+        "snippet": "Studies projection matrix \\(P = aa^T/(a^T a)\\) that projects onto \\(\\text{span}(a)\\). Proves \\(P^T = P\\) (symmetric) and \\(P^k = P\\) (idempotent). For complementary projection \\(S = I - P\\), shows \\(N(S) = \\text{span}\\{a\\}\\) and \\(\\text{rank}(S) = n-1\\). Demonstrates \\(S\\) projects onto orthogonal complement.",
+        "exam": "sp24_mt2"
+      },
+      {
+        "title": "MT2.5 - Inner Products with Matrices",
+        "topic": "vectors-matrices",
+        "snippet": "Explores conditions for \\(\\langle x, y \\rangle_W = x^T W y\\) to be a valid inner product. Requires symmetry (\\(W = W^T\\)), positive-definiteness (\\(x^T Wx > 0\\) for \\(x \\neq 0\\)), and invertibility. Shows \\(W = [[2,1],[1,2]]\\) is valid by writing \\(x^T Wx = (1/2)(a-b)^2 + (3/2)(a+b)^2 \\geq 0\\).",
+        "exam": "sp24_mt2"
+      }
+    ]
+  }
+}

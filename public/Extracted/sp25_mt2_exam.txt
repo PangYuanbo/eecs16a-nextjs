@@ -1,0 +1,404 @@
+EECS 16A: Foundations of Signals, Dynamical Systems,                 Exam 2
+             and Information Processing                     20 March 2025
+
+Department of Electrical Engineering and Computer Sciences
+
+University of California, Berkeley
+
+FIRST Name:  LAST Name:     SID (All Digits):
+
+· (5 Points) On every page, print legibly your name and ALL digits of your SID. For
+  every page on which you do not write your name and SID, you forfeit a point, up to
+  the maximum 5 points.
+
+· (10 Points) (Pledge of Academic Integrity) Hand-copy, sign, and date the single-
+  line text (which begins with I have read, . . . ) of the Pledge of Academic Integrity on
+  page 3 of this document. Your solutions will not be evaluated without this.
+
+· Urgent Contact with the Teaching Staff: In case of an urgent matter, raise your
+  hand if in-person, or send an email to eecs16a@berkeley.edu if online.
+
+· This document consists of pages numbered 1 through 16. Verify that your copy
+  of the exam is free of anomalies, and contains all of the specified number of pages. If
+  you find a defect in your copy, contact the teaching staff immediately.
+
+· This exam is designed to be completed within 70 minutes. However, you may use up
+  to 80 minutes total--in one sitting--to tackle the exam.
+
+  The exam starts at 8:10 pm California time. Your allotted window begins with respect
+  to this start time. Students who have official accommodations of 1.5× and 2× time
+  windows have 120 and 160 minutes, respectively.
+
+· This exam is closed book. You may not use or access, or cause to be used or
+  accessed, any reference in print or electronic form at any time during the exam, except
+  two double-sided 8.5" × 11" sheets of handwritten, original notes having no appendage.
+
+  Collaboration is not permitted.
+
+  Computing, communication, and other electronic devices (except dedicated timekeep-
+  ers) must be turned off.
+
+  Scratch paper will be provided to you; ask for more if you run out. You may not use
+  your own scratch paper.
+
+· Please write neatly and legibly, because if we can't read it, we can't evaluate it.
+
+· For each problem, limit your work to the space provided specifically for that problem.
+  No other work will be considered. For example, we will not evaluate scratch work. No
+  exceptions.
+
+· Unless explicitly waived by the specific wording of a problem, you must explain your
+  responses (and reasoning) succinctly, but clearly and convincingly.
+
+· In some parts of a problem, we may ask you to establish a certain result--for example,
+  "show this" or "prove that." Even if you're unable to establish the result that we ask
+  of you, you may still take that result for granted--and use it in any subsequent part
+  of the problem.
+
+                         1
+FIRST Name:  LAST Name:     SID (All Digits):
+
+· If we ask you to provide a "reasonably simple expression" for something, by default we
+  expect your expression to be in closed form--one not involving a sum or an integral
+    --unless we explicitly tell you otherwise.
+
+· Noncompliance with these or other instructions from the teaching staff--including,
+  for example, commencing work prematurely, or continuing it beyond the allocated time
+  window--is a serious violation of the Code of Student Conduct.
+
+                         2
+FIRST Name:  LAST Name:  SID (All Digits):
+
+Pledge of Academic Integrity
+
+By my honor, I affirm that
+  (1) this document--which I have produced for the evaluation of my performance--reflects
+       my original, bona fide work, and that I have neither provided to, nor received from,
+       anyone excessive or unreasonable assistance that produces unfair advantage for me or
+       for any of my peers;
+
+  (2) as a member of the UC Berkeley community, I have acted with honesty, integrity,
+       respect for others, and professional responsibility--and in a manner consistent with
+       the letter and intent of the campus Code of Student Conduct;
+
+  (3) I have not violated--nor aided or abetted anyone else to violate--the instructions for
+       this exam given by the course staff, including, but not limited to, those on the cover
+       page of this document; and
+
+  (4) More generally, I have not committed any act that violates--nor aided or abetted
+       anyone else to violate--UC Berkeley, state, or Federal regulations, during this exam.
+
+(10 Points) In the space below, hand-write the following sentence, verbatim. Then write
+your name in legible letters, sign, include your full SID, and date before submitting your work:
+
+I have read, I understand, and I commit to adhere to the letter and spirit of the pledge above.
+
+Full Name:                        Signature:
+Date:                           Student ID:
+
+                         3
+FIRST Name:               LAST Name:                              SID (All Digits):
+
+Potentially Useful Facts That You May Use Without the Need to Prove Them:
+
+    · Angle Between Vectors: The angle  between two nonzero elements x and y in a
+       real vector space satisfies
+
+                 = arccos     x, y       , and          cos  =         x, y    .
+
+                           ||x|| ||y||                            ||x|| ||y||
+
+Whether in a real or complex vector space, if x, y = 0, we say x and y are orthogonal,
+and we denote this by x  y.
+
+· Discrete Fourier Series (DTFS): Complex exponential Fourier series synthesis and
+  analysis equations for a periodic discrete-time signal having period p:
+
+             x[n] =       Xk eik0n                           1         x[n] e-ik0n ,
+                                                     Xk =
+                                                               p
+                     k=p                                          n=p
+
+              2
+where p = and p denotes a suitable discrete interval of length p (i.e., an interval
+
+              0
+
+                                                                            p-1        p
+
+containing p contiguous integers). For example, may denote or .
+
+                                                       k=p                  k=0   k=1
+
+· Parseval's Identity: Consider an orthogonal set of vectors k, k = 1, . . . , n. Suppose
+  k2 = c for all k  {1, . . . , n} and some c > 0. For any vector x  span(1, . . . , n),
+  let
+                                          x = X11 + · · · + Xnn
+
+  for some coefficients X1, . . . , Xn. Then
+
+                     1          1     n           n
+
+                        x, x =           |xm| =2        |Xk| = X, X,2
+
+                     c          c  m=1            k=1
+
+where x = [x1 · · · xn]T and X = [X1 · · · Xn]T.
+
+· Some Trigonometric Values:
+
+                          2              3                        1                       2  1
+
+cos = sin = sin                    =              sin = cos =                     cos     3  =- .
+6            3             3             2           6            32                         2
+
+                                                  3     =0                   3    = -1.
+   sin = 1                 cos = cos                                   sin
+                                    2             2                          2
+         2
+
+· Some Perfect Squares:                     142 = 196,  172 = 289,          182 = 324,       192 = 361.
+  112 = 121, 122 = 144, 132 = 169,
+
+                                            4
+FIRST Name:  LAST Name:     SID (All Digits):
+
+E2.1 (35 Points) Sum of Two Periodic Signals
+
+Consider a discrete-time signal z : Z  R such that
+                                       n  Z, z[n] = x[n] + y[n].
+
+The periodic signal x : Z  R has fundamental period p, and the signal y : Z  R has
+fundamental period q, where p, q  {1, 2, 3, . . .}. That is,
+
+                              x[n + p] = x[n] n  Z, p  {1, 2, 3, . . .},
+
+and
+                              y[n + q] = y[n] n  Z, q  {1, 2, 3, . . .}.
+
+  (a) (10 Points) Suppose p and q are coprime--that is, they have no common positive divi-
+       sor other than 1. Show that the signal z is guaranteed to be periodic by determining
+       a positive integer r, in terms of p and q, such that z[n + r] = z[n] for all integers n.
+
+(b) (10 Points) Suppose p and q are both even positive integers, such that p = 2k and
+     q = 2, where k and  are coprime. Determine, in terms k, and , the smallest positive
+     integer r such that the signal z is guaranteed to be periodic--that is, z[n + r] = z[n]
+     for all integers n.
+
+                         5
+FIRST Name:       LAST Name:                                  SID (All Digits):
+
+E2.1 (Continued)
+
+                                          3   and y[n] = sin  3
+(c) (15 Points) Let x[n] = cos n                              5 n , n  Z. The fundamental
+
+                                           4
+     period of x is p = 8 samples.
+
+(i) (5 Points) Determine q, the fundamental period of the signal y.
+
+(ii) (10 Points) Show that the signal z defined by
+
+                                                 3            3
+                  z[n] = x[n] + y[n] = cos n + sin n ,           n  Z
+                                                 4            5
+
+is periodic. As part of your work, you must determine the fundamental period r
+of the signal z.
+
+                                              6
+FIRST Name:  LAST Name:                              SID (All Digits):
+
+E2.2 (30 Points) Signal Fusion in Self-Driving Cars
+
+A self-driving car receives the following types of sensor signals from its environment:
+
+1. LiDAR, which stands for Light Detection and Ranging, is a remote-sensing method
+    that uses pulsed laser to detect and measure distances to surrounding objects--in short,
+    to create a 3D map of the environment.
+
+2. Radar, which stands for Radio Detection and Ranging, uses radio waves to measure
+    the positions, distances, velocities, and trajectories of surrounding objects.
+
+3. GPS, which stands for Global Positioning System, uses satellite signals to geolocate
+    the vehicle.
+
+The following vectors in R3 represent these sensor signals, respectively:
+
+             1 -1 1
+
+             a1 = 1 , a2 =  1 , and a3 = 0 .
+
+             0           0                           1
+
+The sensor signals contain overlapping information, which leads to interference and process-
+ing inefficiencies. To improve signal discrimination, your task is to curate these vectors using
+Gram-Schmidt Orthogonalization.
+
+  (a) (15 Points) Measure of Data Overlap or Similarity: Angles Between Sensor
+       Signals For each pair of vectors ai and aj, (i = j), compute cos(ij), where
+
+                                                  cos ij = ai, aj .
+                                                              ai aj 
+
+       Which signal pairs have largest positive or negative overlap? Which the least?
+
+                         7
+FIRST Name:  LAST Name:     SID (All Digits):
+
+E2.2 (Continued)
+
+ (b) (15 Points) Orthogonalization of the Sensor Signals
+       Apply the Gram-Schmidt Orthogonalization process to obtain orthonormal vectors q1,
+       q2, and q3.
+
+                         8
+FIRST Name:  LAST Name:                         SID (All Digits):
+
+E2.3 (25 Points) Robot Motion in 2D
+
+A robot moves in the 2D xy-plane. Its state at any moment is represented as a vector in
+                            x
+
+s  R3--namely, s = y , for some x, y  R, where the third coordinate is called a homo-
+                              1
+
+geneous coordinate to accommodate matrix transformations. Homogeneous coordinates
+are widely used in Computer Graphics, but you need not know anything about them to
+solve this problem. Simply treat the state vector s as a 3D vector, even though the robot's
+movements are restricted to the xy-plane.
+
+                                            2
+The robot starts at position: p = 1, and can undergo two types of transformations:
+
+                                              1
+    · Rotation by Angle  =  Counterclockwise around the origin (as though you're
+
+                                          2
+       looking down from the z-axis at the xy-plane):
+
+             cos 2 - sin 2 0 x 0 -1 0 x -y
+
+             Rs =  sin 2         cos            0 0 y =  x .
+                              0        0 y = 1
+                                 2
+                                       01 1 0   01 1     1
+
+· Translation by (tx, ty) = (3, 2), meaning a shift of 3 units in the positive x-direction
+  and 2 units in the positive y-direction:
+
+                                 1 0 3 x x + 3
+
+                                 Ts = 0 1 2 y = y + 2 .
+
+                                 001 1          1
+
+Important Note: The translation is applied in the global coordinate frame--not relative to
+
+the robot's orientation. That is, no matter which way the robot faces, a translation of (3, 2)
+
+always moves it 3 units in the positive x-direction and 2 units in the positive y-direction.
+
+(a) (10 Points) Compute the robot's final position vector y  R3 (i.e, including the homo-
+                                                                
+
+     geneous coordinate) if it first rotates by  = counterclockwise and then translates
+                                                                2
+
+     by (tx, ty) = (3, 2). You may continue your work at the top of next page.
+
+                                       9
+       FIRST Name:    LAST Name:  SID (All Digits):
+E2.3 (a) (Continued)
+
+(b) (10 Points) Compute the robot's final position vector z  R3 (i.e, including the homo-
+                                                                                                                  
+
+     geneous coordinate) if it first translates by (tx, ty) = (3, 2) and then rotates by  = 2
+     counterclockwise.
+
+(c) (5 Points) Explain whether--and, if so, why--the order of the transformations (rotation
+     followed by translation, or vice versa) matters.
+
+                                                       10
+FIRST Name:                LAST Name:              SID (All Digits):
+
+E2.4 (35 Points) Orthonormal-Basis Decomposition)
+
+Consider the vectors
+
+         1            1 -1                                      1
+1 =                                 1                       1
+                      1 ,  2 =           0 ,  and  3 =         -2 .
+
+             31                      21                      61
+
+(a) (15 Points) Show that the set {1, 2, 3} forms an orthonormal basis for R3.
+
+                                         11
+FIRST Name:  LAST Name:  SID (All Digits):
+
+E2.4 (Continued)
+
+                                                        3
+ (b) (15 Points) Consider the vector x =  4.
+
+                                                         12
+       Determine the coefficients X1, X2, and X3 in the expansion x = X11 + X22 + X33.
+
+                                                                                               
+                                                                                                 X1
+
+(c) (5 Points) Determine X, the 2-norm of the coefficient vector X = X2.
+                                                                                                 X3
+
+     Note: You may compute X even if you're unsure of your values for X1, X2, and X3.
+
+                                                       12
+FIRST Name:  LAST Name:                                  SID (All Digits):
+
+E2.5 (35 Points) Discrete-Time Fourier Series (DTFS)
+Consider the discrete-time periodic signal shown below.
+
+                                      (2)                   x[n]
+                                                         ···
+             ···
+
+             -5 -3 -1 1                           3  5
+
+             -6 -4 -2 0 2 4 6 n
+
+                               (-1) (-1)
+
+The signal has fundamental period p = 4 samples.
+
+(a) (20 Points) Determine all the DTFS coefficients Xk, where k  p = 4, for the
+     signal x. Here, p denotes a set of p contiguous integers, such as {0, 1, . . . , p - 1}, or
+     {-1, 0, 1, . . . , p - 2}, or {1, 2, . . . , p}, etc.
+
+                                           13
+FIRST Name:  LAST Name:      SID (All Digits):
+
+E2.5 (Continued)
+
+ (b) (15 Points) Show that the signal x can be expressed as x[n] = n + cos (n) for all
+       integers n, and for some parameters  and .
+       Determine  and  numerically. Your answers must be in the simplest form possible,
+       but not expressed as decimals.
+
+                         14
+FIRST Name:  LAST Name:                                  SID (All Digits):
+
+E2.6 (25 Points) Matching Null Spaces
+Consider a matrix A  Rm×n. Prove that N (A) = N (AT A).
+To prove this result, you must establish two things:
+
+(a) (10 Points) Show that N (A)  N (AT A). That is, for any vector x  Rn, if x  N (A),
+     then x  N (AT A).
+
+(b) (15 Points) Show that N (AT A)  N (A). That is, for any vector x  Rn, if x 
+     N (AT A), then x  N (A). It may help you to recall that, based on a one of the
+     properties of a norm, Ax2 = 0 if, and only if, Ax = 0.
+
+                         15

@@ -1,0 +1,41 @@
+{
+  "fa24_mt3_MT3.1": {
+    "exam": "fa24_mt3",
+    "title": "MT3.1 - Hide and Seek",
+    "topic": "eigenanalysis",
+    "points": 30,
+    "description": "Change of basis and eigenvalue decomposition problems involving coordinate transformations.",
+    "concepts": ["Change of basis matrix", "Eigenvalues and eigenvectors", "Coordinate transformation"],
+    "key_formulas": ["x = Cz (change of basis)", "Tv_i = λ_i v_i (eigendecomposition)", "T = VΛV^(-1)"]
+  },
+
+  "fa24_mt3_MT3.2": {
+    "exam": "fa24_mt3",
+    "title": "MT3.2 - Ridge Regression",
+    "topic": "least-squares",
+    "points": 45,
+    "description": "Least squares and ridge regression with L2 regularization, analyzing invertibility with regularization.",
+    "concepts": ["Least squares: x̂ = (A^T A)^(-1) A^T b", "Ridge regression: x̂ = (A^T A + ηI)^(-1) A^T b", "L2 regularization", "Eigenvalues and invertibility"],
+    "key_formulas": ["Ridge: min ||Ax-b||^2 + ||ηx||^2", "Eigenvalues of A^T A + ηI: λ_i + η", "All eigenvalues > 0 ⇒ invertible"]
+  },
+
+  "fa24_mt3_MT3.3": {
+    "exam": "fa24_mt3",
+    "title": "MT3.3 - Robot Grasping with PCA",
+    "topic": "eigenanalysis",
+    "points": 45,
+    "description": "PCA for object pose estimation and motion planning using state-space models and SVD.",
+    "concepts": ["PCA for pose estimation", "Maximum variance direction", "State-space model: x[i+1] = Bx[i] + cu[i]", "SVD for least-norm solution"],
+    "key_formulas": ["Center: (x̄, ȳ) = mean of data", "PCA: major axis is first principal component", "Minimum norm: u* = V Σ^(-1) U^T x*"]
+  },
+
+  "fa24_mt3_MT3.4": {
+    "exam": "fa24_mt3",
+    "title": "MT3.4 - Solving the Damped Harmonic Oscillator",
+    "topic": "state-space",
+    "points": 45,
+    "description": "Continuous-time state-space modeling of damped harmonic oscillator, eigenanalysis for stability.",
+    "concepts": ["Differential equations", "State-space: dx/dt = Ax", "Eigenvalues for stability", "Solution: x(t) = e^(At) x(0)", "Forced response"],
+    "key_formulas": ["ÿ = -cẏ - ky", "State: x = [y, ẏ]^T", "Stability: Re(λ) < 0", "Solution: x(t) = VΛV^(-1) using e^(λt)"]
+  }
+}

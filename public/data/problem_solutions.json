@@ -1,0 +1,79 @@
+{
+  "sp25_mt2_E2.1": {
+    "title": "E2.1 - Sum of Two Periodic Signals",
+    "topic": "complex-exponentials",
+    "points": 35,
+    "description": "两个周期信号的和，研究周期性、最小公倍数",
+    "keyPoints": [
+      "(a) 互质时：r = p·q (最小公倍数)",
+      "(b) 偶数时：r = 2·lcm(k,ℓ) = 2kℓ",
+      "(c) cos(3π/4·n)周期8，sin(3π/5·n)周期10，和的周期40"
+    ],
+    "solution": "利用周期定义 z[n+r]=z[n]，结合x,y各自周期性。关键是找最小公倍数lcm(p,q)。"
+  },
+
+  "sp25_mt2_E2.2": {
+    "title": "E2.2 - Signal Fusion in Self-Driving Cars",
+    "topic": "gram-schmidt-qr",
+    "points": 30,
+    "description": "传感器信号的Gram-Schmidt正交化",
+    "keyPoints": [
+      "(a) 计算 cos θ = <ai,aj>/(||ai||||aj||)",
+      "(b) GS步骤：q1=a1/||a1||, v2=a2-<a2,q1>q1, q2=v2/||v2||",
+      "最终得到正交单位向量组 {q1,q2,q3}"
+    ],
+    "solution": "Gram-Schmidt过程：依次将每个向量减去在前面向量上的投影，然后单位化。"
+  },
+
+  "sp25_mt2_E2.3": {
+    "title": "E2.3 - Robot Motion in 2D",
+    "topic": "vectors-matrices",
+    "points": 25,
+    "description": "2D机器人运动，齐次坐标变换",
+    "keyPoints": [
+      "旋转矩阵 R(90°) 和平移矩阵 T(3,2)",
+      "组合变换：TR ≠ RT (不满足交换律)",
+      "求逆变换矩阵"
+    ],
+    "solution": "齐次坐标允许用矩阵乘法表示旋转和平移。注意变换顺序很重要。"
+  },
+
+  "sp25_mt2_E2.4": {
+    "title": "E2.4 - Subspace Properties",
+    "topic": "fundamental-subspaces",
+    "points": 20,
+    "description": "子空间性质和维数",
+    "keyPoints": [
+      "列空间 C(A) 的维数",
+      "零空间 N(A) 的维数",
+      "秩-零度定理：rank(A) + nullity(A) = n"
+    ],
+    "solution": "利用基本子空间的定义和维数关系。"
+  },
+
+  "sp25_mt2_E2.5": {
+    "title": "E2.5 - Discrete-Time Fourier Series (DTFS)",
+    "topic": "dtfs-dft",
+    "points": 25,
+    "description": "DTFS分析和合成",
+    "keyPoints": [
+      "分析公式：Xk = (1/N)Σ x[n]e^(-j2πkn/N)",
+      "合成公式：x[n] = Σ Xk e^(j2πkn/N)",
+      "Parseval定理：能量守恒"
+    ],
+    "solution": "使用DTFS公式计算傅里叶系数，注意周期性和对称性。"
+  },
+
+  "sp25_mt2_E2.6": {
+    "title": "E2.6 - Matching Null Spaces",
+    "topic": "fundamental-subspaces",
+    "points": 15,
+    "description": "零空间匹配问题",
+    "keyPoints": [
+      "零空间的定义：N(A) = {x : Ax = 0}",
+      "通过求解齐次方程组确定零空间",
+      "维数关系和基的选择"
+    ],
+    "solution": "求解Ax=0得到零空间的基，比较不同矩阵的零空间。"
+  }
+}

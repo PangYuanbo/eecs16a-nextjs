@@ -1,0 +1,210 @@
+{
+  "sp25_mt2_E2.1": {
+    "title": "E2.1 - Sum of Two Periodic Signals",
+    "answer": "**Part (a):** If \\(p\\) and \\(q\\) are coprime (\\(\\gcd(p,q)=1\\)), then \\(r = pq\\)\n\n**Part (b):** \\(p = 2k\\), \\(q = 2\\ell\\), \\(\\gcd(k,\\ell)=1 \\rightarrow r = \\text{lcm}(2k,2\\ell) = 2k\\ell\\)\n\n**Part (c):** \n• \\(\\cos(3\\pi/4\\cdot n)\\) has period 8\n• \\(\\sin(3\\pi/5\\cdot n)\\): \\(3\\pi/5\\cdot q = 2\\pi m \\rightarrow q = 10m/3 \\rightarrow\\) smallest \\(q = 10\\)\n• \\(r = \\text{lcm}(8,10) = 40\\)"
+  },
+  "sp25_mt2_E2.2": {
+    "title": "E2.2 - Signal Fusion in Self-Driving Cars",
+    "answer": "**Part (a):**\n• \\(\\langle a_1,a_2\\rangle = (1)(-1) + (1)(1) + 0 = 0 \\rightarrow \\cos \\theta_{12} = 0\\) (orthogonal)\n• \\(\\langle a_1,a_3\\rangle = 1\\), \\(\\|a_1\\|=\\|a_3\\|=\\sqrt{2} \\rightarrow \\cos \\theta_{13} = 1/2\\)\n• \\(\\langle a_2,a_3\\rangle = -1 \\rightarrow \\cos \\theta_{23} = -1/2\\)\n\n**Part (b):** Gram-Schmidt:\n• \\(q_1 = a_1/\\sqrt{2} = [1/\\sqrt{2}, 1/\\sqrt{2}, 0]^T\\)\n• \\(v_2 = a_2 - \\langle a_2,q_1\\rangle q_1 = [-1,1,0]^T \\rightarrow q_2 = [-1/\\sqrt{2}, 1/\\sqrt{2}, 0]^T\\)\n• \\(v_3 = a_3 - \\langle a_3,q_1\\rangle q_1 - \\langle a_3,q_2\\rangle q_2 = [0,0,1]^T \\rightarrow q_3 = [0,0,1]^T\\)"
+  },
+  "sp25_mt2_E2.3": {
+    "title": "E2.3 - Robot Motion in 2D",
+    "answer": "**Part (a):** Rotation then translation (TR):\n• \\(Rp = \\begin{bmatrix}0 & -1\\\\1 & 0\\end{bmatrix}\\begin{bmatrix}2\\\\1\\end{bmatrix} = \\begin{bmatrix}-1\\\\2\\end{bmatrix}\\)\n• \\(T(Rp) = \\begin{bmatrix}-1\\\\2\\end{bmatrix} + \\begin{bmatrix}3\\\\2\\end{bmatrix} = \\begin{bmatrix}2\\\\4\\end{bmatrix}\\)\n\n**Part (b):** Translation then rotation (RT):\n• \\(Tp = \\begin{bmatrix}2\\\\1\\end{bmatrix} + \\begin{bmatrix}3\\\\2\\end{bmatrix} = \\begin{bmatrix}5\\\\3\\end{bmatrix}\\)\n• \\(R(Tp) = \\begin{bmatrix}0 & -1\\\\1 & 0\\end{bmatrix}\\begin{bmatrix}5\\\\3\\end{bmatrix} = \\begin{bmatrix}-3\\\\5\\end{bmatrix}\\)\n\n**Part (c):** \\(TR \\neq RT\\) because matrix multiplication is not commutative"
+  },
+  "sp25_mt2_E2.4": {
+    "title": "E2.4 - Subspace Properties",
+    "answer": "**Part (a):** Verify orthonormality:\n• \\(\\|\\phi_i\\|^2 = 1\\) for all \\(i\\) ✓\n• \\(\\langle\\phi_1,\\phi_2\\rangle = \\langle\\phi_1,\\phi_3\\rangle = \\langle\\phi_2,\\phi_3\\rangle = 0\\) ✓\n\n**Part (b):** Decompose \\(x = [3,4,12]^T\\):\n• \\(X_1 = \\langle x,\\phi_1\\rangle = (3+4+12)/\\sqrt{3} = 19/\\sqrt{3}\\)\n• \\(X_2 = \\langle x,\\phi_2\\rangle = (3-12)/\\sqrt{2} = -9/\\sqrt{2}\\)\n• \\(X_3 = \\langle x,\\phi_3\\rangle = (3-8+12)/\\sqrt{6} = 7/\\sqrt{6}\\)\n\n**Part (c):** By Parseval's theorem: \\(\\|X\\|_2 = \\|x\\|_2 = \\sqrt{9+16+144} = 13\\)"
+  },
+  "sp25_mt2_E2.5": {
+    "title": "E2.5 - Discrete-Time Fourier Series",
+    "answer": "**Part (a):** Period \\(p=4\\), \\(\\omega_0=\\pi/2\\):\n• \\(X_0 = \\frac{1}{4}(2-1-1+2) = \\frac{1}{2}\\)\n• \\(X_1 = \\frac{1}{4}\\sum x[n]e^{-j\\pi n/2} = \\frac{i\\sqrt{3}}{3}\\)\n• \\(X_2 = \\frac{1}{4}\\sum x[n]e^{-j\\pi n} = 0\\)\n• \\(X_3 = X_1^* = \\frac{-i\\sqrt{3}}{3}\\)\n\n**Part (b):** \\(x[n] = X_0 + X_1e^{j\\pi n/2} + X_3e^{j3\\pi n/2} = \\frac{1}{2} + \\frac{2\\sqrt{3}}{3}\\sin(\\pi n/2)\\)\n\\(\\alpha = \\frac{1}{2}\\), \\(\\beta\\) varies depending on form"
+  },
+  "sp25_mt2_E2.6": {
+    "title": "E2.6 - Matching Null Spaces",
+    "answer": "**Part (a):** \\(N(A) \\subseteq N(A^TA)\\):\n• \\(x \\in N(A) \\rightarrow Ax = 0\\)\n• \\(A^TAx = A^T(Ax) = A^T0 = 0 \\rightarrow x \\in N(A^TA)\\) ✓\n\n**Part (b):** \\(N(A^TA) \\subseteq N(A)\\):\n• \\(x \\in N(A^TA) \\rightarrow A^TAx = 0\\)\n• \\(x^T(A^TA)x = 0 \\rightarrow \\|Ax\\|^2 = 0\\)\n• \\(\\|Ax\\| = 0 \\rightarrow Ax = 0 \\rightarrow x \\in N(A)\\) ✓"
+  },
+  "fa24_mt2_MT2.1": {
+    "title": "MT2.1 - Rotation! Rotation! Rotation!",
+    "answer": "**Part (a):** \\(R^{-1} = R^T = \\begin{bmatrix}\\cos \\theta & \\sin \\theta\\\\-\\sin \\theta & \\cos \\theta\\end{bmatrix} = R(-\\theta)\\)\n\n**Part (b):** \\(G_R = R^TR = I\\) (orthogonal matrix)\n\n**Part (c):** \\(R^n = \\begin{bmatrix}\\cos(n\\theta) & -\\sin(n\\theta)\\\\\\sin(n\\theta) & \\cos(n\\theta)\\end{bmatrix}\\)\n\n**Part (d):** \\(z(n) = (1/2)^nR(n\\pi/2)z(0)\\)\n• Spirals inward with decay factor 1/2\n• \\(\\lim_{n\\to\\infty} z(n) = \\begin{bmatrix}0\\\\0\\end{bmatrix}\\)"
+  },
+  "fa24_mt2_MT2.2": {
+    "title": "MT2.2 - Triangular Matrices",
+    "answer": "**Part (a):** Proof using transpose:\n• \\(L\\) lower-triangular invertible \\(\\iff\\) diagonal \\(\\neq 0\\)\n• For \\(U\\): consider \\(L = U^T \\rightarrow U\\) invertible \\(\\iff\\) diagonal \\(\\neq 0\\) ✓\n\n**Part (b):** \\(A = \\begin{bmatrix}1&0&0\\\\2&0&0\\\\3&2&1\\end{bmatrix}\\):\n• \\(N(A) = \\text{span}\\{[0,1,-2]^T\\}\\)\n• \\(C(A) = \\text{span}\\{[1,2,3]^T, [0,0,1]^T\\}\\)\n• \\(N(A^T) = \\text{span}\\{[-2,1,0]^T\\}\\)\n• \\(C(A^T) = \\text{span}\\{[1,0,0]^T, [3,2,1]^T\\}\\)\n\n**Part (c):** \\(B = \\begin{bmatrix}1&0&0\\\\-2/3&1/3&0\\\\-1/9&-5/18&1/6\\end{bmatrix}\\)"
+  },
+  "fa24_mt2_MT2.3": {
+    "title": "MT2.3 - Solving Systems with Singular Matrices",
+    "answer": "**Part (a):** \\(A = \\begin{bmatrix}1&-2\\\\3&-6\\end{bmatrix}\\) not invertible:\n• \\(\\text{rank}(A) = 1 < 2\\)\n• \\(\\det(A) = -6+6 = 0\\)\n\n**Part (b):** \\(b = [1,12]^T \\rightarrow\\) No solution\n• \\(C(A) = \\text{span}\\{[1,3]^T\\}\\)\n• \\([1,12]^T \\neq \\alpha[1,3]^T\\) for any \\(\\alpha\\)\n\n**Part (c):** \\(b = [2,6]^T \\rightarrow\\) Infinite solutions\n• \\(b = 2[1,3]^T \\in C(A)\\) ✓\n• \\(x_p = [2,0]^T\\)\n• \\(N(A) = \\text{span}\\{[2,1]^T\\}\\)\n• \\(x = [2,0]^T + t[2,1]^T\\) for all \\(t \\in \\mathbb{R}\\)"
+  },
+  "fa24_mt2_MT2.4": {
+    "title": "MT2.4 - QR Decomposition",
+    "answer": "**Part (a):** Gram-Schmidt on \\(A = \\begin{bmatrix}1&1&0\\\\1&1&1\\\\0&1&1\\end{bmatrix}\\):\n• \\(q_1 = [1,1,0]^T/\\sqrt{2}\\)\n• \\(q_2 = [0,0,1]^T\\) (after orthogonalization)\n• \\(q_3 = [-1,1,0]^T/\\sqrt{2}\\)\n\n**Part (b):** \\(R = Q^TA\\):\n• \\(r_{11} = \\sqrt{2}\\), \\(r_{12} = \\sqrt{2}\\), \\(r_{13} = 1/\\sqrt{2}\\)\n• \\(r_{22} = 1\\), \\(r_{23} = 1\\)\n• \\(r_{33} = 1/\\sqrt{2}\\)"
+  },
+  "fa24_mt2_MT2.5": {
+    "title": "MT2.5 - DTFS",
+    "answer": "**Part (a)(i):** For odd real signal:\n• \\(X_{-k} = \\frac{1}{p}\\sum x(-n)e^{ik\\omega_0 n} = -X_k\\) ✓\n\n**Part (a)(ii):** For real signal \\(X_{-k} = \\bar{X}_k\\), combined with \\(X_{-k} = -X_k\\):\n• \\(\\bar{X}_k = -X_k \\rightarrow \\text{Re}(X_k) = 0 \\rightarrow X_k\\) purely imaginary ✓\n\n**Part (b)(i):** Period 3, \\(\\omega_0=2\\pi/3\\):\n• \\(X_0 = 0\\), \\(X_1 = i\\sqrt{3}/3\\), \\(X_2 = -i\\sqrt{3}/3\\)\n\n**Part (b)(ii):** \\(x[n] = \\frac{2\\sqrt{3}}{3}\\sin(2\\pi n/3)\\)\n\\(\\alpha = \\frac{2\\sqrt{3}}{3}\\), \\(\\beta = \\frac{2\\pi}{3}\\)\n\n**Part (b)(iii):** \\(\\langle X,X\\rangle = |X_1|^2 + |X_2|^2 = \\frac{1}{3} + \\frac{1}{3} = \\frac{2}{3}\\)"
+  },
+  "sp24_mt2_MT2.1": {
+    "title": "MT2.1 - Permutation Matrices",
+    "answer": "**Part (a):** \\(P^TP = I\\) because:\n• Diagonal: \\((P^TP)_{ii} = 1\\) (same position has 1)\n• Off-diagonal: \\((P^TP)_{ij} = 0\\) (different positions)\n\n**Part (b):** \\(PAP^T = \\begin{bmatrix}0&0&a\\\\b&c&0\\\\d&e&0\\end{bmatrix}\\)\n\n**Part (c)(i):** \\(\\mu_y = \\frac{1}{n}1^TPx = \\frac{1}{n}(P^T1)^Tx = \\mu_x\\) (since \\(P^T1=1\\))\n\n**Part (c)(ii):** \\(\\sigma_y^2 = \\|Px\\|^2/n - \\mu_x^2 = \\|x\\|^2/n - \\mu_x^2 = \\sigma_x^2\\) (\\(P\\) orthogonal)\n\n**Part (c)(iii):** \\(\\sigma_{xy} = \\frac{1}{n}x^TPx - \\mu_x^2\\)"
+  },
+  "sp24_mt2_MT2.2": {
+    "title": "MT2.2 - Correlation Coefficient",
+    "answer": "**Part (a):** In \\(\\mathbb{R}^2\\), any two vectors are parallel:\n• \\(\\tilde{x} = \\frac{x_1-x_2}{2}[1,-1]^T\\)\n• \\(\\tilde{y} = \\frac{y_1-y_2}{2}[1,-1]^T\\)\n• \\(\\rho_{xy} = \\pm 1\\) depending on signs\n\n**Part (b)(i):** \\(\\beta \\neq 0\\) because \\(y_1 \\neq y_2\\)\n\n**Part (b)(ii):** \\(\\gamma = \\mu_y - \\beta\\mu_x\\) (take mean of both sides)\n\n**Part (b)(iii):** \\(\\tilde{y} = \\beta\\tilde{x} \\rightarrow \\rho_{xy} = \\beta/|\\beta| = \\text{sgn}(\\beta)\\)\n\n**Part (c):** True. Any \\(x,y\\) in \\(\\mathbb{R}^2\\) with distinct components can be written as affine functions of each other"
+  },
+  "sp24_mt2_MT2.3": {
+    "title": "MT2.3 - Gram-Schmidt Algorithm",
+    "answer": "**Part (a):**\n• \\(q_1 = [1,0,0]^T\\)\n• \\(q_2 = [0,1,1]^T/\\sqrt{2} = [0,1/\\sqrt{2},1/\\sqrt{2}]^T\\)\n• \\(q_3 = [0,-1,1]^T/\\sqrt{2} = [0,-1/\\sqrt{2},1/\\sqrt{2}]^T\\)\n\n**Part (b):** Solve \\(Rx = Q^Tb\\):\n• \\(Q^Tb = [1,2,0]^T\\)\n• \\(R = \\begin{bmatrix}1&0&1\\\\0&\\sqrt{2}&1/\\sqrt{2}\\\\0&0&1/\\sqrt{2}\\end{bmatrix}\\)\n• Back-substitution: \\(x_3=0\\), \\(x_2=\\sqrt{2}\\), \\(x_1=1\\)\n• \\(x = [1,\\sqrt{2},0]^T\\)"
+  },
+  "sp24_mt2_MT2.4": {
+    "title": "MT2.4 - Projection Matrices",
+    "answer": "**Part (a):** \\(P = \\frac{aa^T}{a^Ta}\\) from orthogonality condition \\(\\langle a,b-\\hat{b}\\rangle=0\\)\n\n**Part (b):** \\(\\text{rank}(P) = 1\\) (column space is \\(\\text{span}\\{a\\}\\))\n\n**Part (c)(i):** \\(P^T = \\frac{(aa^T)^T}{a^Ta} = \\frac{aa^T}{a^Ta} = P\\) ✓\n\n**Part (c)(ii):** \\(P^2 = P\\) (idempotent), projecting twice = projecting once\n\n**Part (d):** \\(Py = 0 \\rightarrow \\frac{a(a^Ty)}{a^Ta} = 0 \\rightarrow a^Ty = 0 \\rightarrow \\langle a,y\\rangle = 0\\)\n\n**Part (e)(i):** \\(S^k = S\\) for all \\(k\\geq 1\\)\n\n**Part (e)(ii):** If \\(Py=0\\) then \\(Sy = (I-P)y = y\\)\n\n**Part (e)(iii):** \\(N(S) = \\text{span}\\{a\\}\\) (\\(Sa = a-Pa = 0\\))\n\n**Part (e)(iv):** \\(\\text{rank}(S) = n-1\\)"
+  },
+  "sp24_mt2_MT2.5": {
+    "title": "MT2.5 - Inner Products with Matrices",
+    "answer": "**Part (a):** \\(W = I\\)\n\n**Part (b):** \\(W = \\begin{bmatrix}0&3\\\\1&0\\end{bmatrix}\\) not inner product:\n• Not symmetric: \\(W^T \\neq W\\)\n• Counter: \\(\\langle[1,-1]^T,[1,-1]^T\\rangle_W = -4 < 0\\)\n\n**Part (c):** \\(W = \\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}\\) is inner product:\n• Symmetric ✓\n• \\(x^TWx = 2a^2+2ab+2b^2 = (a-b)^2/2 + 3(a+b)^2/2 \\geq 0\\) ✓\n• \\(=0\\) only if \\(a=b=0\\) ✓\n\n**Part (d):** If \\(w_{11}=0\\), choose \\(x=e_1\\):\n• \\(\\langle e_1,e_1\\rangle_W = w_{11} = 0\\) but \\(e_1\\neq 0\\) (violates property 4)\n\n**Part (e):** If \\(W\\) not invertible, \\(\\exists v\\neq 0: Wv=0\\)\n• \\(\\langle v,v\\rangle_W = v^TWv = 0\\) but \\(v\\neq 0\\) (violates property 4)"
+  },
+  "sp25_mt3_E3.1": {
+    "title": "E3.1 - Special QR Decomposition in 2D",
+    "answer": "For \\(A = \\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}\\):\n• First column: \\(q_1 = [a,c]^T/\\sqrt{a^2+c^2}\\)\n• Orthogonal to \\(q_1\\): \\(q_2 = [-c,a]^T/\\sqrt{a^2+c^2}\\)\n• \\(Q = \\frac{1}{\\sqrt{a^2+c^2}}\\begin{bmatrix}a&-c\\\\c&a\\end{bmatrix}\\)\n• \\(R = Q^TA\\) (upper triangular)"
+  },
+  "sp25_mt3_E3.2": {
+    "title": "E3.2 - Linear Regression",
+    "answer": "Data: \\(D = \\begin{bmatrix}3&-4&7&1&-4&-3\\\\7&-6&8&-1&-1&-7\\end{bmatrix}\\)\n• \\(a = [3,-4,7,1,-4,-3]^T\\)\n• \\(b = [7,-6,8,-1,-1,-7]^T\\)\n• \\(a^Ta = 9+16+49+1+16+9 = 100\\)\n• \\(a^Tb = 21+24+56-1+4+21 = 125\\)\n• \\(\\hat{m} = \\frac{a^Tb}{a^Ta} = \\frac{125}{100} = 1.25\\)"
+  },
+  "sp25_mt3_E3.3": {
+    "title": "E3.3 - The Golden State Space",
+    "answer": "\\(A = \\begin{bmatrix}1&1\\\\1&0\\end{bmatrix}\\), \\(q[0] = [0,1]^T\\)\n• Eigenvalues: \\(\\phi = \\frac{1+\\sqrt{5}}{2}\\), \\(\\hat{\\phi} = \\frac{1-\\sqrt{5}}{2}\\)\n• Properties: \\(\\phi\\hat{\\phi} = -1\\), \\(\\phi+\\hat{\\phi} = 1\\), \\(\\phi-\\hat{\\phi} = \\sqrt{5}\\)\n• Eigenvectors: \\(v_1 = [\\phi,1]^T\\), \\(v_2 = [\\hat{\\phi},1]^T\\)\n• Binet's formula: \\(y[n] = \\frac{\\phi^{n+1} - \\hat{\\phi}^{n+1}}{\\sqrt{5}}\\)\n• \\(\\lim_{n\\to\\infty} \\frac{y[n+1]}{y[n]} = \\phi\\)"
+  },
+  "sp25_mt3_E3.4": {
+    "title": "E3.4 - Basic SVD",
+    "answer": "\\(A = \\begin{bmatrix}3&2\\\\1&0\\\\0&\\sqrt{6}\\end{bmatrix}\\)\n• \\(A^TA = \\begin{bmatrix}10&6\\\\6&10\\end{bmatrix}\\)\n• Eigenvalues of \\(A^TA\\): \\(\\lambda_1=16\\), \\(\\lambda_2=4\\)\n• Singular values: \\(\\sigma_1=4\\), \\(\\sigma_2=2\\)\n• \\(V\\) from eigenvectors of \\(A^TA\\)\n• \\(U\\) from \\(Av_i/\\sigma_i\\) or \\(AA^T\\) eigenvectors\n• \\(A = U\\Sigma V^T\\)"
+  },
+  "sp25_mt3_E3.5": {
+    "title": "E3.5 - Using PCA to Analyze Bacteria",
+    "answer": "PCA steps:\n1. Center data: \\(\\tilde{X} = X - \\text{mean}\\)\n2. Compute covariance: \\(C = \\tilde{X}\\tilde{X}^T/n\\)\n3. Find eigenvalues/eigenvectors of \\(C\\)\n4. Principal components = eigenvectors with largest eigenvalues\n5. Project data onto principal components for classification"
+  },
+  "fa24_mt3_MT3.1": {
+    "title": "MT3.1 - Hide and Seek",
+    "answer": "Eigendecomposition: \\(T = V\\Lambda V^{-1}\\)\n• \\(V = [v_1 \\cdots v_n]\\) (eigenvectors)\n• \\(\\Lambda = \\text{diag}(\\lambda_1,\\ldots,\\lambda_n)\\) (eigenvalues)\n• Change of basis: \\(x = Cz\\) transforms coordinates\n• \\(T^n = V\\Lambda^n V^{-1}\\)"
+  },
+  "fa24_mt3_MT3.2": {
+    "title": "MT3.2 - Ridge Regression",
+    "answer": "Standard: \\(\\hat{x} = (A^TA)^{-1}A^Tb\\) (may not exist if \\(A^TA\\) singular)\n\nRidge: \\(\\hat{x} = (A^TA + \\eta I)^{-1}A^Tb\\)\n• Eigenvalues: \\(\\lambda_i(A^TA+\\eta I) = \\lambda_i(A^TA) + \\eta > 0\\)\n• Always invertible for \\(\\eta > 0\\)"
+  },
+  "fa24_mt3_MT3.3": {
+    "title": "MT3.3 - Robot Grasping with PCA",
+    "answer": "PCA for pose estimation:\n1. Find center: \\((\\bar{x},\\bar{y}) = \\text{mean of points}\\)\n2. Covariance matrix \\(C\\)\n3. Major axis = eigenvector of largest eigenvalue\n\nState-space: \\(x[i+1] = Bx[i] + cu[i]\\)\n• Solve using SVD for least-norm control \\(u^*\\)"
+  },
+  "fa24_mt3_MT3.4": {
+    "title": "MT3.4 - Damped Harmonic Oscillator",
+    "answer": "\\(\\ddot{y} = -c\\dot{y} - ky \\rightarrow\\) State-space: \\(\\frac{dx}{dt} = Ax\\)\n• \\(x = [y,\\dot{y}]^T\\)\n• \\(A = \\begin{bmatrix}0&1\\\\-k&-c\\end{bmatrix}\\)\n• Eigenvalues determine stability: \\(\\text{Re}(\\lambda) < 0\\) for stability\n• Solution: \\(x(t) = e^{At}x(0) = Ve^{\\Lambda t}V^{-1}x(0)\\)"
+  },
+  "fa23_final_Q4": {
+    "title": "Q4 - Strike a Chord",
+    "answer": "Inner products and angles:\n• \\(\\cos \\theta = \\frac{\\langle a,b\\rangle}{\\|a\\|\\|b\\|}\\)\n• Orthogonal: \\(\\langle a,b\\rangle = 0 \\rightarrow \\theta = 90^\\circ\\)\n• Parallel: \\(|\\cos \\theta| = 1\\)"
+  },
+  "fa23_final_Q6": {
+    "title": "Q6 - Let's Go, Mooncow!",
+    "answer": "Projection onto \\(C(A)\\):\n• \\(\\hat{b} = A(A^TA)^{-1}A^Tb\\)\n• Error: \\(e = b - \\hat{b}\\)\n• Orthogonality: \\(A^Te = 0\\)"
+  },
+  "fa23_final_Q8": {
+    "title": "Q8 - Aficiona-dough",
+    "answer": "Markov chain: \\(x[k+1] = Px[k]\\)\n• Steady state: \\(P\\pi = \\pi\\) (eigenvalue \\(\\lambda=1\\))\n• Convergence: all other \\(|\\lambda_i| < 1\\)"
+  },
+  "fa23_final_Q9": {
+    "title": "Q9 - Proofs",
+    "answer": "Eigenvector \\(v\\) of \\(A\\) with eigenvalue \\(\\lambda\\):\n• \\(Av = \\lambda v\\)\n• \\((A-\\lambda I)v = 0\\)\n• \\(v \\in N(A-\\lambda I)\\)"
+  },
+  "fa23_final_Q10": {
+    "title": "Q10 - Orthonormal Least Squares",
+    "answer": "If \\(Q\\) has orthonormal columns (\\(Q^TQ=I\\)):\n• Projection: \\(P = QQ^T\\)\n• \\(\\hat{x} = Q^Tb\\) (no matrix inversion needed)\n• Residual: \\(e = b - QQ^Tb \\perp C(Q)\\)"
+  },
+  "sp23_final_Q4": {
+    "title": "Q4 - Least Squares in Pictures",
+    "answer": "Geometric interpretation:\n• \\(\\hat{b} \\in C(A)\\) (projection)\n• \\(e = b - \\hat{b} \\perp C(A)\\)\n• \\(A^Te = 0 \\rightarrow A^TA\\hat{x} = A^Tb\\) (normal equations)"
+  },
+  "sp23_final_Q5": {
+    "title": "Q5 - Battleships",
+    "answer": "Linear regression:\n• Formulate: \\(Ax = b\\) (overdetermined)\n• Solution: \\(\\hat{x} = (A^TA)^{-1}A^Tb\\)\n• Minimizes: \\(\\|Ax-b\\|^2\\)"
+  },
+  "sp23_final_Q9": {
+    "title": "Q9 - Noisy Imaging Revisited",
+    "answer": "Masking matrix \\(M\\) (diagonal):\n• \\(N(M)\\) = pixels to remove\n• \\(C(M)\\) = pixels to keep\n• Least squares with noise: \\(\\hat{x} = (A^TA)^{-1}A^Tb\\)"
+  },
+  "sp23_final_Q10": {
+    "title": "Q10 - Charge Pumps",
+    "answer": "State evolution: \\(q[n+1] = Pq[n]\\)\n• Steady state: \\((P-I)q_{ss} = 0\\) or \\(Pq_{ss} = q_{ss}\\)\n• Convergence rate: second-largest \\(|\\lambda_2|\\)"
+  },
+  "sp23_final_Q11": {
+    "title": "Q11 - Fun with EECS16(AB)",
+    "answer": "If \\(AB\\) invertible:\n• \\(N(AB) = \\{0\\}\\)\n• \\(ABx = 0 \\rightarrow Bx \\in N(A)\\)\n• \\(N(B) = \\{0\\} \\rightarrow B\\) invertible\n• Similarly \\(A\\) invertible"
+  },
+  "fa22_final_Q3": {
+    "title": "Q3 - Least Squares",
+    "answer": "Standard least squares:\n• Normal equations: \\(A^TA\\hat{x} = A^Tb\\)\n• \\(\\hat{x} = (A^TA)^{-1}A^Tb\\)\n• Projection: \\(\\hat{b} = A\\hat{x}\\)\n• Residual: \\(e = b - \\hat{b}\\)"
+  },
+  "fa22_final_Q5": {
+    "title": "Q5 - Eigenstuff",
+    "answer": "Finding eigenvalues/eigenvectors:\n1. Characteristic polynomial: \\(\\det(A-\\lambda I) = 0\\)\n2. Solve for \\(\\lambda\\)\n3. For each \\(\\lambda\\): solve \\((A-\\lambda I)v = 0\\)\n4. Eigenspace = \\(N(A-\\lambda I)\\)"
+  },
+  "fa22_final_Q10": {
+    "title": "Q10 - Orthogonal Space",
+    "answer": "Orthogonal complement \\(V^\\perp\\):\n• \\(V^\\perp = \\{w : \\langle v,w\\rangle = 0 \\text{ for all } v \\in V\\}\\)\n• \\(\\dim(V) + \\dim(V^\\perp) = n\\)\n• \\(V \\cap V^\\perp = \\{0\\}\\)"
+  },
+  "fa22_final_Q11": {
+    "title": "Q11 - Mixed signals?",
+    "answer": "Fit \\(y(t) = a \\cos(\\omega t) + b \\sin(\\omega t)\\):\n• \\(A = \\begin{bmatrix}\\cos(\\omega t_1) & \\sin(\\omega t_1)\\\\ \\vdots & \\vdots\\end{bmatrix}\\)\n• \\(x = [a,b]^T\\)\n• Least squares: \\(\\hat{x} = (A^TA)^{-1}A^Ty\\)"
+  },
+  "sp22_final_Q4": {
+    "title": "Q4 - Eurovision Song Contest",
+    "answer": "Ranking via eigenvector:\n• Preference matrix \\(P\\)\n• Ranking = principal eigenvector (largest \\(\\lambda\\))\n• Solve: \\(Pv = \\lambda v\\)\n• Related to PageRank"
+  },
+  "sp22_final_Q6": {
+    "title": "Q6 - R-I-P Loads",
+    "answer": "Power model: \\(P = aV^2 + bV + c\\)\n• \\(A = \\begin{bmatrix}V_1^2 & V_1 & 1\\\\ \\vdots & \\vdots & \\vdots\\end{bmatrix}\\)\n• Least squares: \\([a,b,c]^T = (A^TA)^{-1}A^TP\\)"
+  },
+  "sp22_final_Q7": {
+    "title": "Q7 - Danville Doozy",
+    "answer": "Column-stochastic \\(P\\) (columns sum to 1):\n• Conserves total quantity\n• Steady state: \\(Px_{ss} = x_{ss}\\) (\\(\\lambda=1\\))\n• Convergence: \\(\\rho(P-I) < 1\\)"
+  },
+  "sp22_final_Q12": {
+    "title": "Q12 - Eigenvalues Galore",
+    "answer": "If \\(Av = \\lambda v\\):\n• \\(A^kv = \\lambda^k v\\) (eigenvalue of \\(A^k\\) is \\(\\lambda^k\\))\n• \\((A+cI)v = \\lambda v+cv = (\\lambda+c)v\\)\n• \\((cA)v = c(\\lambda v) = (c\\lambda)v\\)"
+  },
+  "sp21_final_Q3": {
+    "title": "Q3 - Linear Algebra",
+    "answer": "Gaussian elimination:\n• Row echelon form \\(\\rightarrow\\) pivot columns\n• \\(C(A) = \\text{span}\\{\\text{pivot columns}\\}\\)\n• \\(N(A)\\) from free variables\n• \\(\\text{rank}(A) + \\dim(N(A)) = n\\)"
+  },
+  "sp21_final_Q4": {
+    "title": "Q4 - Transitioning Back to Campus",
+    "answer": "Population dynamics: \\(x[n+1] = Px[n]\\)\n• \\(P\\) doubly stochastic (rows & columns sum to 1)\n• Steady state: \\(x_{ss}\\) = uniform distribution\n• Eigenvalue 1 guarantees convergence"
+  },
+  "sp21_final_Q9": {
+    "title": "Q9 - Cool Predictions",
+    "answer": "Polynomial regression: \\(T(t) = a_0 + a_1t + a_2t^2\\)\n• Vandermonde: \\(A = \\begin{bmatrix}1 & t_1 & t_1^2\\\\ \\vdots & \\vdots & \\vdots\\end{bmatrix}\\)\n• Least squares: \\(\\hat{a} = (A^TA)^{-1}A^Tb\\)\n• Error: \\(\\|A\\hat{a} - b\\|^2\\)"
+  },
+  "sp21_final_Q10": {
+    "title": "Q10 - Symmetric and PSD Matrices",
+    "answer": "Symmetric \\(A = A^T\\):\n• Real eigenvalues\n• Orthogonal eigenvectors: \\(v_i \\perp v_j\\) if \\(\\lambda_i \\neq \\lambda_j\\)\n\nPSD: \\(x^TAx \\geq 0\\) for all \\(x\\)\n• \\(\\iff\\) all eigenvalues \\(\\lambda_i \\geq 0\\)"
+  },
+  "fa21_final_Q1": {
+    "title": "Q1 - A Quirky Quantum Question",
+    "answer": "Hermitian \\(H\\) (symmetric):\n• Eigenvalues = energy levels\n• Eigenvectors = quantum states\n• \\(H = Q\\Lambda Q^T\\) (spectral decomposition)\n• Probability: \\(|\\langle\\psi,v_i\\rangle|^2\\)"
+  },
+  "fa21_final_Q3": {
+    "title": "Q3 - Least Squares with Shazam",
+    "answer": "Audio matching:\n• \\(A = [\\text{ref signals as columns}]\\)\n• Project query onto \\(A\\): \\(\\hat{x} = (A^TA)^{-1}A^Tb\\)\n• Similarity: \\(\\langle a_i,b\\rangle\\)"
+  },
+  "fa21_final_Q12": {
+    "title": "Q12 - Orthogonality",
+    "answer": "Weighted inner product: \\(\\langle f,g\\rangle_w = \\int f(x)g(x)w(x)dx\\)\n• Gram-Schmidt with weighted inner product\n• Orthogonal polynomials"
+  },
+  "fa21_final_Q15": {
+    "title": "Q15 - Charge Sharing Cycles",
+    "answer": "Charge redistribution: \\(q[n+1] = Mq[n]\\)\n• \\(M\\) doubly stochastic\n• Conserves charge\n• Steady state: \\((M-I)q_{ss} = 0\\)"
+  },
+  "fa21_final_Q16": {
+    "title": "Q16 - Linear Algebra Circuit",
+    "answer": "Circuit as \\(Ax = b\\):\n• Unique solution: \\(A\\) invertible\n• No solution: \\(b \\notin C(A)\\)\n• Infinite solutions: \\(\\dim(N(A)) > 0\\)\n• Least squares for overdetermined"
+  }
+}

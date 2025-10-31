@@ -1,0 +1,196 @@
+{
+  "fa23_final_Q4": {
+    "exam": "fa23_final",
+    "title": "Q4 - Strike a Chord",
+    "topic": "vectors-matrices",
+    "points": null,
+    "description": "Inner products, angles between vectors, orthogonality"
+  },
+  "fa23_final_Q6": {
+    "exam": "fa23_final",
+    "title": "Q6 - Let's Go, Mooncow!",
+    "topic": "least-squares",
+    "points": null,
+    "description": "Vector operations, projections, transformations, least-squares"
+  },
+  "fa23_final_Q8": {
+    "exam": "fa23_final",
+    "title": "Q8 - Aficiona-dough",
+    "topic": "state-space",
+    "points": null,
+    "description": "State transitions, Markov chains, steady state, eigenvalues"
+  },
+  "fa23_final_Q9": {
+    "exam": "fa23_final",
+    "title": "Q9 - Proofs",
+    "topic": "fundamental-subspaces",
+    "points": null,
+    "description": "Nullspace properties, eigenvectors"
+  },
+  "fa23_final_Q10": {
+    "exam": "fa23_final",
+    "title": "Q10 - Orthonormal Least Squares",
+    "topic": "least-squares",
+    "points": null,
+    "description": "Projection onto column space, orthogonality"
+  },
+
+  "sp23_final_Q4": {
+    "exam": "sp23_final",
+    "title": "Q4 - Least Squares in Pictures",
+    "topic": "least-squares",
+    "points": null,
+    "description": "Column space, least squares solutions, projections"
+  },
+  "sp23_final_Q5": {
+    "exam": "sp23_final",
+    "title": "Q5 - Battleships",
+    "topic": "least-squares",
+    "points": null,
+    "description": "Linear regression, least squares formulation"
+  },
+  "sp23_final_Q9": {
+    "exam": "sp23_final",
+    "title": "Q9 - Noisy Imaging Revisited",
+    "topic": "fundamental-subspaces",
+    "points": null,
+    "description": "Masking matrices, eigenvalues, least squares with noise"
+  },
+  "sp23_final_Q10": {
+    "exam": "sp23_final",
+    "title": "Q10 - Charge Pumps",
+    "topic": "state-space",
+    "points": null,
+    "description": "State transitions, eigenvalues/eigenvectors, convergence"
+  },
+  "sp23_final_Q11": {
+    "exam": "sp23_final",
+    "title": "Q11 - Fun with EECS16(AB)",
+    "topic": "fundamental-subspaces",
+    "points": null,
+    "description": "Invertibility, nullspace proofs"
+  },
+
+  "fa22_final_Q3": {
+    "exam": "fa22_final",
+    "title": "Q3 - Least Squares",
+    "topic": "least-squares",
+    "points": null,
+    "description": "Least squares solutions, projections, error minimization"
+  },
+  "fa22_final_Q5": {
+    "exam": "fa22_final",
+    "title": "Q5 - Eigenstuff",
+    "topic": "eigenanalysis",
+    "points": null,
+    "description": "Eigenvalues, eigenvectors, eigenspace, state transitions"
+  },
+  "fa22_final_Q10": {
+    "exam": "fa22_final",
+    "title": "Q10 - Orthogonal Space",
+    "topic": "gram-schmidt-qr",
+    "points": null,
+    "description": "Orthogonality, subspaces, inner products"
+  },
+  "fa22_final_Q11": {
+    "exam": "fa22_final",
+    "title": "Q11 - Mixed signals?",
+    "topic": "least-squares",
+    "points": null,
+    "description": "Fitting sinusoidal models, least squares formulation"
+  },
+
+  "sp22_final_Q4": {
+    "exam": "sp22_final",
+    "title": "Q4 - Eurovision Song Contest",
+    "topic": "eigenanalysis",
+    "points": null,
+    "description": "Eigenvectors, eigenvalues, projections"
+  },
+  "sp22_final_Q6": {
+    "exam": "sp22_final",
+    "title": "Q6 - R-I-P Loads",
+    "topic": "least-squares",
+    "points": null,
+    "description": "Power modeling, least squares estimation"
+  },
+  "sp22_final_Q7": {
+    "exam": "sp22_final",
+    "title": "Q7 - Danville Doozy",
+    "topic": "state-space",
+    "points": null,
+    "description": "State transition matrices, conservative systems, convergence"
+  },
+  "sp22_final_Q12": {
+    "exam": "sp22_final",
+    "title": "Q12 - Eigenvalues Galore",
+    "topic": "eigenanalysis",
+    "points": null,
+    "description": "Eigenvalue properties, matrix powers"
+  },
+
+  "sp21_final_Q3": {
+    "exam": "sp21_final",
+    "title": "Q3 - Linear Algebra",
+    "topic": "fundamental-subspaces",
+    "points": null,
+    "description": "Gaussian elimination, nullspace, inner products"
+  },
+  "sp21_final_Q4": {
+    "exam": "sp21_final",
+    "title": "Q4 - Transitioning Back to Campus",
+    "topic": "state-space",
+    "points": null,
+    "description": "State transitions, conservative systems, steady state, eigenvalues"
+  },
+  "sp21_final_Q9": {
+    "exam": "sp21_final",
+    "title": "Q9 - Cool Predictions",
+    "topic": "least-squares",
+    "points": null,
+    "description": "Linear models, least squares formulation, squared error"
+  },
+  "sp21_final_Q10": {
+    "exam": "sp21_final",
+    "title": "Q10 - Symmetric and PSD Matrices",
+    "topic": "eigenanalysis",
+    "points": null,
+    "description": "Symmetric matrices, orthogonality of eigenvectors, PSD properties"
+  },
+
+  "fa21_final_Q1": {
+    "exam": "fa21_final",
+    "title": "Q1 - A Quirky Quantum Question",
+    "topic": "eigenanalysis",
+    "points": null,
+    "description": "Eigenvalues, eigenvectors, symmetric matrices"
+  },
+  "fa21_final_Q3": {
+    "exam": "fa21_final",
+    "title": "Q3 - Least Squares with Shazam",
+    "topic": "least-squares",
+    "points": null,
+    "description": "Projections, cross-correlation, least squares formulation"
+  },
+  "fa21_final_Q12": {
+    "exam": "fa21_final",
+    "title": "Q12 - Orthogonality",
+    "topic": "gram-schmidt-qr",
+    "points": null,
+    "description": "Orthogonality with custom inner products"
+  },
+  "fa21_final_Q15": {
+    "exam": "fa21_final",
+    "title": "Q15 - Charge Sharing Cycles",
+    "topic": "state-space",
+    "points": null,
+    "description": "Charge distribution, transition matrices, steady state"
+  },
+  "fa21_final_Q16": {
+    "exam": "fa21_final",
+    "title": "Q16 - Linear Algebra Circuit",
+    "topic": "fundamental-subspaces",
+    "points": null,
+    "description": "Matrix equations, invertibility, least squares"
+  }
+}

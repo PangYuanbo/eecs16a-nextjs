@@ -1,0 +1,480 @@
+                                                                                                            1
+
+EECS 16A     Designing Information Devices and Systems I
+Spring 2023
+                                                                Midterm 2
+
+PRINT your student ID:
+
+PRINT AND SIGN your name:                            ,
+                                  (last name)
+                                                                 (first name)             (signature)
+
+PRINT the time of your discussion section and your GSI(s) name:
+
+PRINT the student IDs of the person sitting on your right:                     and left:
+
+General Notes
+· This exam has a combination of multiple choice, fill in the blank, and free response questions.
+· This exam will be partially auto-graded. You must adhere to the following format to receive full credit:
+
+- For fill in the blank and free response questions, legibly write your final answer entirely in the
+   provided boxes. Any work done outside of the provided boxes will not be graded.
+
+- For multiple choice questions, select exactly one choice by filling the bubble .
+
+You must choose either this option.                         Or this one, but not both!
+
+1. HONOR CODE
+   Please read the following statements of the honor code, and sign your name (you don't need to copy it).
+   I will respect my classmates and the integrity of this exam by following this honor code. I affirm:
+
+       · I have read the instructions for this exam. I understand them and will follow them.
+       · All of the work submitted here is my original work.
+       · I did not reference any sources other than my unlimited printed resources.
+       · I did not collaborate with any other human being on this exam.
+
+EECS 16A, Spring 2023, Midterm 2                                                                            1
+                                                                                                                                                                 2
+
+    PRINT your student ID:
+
+2. Characterizing Components (13 Points)
+   Your lab TA has been exploring the 16A lab and discovered a bin of unlabeled components. She has collected
+   some data about these mysterious components, and needs your help to interpret them.
+
+     (a) (3 points) She begins with a mysterious two-terminal component and labels it `Component A'. After
+          connecting it to one of the signal generators in the lab, she measures many voltage and current points
+          forming an approximate I-V curve.
+
+i. Which circuit element best describes Component A?  Capacitor
+                                                      Current Source
+             Resistor                                 Short Circuit
+             Voltage Source
+             Open Circuit
+
+ii. Paying careful attention to the measured units of current and voltage, express both the numeric
+   value of the circuit element and its corresponding units (from the options provided).
+
+                                  Volts (V)
+                                  Amps (A)
+                                  Ohms ()
+                                  Farads (F)
+
+EECS 16A, Spring 2023, Midterm 2                                      2
+                                                                                                                                                          3
+
+(b) (2 points) Your TA picks a different component out of the bin and labels it `Component B'. She finds
+     a corresponding datasheet which provides information on its structure and properties. It states that
+     Component B is a parallel plate capacitor, which is physically modeled with three layers as follows:
+
+    Write an expression for the capacitance of Component B as a function of dielectric permittivity  and
+    dimensions D1, L, and W .
+
+(c) (3 points) In the course of testing, your TA connected a large voltage source and put too much power
+    through the capacitor. This resulted in the dielectric (the middle layer) breaking down, so that the
+    entire three-layer device behaves like a resistor. After degradation, the device can be modeled as:
+
+Write an expression for the resistance of Component B as a function of D1, D2, L, W , and resistivities
+1 and 2.
+
+EECS 16A, Spring 2023, Midterm 2  3
+                                                                   4
+
+(d) (5 points) Your lab TA decides to try characterizing one final component and labels it `Component C'.
+     She connects Component C to a circuit and measures the voltage across it and current through it as
+     shown
+                                                           +V -
+
+                                                          I
+
+From her measurement she finds that I = -5 µA and V = 0.2 V.
+  i. Is Component C labeled according to passive sign convention?
+
+Yes                                                 No
+
+ii. What is the power dissipated by Component C?
+                               µW
+
+iii. Is Component C consuming or generating power?  Generating
+               Consuming
+
+iv. Regardless of your answers to the previous parts, assume Component C generates a constant
+    10 µW of power and is connected to a 1 mWh battery (a `Wh' or `watt-hour' is a unit of energy).
+    How long will it take to charge the battery from 0 to 100% capacity?
+
+                                hours
+
+EECS 16A, Spring 2023, Midterm 2                                   4
+                                                                                                                                                                 5
+
+    PRINT your student ID:
+
+3. Can You Divide a Divider? (16 Points)
+   For all parts please give your answer in terms of the labeled circuit quantities. When expressing your
+   answers, you are free to use the parallel (||) operator.
+     (a) (4 points) Consider the circuit below.
+                                                                       uA
+
+                                         R1
+
+                                  VS  -  uB
+                                      +
+
+                                         R2
+
+                                                                     uC
+i. Find the voltage at node uB as a function of VS, R1, and R2.
+
+ii. How would you attach a voltmeter to check your answer for node voltage uB? Indicate the nodes
+   (i.e., uA, uB, or uC) you would connect to each voltmeter terminal.
+
+positive voltmeter terminal:             negative voltmeter terminal:
+
+EECS 16A, Spring 2023, Midterm 2                                         5
+                                                                                                                                                          6
+
+(b) (4 points) Now consider a new circuit.
+
+                                               R1
+                                         u2
+
+                                  VS  -
+                                      +
+
+                                         R2        R3
+
+i. Find the voltage at node u2 as a function of VS, R1, R2, and R3.
+
+ii. How does the node voltage u2 compare to the node voltage uB in part (a)? Using 1-2 sentences,
+   provide a conceptual reason for your answer.
+
+u2 > uB                                  u2 = uB                     u2 < uB
+
+EECS 16A, Spring 2023, Midterm 2                                              6
+                                                                                                                                                          7
+
+(c) (8 points) Now consider a new circuit shown below. Assume the op-amp is ideal and in negative
+    feedback.
+
+                                         R1 - Ix
+
+                                     u3           +
+
+         VS                       -                   13 R3
+                                  +                  u4
+
+                                         R2
+
+                                                     23 R3
+
+i. Find an expression for the voltage at u3 as a function of VS, R1, R2, and R3.
+
+ii. How does the node voltage u3 compare to the node voltage u2 in part (b)? Using 1-2 sentences,
+   provide a conceptual reason for your answer.
+
+u3 > u2                                  u3 = u2             u3 < u2
+
+EECS 16A, Spring 2023, Midterm 2                                                  7
+                                                              8
+
+                                             R1 - Ix
+
+                                         u3      +
+
+                                  VS  -                13 R3
+                                      +               u4
+
+                                             R2
+
+                                                      23 R3
+
+iii. Find an expression for the voltage at u4 as a function of VS, R1, R2, and R3. Your answer should
+    NOT include any node voltages (i.e., u3)
+
+iv. Find an expression for the current Ix as a function of VS, R1, R2, and R3. Your answer should NOT
+    include any node voltages (i.e., u3).
+
+EECS 16A, Spring 2023, Midterm 2                              8
+                                                                                                                                                                 9
+
+    PRINT your student ID:
+4. Stacked Capacitors (11 points)
+
+   The parallel plate capacitor shown below is made up of two identical perfectly overlapping plates. The
+   plates have length l, width w, are separated by distance d, and the dielectric material between the plates has
+   permittivity . The capacitance formed by the two plates between nodes A and B is C0.
+
+     (a) (3 points) Now assuming these same specifications, we stack 4 plates on top of each other. The plates
+          are perfectly aligned vertically and the spacing between each plate is d. We connect node A to the top
+          and bottom plates and node B to the middle two plates.
+
+i. Is there capacitance formed between the 2nd and 3rd plates?
+
+Yes                               No
+
+ii. Draw an equivalent capacitor circuit representing this physical arrangement of plates. Label nodes
+   A and B.
+
+EECS 16A, Spring 2023, Midterm 2                                9
+                                                                                                                                                         10
+
+(b) (2 points) From the capacitor configuration in part (a), we combine the two middle plates into a single
+     plate. Assume all other specifications are the same as in part (a).
+     Find Ceq, the equivalent capacitance between nodes A and B. Express your answer in terms of C0 (the
+     equivalent capacitance of just two plates).
+
+(c) (6 points) We want to charge up our stacked capacitor, Ceq, with a current source. Unfortunately our
+    current source is non-ideal, and instead can be modeled by an ideal current source, IS, and a resistor,
+    RS, in series. The capacitor Ceq is uncharged at time t = 0.
+
+                                                             Non-ideal Current Source
+
+                                                             RS
+                                      uA
+
+                                  +
+                                            IC
+
+                                  VC  Ceq                        IS
+
+                               -
+                                    uB
+
+i. Find an expression for the power dissipated by resistor RS in terms of Ceq, IS, RS, and t.
+
+EECS 16A, Spring 2023, Midterm 2                                                               10
+                                                                               11
+
+                                      uA             Non-ideal Current Source
+                                  +                      RS
+
+                                            IC                          IS
+
+                                  VC            Ceq
+
+                                   -
+                                       uB
+
+ii. Find the node voltage uA(t) in terms of Ceq, IS, RS, and t.
+
+iii. Find an expression for the power delivered to the capacitor Ceq in terms of Ceq, IS, RS, and t. The
+    capacitor voltage VC and current IC are labeled for you.
+
+EECS 16A, Spring 2023, Midterm 2                                               11
+                                                                                                                                                               12
+
+    PRINT your student ID:
+
+5. A Plain Circuit (16 points)
+   Consider the following circuit
+                                                           R3
+
+                                         R2
+
+                                  IS R1 I2
+
+                                      + VS
+                                  I1  -
+
+(a) (3 points) Find the current I1 passing through the resistor R1 with the current source turned on and
+    the voltage source turned off. Your answer must be only in terms of IS, VS, R1, R2, and R3.
+
+(b) (3 points) Find the current I1 passing through the resistor R1 with the current source turned off and
+     the voltage source turned on. Your answer must be only in terms of IS, VS, R1, R2, and R3.
+
+EECS 16A, Spring 2023, Midterm 2             12
+                                                                                                                     13
+
+                                  R3
+
+                                         R2
+
+                                  IS R1 I2
+
+                                      + VS
+                                  I1  -
+
+(c) (2 points) Using the principle of superposition, find the total current I1 passing through the resistor R1
+    when both the current source and voltage source are turned on. Your answer must be only in terms of
+    IS, VS, R1, R2, and R3.
+
+(d) (2 points) Redraw the circuit but with an ammeter added to measure the current I2. Be sure to notate
+     the direction of positive current for the ammeter.
+
+EECS 16A, Spring 2023, Midterm 2             13
+                                                                                                                                                        14
+
+(e) (4 points) Now you want to determine the equivalent circuit seen from the voltage source VS. You
+    remove the voltage source from the circuit. You also now know the numerical values of the current
+    source IS and resistances R1, R2, and R3.
+                                                       4
+
+                                                       2
+
+                                  6A         1         Iab +a
+
+                                                       Vab
+
+                                                          -
+                                                            b
+
+For this circuit, derive the Norton equivalent between nodes a and b. Find the Norton current, Ino, and
+the Norton resistance, Rno.
+
+                                      Iab a
+
+                                      +         Ino =          A
+
+Ino  Rno                              Vab
+
+                                      - Rno = 
+                                        b
+
+EECS 16A, Spring 2023, Midterm 2                                  14
+                                                                                         15
+
+    4
+
+                                                                        2
+
+6A                                              1                       Iab +a
+
+                                                                        Vab
+
+                                                                           -
+                                                                             b
+
+(f) (2 points) For the circuit in part (e), select the line which represents the I-V characteristic at terminals
+    a and b (i.e., Iab vs Vab)?
+
+  6                                                                       6
+  4                                                                       4
+  2                                                                       2
+  0                                                                       0
+-2                                                                      -2
+-4                                                                      -4
+-6                                                                      -6
+
+     -6 -4 -2 0 2 4 6                                                        -6 -4 -2 0 2 4 6
+                    Vab (V )                                                                Vab (V )
+Iab (A)
+                                                               Iab (A)
+
+                    6                                                     6
+                    4                                                     4
+                    2                                                     2
+                    0                                                     0
+                 -2                                                     -2
+                 -4                                                     -4
+                 -6                                                     -6
+
+                       -6 -4 -2 0 2 4 6                                      -6 -4 -2 0 2 4 6
+                                      Vab (V )                                              Vab (V )
+
+EECS 16A, Spring 2023, Midterm 2                                                                                                15
+Iab (A)
+                                                               Iab (A)
+                                                                                            16
+
+PRINT your student ID:
+
+6. Does The Circuit Blink? (17 points)                      u+ +
+   Consider the following circuit with an ideal op-amp
+                                                     I1 1 
+
+                                                             -            +
+
+      Iin                            2                              3  Vx
+                                                                                         -
+
+                                                             R
+
+(a) (2 point) Is the op-amp configured in positive or negative feedback?
+
+Positive feedback                                                   Negative feedback
+
+(b) (2 points) If Iin = 1 A, then what is value of the current I1?
+
+I1 =                              A
+
+(c) (2 points) If Iin = 1 A, derive the voltage at node u+.
+
+u+ =                              V
+
+EECS 16A, Spring 2023, Midterm 2                                                            16
+                                                                            17
+
+                                    I1 1   u+ +
+
+                                           -                             +
+
+    Iin                             2            3  Vx
+                                                                      -
+
+                                           R
+
+(d) (3 points) Determine the value of resistor R so that Vx = Iin · 5 .
+
+R=                                
+
+EECS 16A, Spring 2023, Midterm 2                                            17
+                                                                                                                 18
+
+(e) (8 points) Now the input current Iin(t) has the following triangular waveform with time. Regardless
+    of your answer to the previous parts, assume you have successfully implemented the function of the
+    circuit: Vx = Iin · 5 . Then the op-amp circuit can be represented with an equivalent circuit as shown.
+
+Iin(t) (amps)     2                                                                                          +
+
+                  1      -                              Iin · 5                                              Vx
+                         +
+                  0                                                                                          -
+                                                                                                         -
+                     0                                                                                   +0.511.52
+
+                                  Time (seconds)
+
+Using the voltage Vx as an input, design a comparator circuit that creates an output voltage Vout(t)
+alternating periodically between a low voltage -10 V and high voltage +10 V with equal durations.
+You do not have to use every element and you can use multiple of each element. If used, also specify
+your chosen values of R, C, and Vref for each element. Be sure to not leave any circuit element
+terminals unconnected.
+
+               +
+
+                         R        C     10 V + -10 V +  Vref +
+                                                  -  -                                                    -
+               -
+
+                                  +                               +
+
+               Iin · 5            Vx                              Vout
+
+                                  -                               -
+
+EECS 16A, Spring 2023, Midterm 2                                                                                 18
+                                                                                                                                                          19
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+                                      Work on this page will NOT be graded.
+
+EECS 16A, Spring 2023, Midterm 2  19
+                                                                                                                                                          20
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+                                      Work on this page will NOT be graded.
+
+EECS 16A, Spring 2023, Midterm 2  20
+                                                                                                                                                          21
+
+PRINT your student ID:
+
+                                               Extra page for scratchwork.
+                                      Work on this page will NOT be graded.
+
+EECS 16A, Spring 2023, Midterm 2  21

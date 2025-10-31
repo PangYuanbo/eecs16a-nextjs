@@ -1,0 +1,291 @@
+EECS 16A: Designing Information Devices and Systems I              Midterm 2
+Department of Electrical Engineering and Computer Sciences    20 March 2024
+UNIVERSITY OF CALIFORNIA, BERKELEY
+
+MT2.1 (37 Points) Consider a square n  n matrix P having all of the following
+properties:
+
+· Each entry of P is either 0 or 1.
+· Each column of P contains exactly one 1.
+· Each row of P contains exactly one 1.
+
+(a) (10 Points) Show that PT P = I.
+
+     We'll accept any logically-sound explanation. You need not resort to elabo-
+     rate mathematical derivations. It's possible to explain this result in two to
+     three sentences.
+
+     Even if you have trouble showing this result, you may use it in the subse-
+     quent parts of the problem, if you find it useful.
+
+(b) (13 Points) For this part only, consider the matrices
+                          2       3              2         3
+                             010                    e0d
+
+                     P = 40 0 15 A = 40 a 05 .
+
+                             100                    c0b
+
+Determine the matrix PAPT. Your final answer must be in the form of a
+single 3  3 matrix--not a product, sum, or other nontrivial form.
+
+(c) (14 Points) Consider a vector x in Rn whose mean is
+
+                     x1 + · · · + xn 1           1T
+               µx =               = h1, xi = 1 x,
+                          n           n          n
+
+and whose variance is
+
+               2 1 Xn             2 ||x µx1||2 ||x||2 2
+               =          (xi µx) =                  =        µx.
+               xn                             n            n
+                     i=1
+
+Let y = Px, and denote the mean and variance of the vector y by µy and              2,
+
+                                                                                    y
+
+respectively.
+
+(i) Show that µy = µx.
+
+(ii) Determine a simple expression for y2, the variance of y. X
+     Your expression must be in closed form (not summations ), and de-
+
+pend at most on P, µx, and        2.
+
+                                  x
+
+(iii) Determine a simple expression for xy, the covariance of x and y, where
+
+the covariance is defined as
+
+      1 Xn                µx)(yi          hx     µx1, y    µy1i = xT y     µx µy .
+xy = n (xi                        µy) =              n                 n
+                                                                        X
+              i=1
+
+Your expression must be in closed form (not summations ), and de-
+
+pend at most on x, P, µx, and x.
+
+                                      1
+                                                                              
+MT2.2 (37 Points) Consider a pair of real-valued 2-vectors x = x1 and y = y1 ,
+                                                                       x2       y2
+
+where x1 6= x2 and y1 6= y2. The respective means of the vectors x and y are given
+
+by  µx = avg(x) = x1 + x2 µy = avg(y) = y1 + y2 .
+
+    2                                                             2
+
+The respective de-meaned vectors of x and y are
+
+                            x~ = x µx1 and y~ = y µy1.
+And the correlation coefficient of the vectors x and y is
+
+    4 hx~, y~i                                            x~ Ty~
+    xy = ||x~|| ||y~|| = ||x~|| ||y~|| .
+
+                        4
+
+The symbol = signifies a definition.
+
+(a) (13 Points) Show that xy = ±1--the correlation coefficient of x and y is either
+     +1 or 1.
+
+(b) (12 Points) For this part only, suppose y =  x + 1, where  and are real
+     parameters, and 1 is the all-ones vector in R2.
+
+    (i) In a short sentence, explain why  cannot be zero.
+
+    (ii) Explain why it must be that = µy                  µx, and then show
+                                                          if  < 0 .
+                                                  (       if  > 0
+                                                       1
+
+                                          xy =
+                                                    +1
+
+(c) (12 Points) True or False? Any pair of vectors x and y in R2, such that x1 6= x2
+    and y1 6= y2, can be expressed as affine functions of each other.
+
+    Provide a succinct, yet clear and convincing explanation.
+
+                                      2
+MT2.3 (37 Points) Consider the following vectors in R3:
+
+23    23                                                             23
+1     0                                                                 1
+
+a1 = 405 , a2 = 415 , and a3 = 405 .
+
+0     1                                                                 1
+
+(a) (21 Points) Use the Gram-Schmidt Algorithm to determine a set of three vec-
+     tors q1, q2, and q3 such that
+
+· For every k, ` = 1, 2, 3, we have                   if k = `
+                                                      if k 6= `.
+                                                 (
+                                                   1
+
+                                   hqk, q`i =
+                                                   0
+
+· For every ` = 1, 2, 3, we have
+
+      span(a1, . . . , a`) = span(q1, . . . , q`).
+
+· Each a` is a linear function of q1, . . . , q` for all ` = 1, 2, 3.
+· Each q` is a linear function of a1, . . . , a` for all ` = 1, 2, 3.
+
+(b) (16 Points) Solve the equation Ax = b for the unknown vector x, where
+
+                                                                  223
+
+                                                                  6  1     7
+                                                                  6        7
+                                                                  6p 7
+A = a1 a2 a3                         and b = 6 2 7 .
+                                                                  67
+                                                                  415
+                                                                     p
+                                                                        2
+
+You must explain the steps of your work.
+
+                                  3
+MT2.4 (37 Points) Consider a nonzero vector a in Rn, and another nonzero vector
+b that is not in the linear span of a. We want to determine a vector bb--restricted to
+the linear span of a--to serve as an estimate of b.
+
+To make bb a reasonable estimate, we insist that it correspond to the point in span (a)
+closest to b. If we denote the estimation error vector by " = b bb, Pythagoras's
+Theorem tells us that the error vector having the smallest Euclidean norm must be
+orthogonal to a. This is illustrated in the diagram below.
+
+Note that since bb 2 span(a), we can represent it as bb = µa for some real scalar µ.
+
+(a) (7 Points) The estimate bb can be obtained from b using a linear transformation
+    bb = Pb, where P is a real-valued n  n matrix. Show that
+
+                      T  1T
+                   P=a a a a .
+
+To do this, enforce the orthogonality of " and a to show that the value of µ
+that minimizes ||"|| is given by
+
+                   T     1T
+                   µ = a a a b.
+
+Then determine P.
+
+(b) (5 Points) Determine rank(P), the rank of P --that is, the number of indepen-
+     dent columns (or independent rows)--of P .
+
+     Explain how you arrive at your answer.
+
+(c) (7 Points) This part explores some of the properties of the matrix P.
+
+(i) Show that PT = P.
+(ii) Show that Pk = P, for all k = 1, 2, 3, . . ..
+
+     In one or two sentences, provide a geometric interpretation of this result.
+
+(d) (5 Points) Suppose a vector y is such that Py = 0. Determine
+                                               ha, yi = aT y.
+
+Explain the work toward your result, and then provide a one-sentence in-
+terpretation of what your result implies about how the vectors a and y are
+oriented relative to one another.
+
+                   4
+(e) (13 Points) Consider the matrix S = I P.
+
+       (i) Determine Sk for all k = 2, 3, 4, . . ..
+           Hint: First determine S2. Higher powers will then become apparent.
+
+      (ii) Suppose a vector y is such that Py = 0. Determine the vector Sy.
+           Provide a succinct, yet clear and convincing explanation of your work.
+
+     (iii) Show that {a} forms a basis for N (S), the nullspace of S. The nullspace
+           of S is the defined as the subspace
+
+4  n
+N (S) = {v 2 R | Sv = 0}.
+
+                                  4
+
+      The symbol = signifies a definition.
+      Hint: Show that any vector v for which Sv = 0 must be linearly depen-
+      dent with a.
+
+(iv) Determine rank(S), where rank(S)--called the rank of S--is the number
+      of independent columns (or independent rows)--of S.
+      Provide a succinct, yet clear and convincing explanation of your work.
+
+5
+MT2.5 (37 Points)
+
+Consider the vectors x and y in Rn.
+
+            4T                                                               4
+Define hx, yiW = x Wy, where W is an n  n real-valued matrix. The symbol =
+
+signifies a definition.
+
+This problem explores how W determines whether hx, yiW can serve as an inner
+product.
+
+Recall that any inner product hx, yi must satisfy the following properties:
+
+                 hx, yi = hy, xi
+            hx + y, zi = hx, zi + hy, zi
+
+               hc x, yi = c hx, yi
+                 hx, xi 0, with equality if, and only if, x = 0.
+
+In one or more parts below, you may find it useful to study zT Wz, where
+                                                   
+
+                                             z = ab 2 R2.
+
+(a) (7 Points) Determine an nn matrix W such that hx, yiW is the inner product
+
+that induces the familiar Euclidean norm on Rn. In other words, determine
+W such that hx, yiW = xT y.
+
+                                            
+(b) (7 Points) Show that if W = 0 3 , then hx, yiW is not an inner product on
+
+                                             10
+
+    R2.                                        1 , then hx, yiW can serve as an inner prod-
+                                               2
+
+(c) (9 Points) Show that if W = 2
+                                            1
+
+uct on R2.
+
+Hint: It may help you to first show that hz, ziW can be expressed as
+
+                                   hz, ziW = (a b)2 + µ(a + b)2
+
+     for appropriately-determined positive coefficients and µ.
+
+(d) (7 Points) Show that if any of the diagonal entries of W is 0, then hx, yiW
+     cannot serve as an inner product on Rn. In other words, if hx, yiW is a valid
+     inner product, then the diagonal entries of W must be nonzero.
+
+     Hint: Assume, without loss of generality, that the entry w11 of the matrix W
+     is zero. Then choose a nonzero vector z judiciously, such that zT Wz violates
+     at least one property of an inner product.
+
+(e) (7 Points) Show that if W is not invertible, then hx, yiW is not an inner prod-
+     uct.
+
+                                               6

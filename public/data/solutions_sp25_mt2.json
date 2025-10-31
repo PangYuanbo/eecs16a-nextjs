@@ -1,0 +1,369 @@
+{
+  "sp25_mt2_E2.1": {
+    "exam": "sp25_mt2",
+    "title": "E2.1 - Sum of Two Periodic Signals",
+    "topic": "complex-exponentials",
+    "points": 35,
+    "description": "Analyzes the periodicity of the sum of two periodic discrete-time signals with different fundamental periods. Explores how the periods combine under addition.",
+    "concepts": [
+      "Periodicity definition: x[n+p] = x[n] for all n ∈ ℤ",
+      "Fundamental period (smallest positive period)",
+      "Least common multiple (LCM)",
+      "Coprime integers (gcd = 1)",
+      "Period of sinusoidal signals"
+    ],
+    "problem_statement": {
+      "setup": "Two periodic signals x[n] with period p and y[n] with period q. Define z[n] = x[n] + y[n].",
+      "part_a": "If p and q are coprime, find period r of z[n]",
+      "part_b": "If p = 2k and q = 2ℓ where k,ℓ are coprime, find smallest r",
+      "part_c": "For x[n] = cos(3π/4 · n) and y[n] = sin(3π/5 · n), find period of z[n]"
+    },
+    "solution": {
+      "part_a": {
+        "answer": "r = pq",
+        "explanation": "When p and q are coprime, lcm(p,q) = pq. Since x[n+pq] = x[n] and y[n+pq] = y[n], we have z[n+pq] = x[n+pq] + y[n+pq] = x[n] + y[n] = z[n].",
+        "key_insight": "For coprime integers, LCM equals their product"
+      },
+      "part_b": {
+        "answer": "r = 2kℓ",
+        "explanation": "With p = 2k and q = 2ℓ where gcd(k,ℓ) = 1, we have lcm(p,q) = lcm(2k, 2ℓ) = 2·lcm(k,ℓ) = 2kℓ",
+        "key_insight": "Factor out common factors before computing LCM"
+      },
+      "part_c": {
+        "answer": "r = 40 samples",
+        "steps": [
+          "For x[n] = cos(3π/4 · n): Given p = 8",
+          "For y[n] = sin(3π/5 · n): Find q using ω₀ = 2π/N",
+          "3π/5 = 2π/N → N = 10/3, but need integer period",
+          "sin(3π/5 · n) has period when 3π/5 · q = 2πm for integer m",
+          "q = 10m/3 → smallest integer q = 10",
+          "r = lcm(8,10) = 40"
+        ],
+        "verification": "8 = 2³, 10 = 2·5, lcm = 2³·5 = 40"
+      }
+    },
+    "formulas": [
+      "Periodicity: x[n+N] = x[n] ∀n ∈ ℤ",
+      "Period of cos(ω₀n): N = 2π/ω₀ (when rational)",
+      "For coprime p,q: lcm(p,q) = pq",
+      "General: lcm(p,q) = pq/gcd(p,q)"
+    ]
+  },
+
+  "sp25_mt2_E2.2": {
+    "exam": "sp25_mt2",
+    "title": "E2.2 - Signal Fusion in Self-Driving Cars",
+    "topic": "gram-schmidt-qr",
+    "points": 30,
+    "description": "Applies Gram-Schmidt orthogonalization to sensor signals from LiDAR, Radar, and GPS to remove correlation and improve signal discrimination.",
+    "concepts": [
+      "Inner product: ⟨a,b⟩ = aᵀb",
+      "Vector norm: ||a|| = √(aᵀa)",
+      "Cosine similarity: cos θ = ⟨a,b⟩/(||a|| ||b||)",
+      "Gram-Schmidt orthogonalization process",
+      "Orthonormal basis construction",
+      "QR decomposition connection"
+    ],
+    "problem_statement": {
+      "vectors": "a₁ = [1,1,0]ᵀ, a₂ = [-1,1,0]ᵀ, a₃ = [1,0,1]ᵀ",
+      "part_a": "Compute cos(θᵢⱼ) for all pairs, identify largest/smallest overlaps",
+      "part_b": "Apply Gram-Schmidt to obtain orthonormal vectors q₁, q₂, q₃"
+    },
+    "solution": {
+      "part_a": {
+        "calculations": {
+          "a1_a2": {
+            "inner_product": "⟨a₁,a₂⟩ = 1(-1) + 1(1) + 0(0) = 0",
+            "norms": "||a₁|| = √2, ||a₂|| = √2",
+            "cosine": "cos θ₁₂ = 0/(√2·√2) = 0",
+            "interpretation": "Orthogonal (perpendicular)"
+          },
+          "a1_a3": {
+            "inner_product": "⟨a₁,a₃⟩ = 1(1) + 1(0) + 0(1) = 1",
+            "norms": "||a₁|| = √2, ||a₃|| = √2",
+            "cosine": "cos θ₁₃ = 1/(√2·√2) = 1/2",
+            "interpretation": "Positive correlation, θ = 60°"
+          },
+          "a2_a3": {
+            "inner_product": "⟨a₂,a₃⟩ = -1(1) + 1(0) + 0(1) = -1",
+            "norms": "||a₂|| = √2, ||a₃|| = √2",
+            "cosine": "cos θ₂₃ = -1/(√2·√2) = -1/2",
+            "interpretation": "Negative correlation, θ = 120°"
+          }
+        },
+        "answer": "Largest positive overlap: a₁,a₃ (cos θ = 1/2). Largest negative: a₂,a₃ (cos θ = -1/2). Least overlap: a₁,a₂ (cos θ = 0, already orthogonal)"
+      },
+      "part_b": {
+        "step1": {
+          "description": "Normalize first vector",
+          "calculation": "q₁ = a₁/||a₁|| = [1,1,0]ᵀ/√2 = [1/√2, 1/√2, 0]ᵀ"
+        },
+        "step2": {
+          "description": "Orthogonalize a₂ against q₁",
+          "projection": "proj_{q₁}(a₂) = ⟨a₂,q₁⟩q₁ = 0·q₁ = 0",
+          "v₂": "v₂ = a₂ - proj_{q₁}(a₂) = [-1,1,0]ᵀ - 0 = [-1,1,0]ᵀ",
+          "normalize": "q₂ = v₂/||v₂|| = [-1,1,0]ᵀ/√2 = [-1/√2, 1/√2, 0]ᵀ"
+        },
+        "step3": {
+          "description": "Orthogonalize a₃ against q₁ and q₂",
+          "proj_q1": "⟨a₃,q₁⟩q₁ = (1/√2)·[1/√2, 1/√2, 0]ᵀ = [1/2, 1/2, 0]ᵀ",
+          "proj_q2": "⟨a₃,q₂⟩q₂ = (-1/√2)·[-1/√2, 1/√2, 0]ᵀ = [1/2, -1/2, 0]ᵀ",
+          "v₃": "v₃ = [1,0,1]ᵀ - [1/2,1/2,0]ᵀ - [1/2,-1/2,0]ᵀ = [0,0,1]ᵀ",
+          "normalize": "q₃ = v₃/||v₃|| = [0,0,1]ᵀ"
+        },
+        "final_answer": {
+          "q1": "[1/√2, 1/√2, 0]ᵀ",
+          "q2": "[-1/√2, 1/√2, 0]ᵀ",
+          "q3": "[0, 0, 1]ᵀ"
+        },
+        "verification": "All qᵢ have ||qᵢ|| = 1 and ⟨qᵢ,qⱼ⟩ = 0 for i≠j"
+      }
+    },
+    "formulas": [
+      "Gram-Schmidt: vₖ = aₖ - Σᵢ₌₁^{k-1} ⟨aₖ,qᵢ⟩qᵢ",
+      "Normalization: qₖ = vₖ/||vₖ||",
+      "Projection: proj_u(v) = (⟨v,u⟩/⟨u,u⟩)u = ⟨v,u⟩u when ||u||=1",
+      "Orthogonality test: ⟨qᵢ,qⱼ⟩ = δᵢⱼ (Kronecker delta)"
+    ]
+  },
+
+  "sp25_mt2_E2.3": {
+    "exam": "sp25_mt2",
+    "title": "E2.3 - Robot Motion in 2D",
+    "topic": "vectors-matrices",
+    "points": 25,
+    "description": "Studies 2D transformations using homogeneous coordinates: rotation and translation. Examines non-commutativity of transformation compositions.",
+    "concepts": [
+      "Homogeneous coordinates in 2D",
+      "Rotation matrix",
+      "Translation matrix",
+      "Matrix composition",
+      "Non-commutativity: TR ≠ RT"
+    ],
+    "problem_statement": {
+      "initial_position": "p = [2,1,1]ᵀ",
+      "rotation": "R(π/2) = [[0,-1,0],[1,0,0],[0,0,1]]",
+      "translation": "T(3,2) = [[1,0,3],[0,1,2],[0,0,1]]",
+      "part_a": "Find position after rotation then translation",
+      "part_b": "Find position after translation then rotation",
+      "part_c": "Explain why order matters"
+    },
+    "solution": {
+      "part_a": {
+        "step1": "Rotate first: Rp = [[0,-1,0],[1,0,0],[0,0,1]]·[2,1,1]ᵀ = [-1,2,1]ᵀ",
+        "step2": "Then translate: T(Rp) = [[1,0,3],[0,1,2],[0,0,1]]·[-1,2,1]ᵀ = [2,4,1]ᵀ",
+        "answer": "y = [2,4,1]ᵀ, so position is (2,4)"
+      },
+      "part_b": {
+        "step1": "Translate first: Tp = [[1,0,3],[0,1,2],[0,0,1]]·[2,1,1]ᵀ = [5,3,1]ᵀ",
+        "step2": "Then rotate: R(Tp) = [[0,-1,0],[1,0,0],[0,0,1]]·[5,3,1]ᵀ = [-3,5,1]ᵀ",
+        "answer": "z = [-3,5,1]ᵀ, so position is (-3,5)"
+      },
+      "part_c": {
+        "explanation": "Matrix multiplication is not commutative: TR ≠ RT in general. Geometrically, rotating then translating produces a different result than translating then rotating because rotation happens about the origin.",
+        "example": "From parts (a) and (b): (2,4) ≠ (-3,5), confirming order matters"
+      }
+    },
+    "formulas": [
+      "Homogeneous coords: [x,y,1]ᵀ represents point (x,y)",
+      "Rotation by θ: R(θ) = [[cos θ, -sin θ, 0],[sin θ, cos θ, 0],[0,0,1]]",
+      "Translation by (tₓ,tᵧ): T = [[1,0,tₓ],[0,1,tᵧ],[0,0,1]]",
+      "Composition: (T∘R)(p) = T(R(p)) ≠ (R∘T)(p) = R(T(p))"
+    ],
+    "note": "This problem uses homogeneous coordinates, which is a fundamental topic in computer graphics, but since it's primarily about matrix transformations and NOT about signal processing topics, it could be classified as 'vectors-matrices' or excluded depending on curriculum focus."
+  },
+
+  "sp25_mt2_E2.4": {
+    "exam": "sp25_mt2",
+    "title": "E2.4 - Orthonormal Basis Decomposition",
+    "topic": "gram-schmidt-qr",
+    "points": 35,
+    "description": "Verifies orthonormality of a basis and decomposes a vector into this basis. Connects to Parseval's theorem for energy conservation.",
+    "concepts": [
+      "Orthonormal basis: ⟨φᵢ,φⱼ⟩ = δᵢⱼ",
+      "Vector decomposition: x = Σ Xᵢφᵢ",
+      "Coefficients: Xᵢ = ⟨x,φᵢ⟩ (for orthonormal basis)",
+      "Parseval's theorem: ||x||² = Σ|Xᵢ|²"
+    ],
+    "problem_statement": {
+      "vectors": "φ₁ = [1,1,1]ᵀ/√3, φ₂ = [1,0,-1]ᵀ/√2, φ₃ = [1,-2,1]ᵀ/√6",
+      "part_a": "Prove {φ₁,φ₂,φ₃} forms orthonormal basis for ℝ³",
+      "part_b": "Find X₁,X₂,X₃ for x = [3,4,12]ᵀ = X₁φ₁ + X₂φ₂ + X₃φ₃",
+      "part_c": "Compute ||X||₂"
+    },
+    "solution": {
+      "part_a": {
+        "check_normalization": {
+          "phi1": "||φ₁||² = (1/3)(1²+1²+1²) = 3/3 = 1 ✓",
+          "phi2": "||φ₂||² = (1/2)(1²+0²+(-1)²) = 2/2 = 1 ✓",
+          "phi3": "||φ₃||² = (1/6)(1²+(-2)²+1²) = 6/6 = 1 ✓"
+        },
+        "check_orthogonality": {
+          "phi1_phi2": "⟨φ₁,φ₂⟩ = (1/√6)(1·1 + 1·0 + 1·(-1)) = 0/√6 = 0 ✓",
+          "phi1_phi3": "⟨φ₁,φ₃⟩ = (1/√18)(1·1 + 1·(-2) + 1·1) = 0/√18 = 0 ✓",
+          "phi2_phi3": "⟨φ₂,φ₃⟩ = (1/√12)(1·1 + 0·(-2) + (-1)·1) = 0/√12 = 0 ✓"
+        },
+        "conclusion": "All vectors have unit length and are mutually orthogonal, forming an orthonormal basis."
+      },
+      "part_b": {
+        "coefficient_X1": {
+          "formula": "X₁ = ⟨x,φ₁⟩",
+          "calculation": "X₁ = (1/√3)(3·1 + 4·1 + 12·1) = 19/√3 = 19√3/3"
+        },
+        "coefficient_X2": {
+          "formula": "X₂ = ⟨x,φ₂⟩",
+          "calculation": "X₂ = (1/√2)(3·1 + 4·0 + 12·(-1)) = -9/√2 = -9√2/2"
+        },
+        "coefficient_X3": {
+          "formula": "X₃ = ⟨x,φ₃⟩",
+          "calculation": "X₃ = (1/√6)(3·1 + 4·(-2) + 12·1) = 7/√6 = 7√6/6"
+        },
+        "verification": "x = X₁φ₁ + X₂φ₂ + X₃φ₃ should equal [3,4,12]ᵀ"
+      },
+      "part_c": {
+        "using_parseval": "||X||₂² = X₁² + X₂² + X₃²",
+        "alternative": "By Parseval: ||X||₂ = ||x||₂",
+        "direct_calculation": "||x||₂ = √(3² + 4² + 12²) = √(9+16+144) = √169 = 13",
+        "answer": "||X||₂ = 13"
+      }
+    },
+    "formulas": [
+      "Orthonormal: ⟨φᵢ,φⱼ⟩ = δᵢⱼ (Kronecker delta)",
+      "Decomposition coefficients: Xᵢ = ⟨x,φᵢ⟩ when basis is orthonormal",
+      "Parseval's identity: ||x||² = Σᵢ|Xᵢ|² for orthonormal basis",
+      "Reconstruction: x = ΣᵢXᵢφᵢ"
+    ]
+  },
+
+  "sp25_mt2_E2.5": {
+    "exam": "sp25_mt2",
+    "title": "E2.5 - Discrete-Time Fourier Series (DTFS)",
+    "topic": "dtfs-dft",
+    "points": 35,
+    "description": "Computes DTFS coefficients for a periodic signal and expresses it in closed form using complex exponentials and Euler's formula.",
+    "concepts": [
+      "DTFS analysis equation: Xₖ = (1/p)Σₙ x[n]e^(-jkω₀n)",
+      "DTFS synthesis equation: x[n] = Σₖ Xₖe^(jkω₀n)",
+      "Fundamental frequency: ω₀ = 2π/p",
+      "Euler's formula: e^(jθ) = cos θ + j sin θ",
+      "Linearity of DTFS"
+    ],
+    "problem_statement": {
+      "signal": "Periodic signal with period p=4, values: x[0]=2, x[1]=-1, x[2]=-1, x[3]=2 (repeating)",
+      "part_a": "Find all DTFS coefficients Xₖ for k ∈ ⟨4⟩",
+      "part_b": "Express x[n] = α + β cos(πn) and find α, β"
+    },
+    "solution": {
+      "part_a": {
+        "setup": "ω₀ = 2π/4 = π/2, period p=4",
+        "one_period": "x[0]=2, x[1]=-1, x[2]=-1, x[3]=2",
+        "coefficient_X0": {
+          "formula": "X₀ = (1/4)Σₙ₌₀³ x[n]",
+          "calculation": "X₀ = (1/4)(2 + (-1) + (-1) + 2) = 2/4 = 1/2",
+          "interpretation": "DC component (average value)"
+        },
+        "coefficient_X1": {
+          "formula": "X₁ = (1/4)Σₙ₌₀³ x[n]e^(-jπn/2)",
+          "expansion": "X₁ = (1/4)[2·e⁰ + (-1)·e^(-jπ/2) + (-1)·e^(-jπ) + 2·e^(-j3π/2)]",
+          "simplify": "X₁ = (1/4)[2·1 + (-1)·(-j) + (-1)·(-1) + 2·j]",
+          "calculation": "X₁ = (1/4)[2 + j + 1 + 2j] = (1/4)(3 + 3j) = (3/4)(1+j)",
+          "magnitude": "|X₁| = (3/4)√2"
+        },
+        "coefficient_X2": {
+          "formula": "X₂ = (1/4)Σₙ₌₀³ x[n]e^(-jπn)",
+          "expansion": "X₂ = (1/4)[2·1 + (-1)·(-1) + (-1)·1 + 2·(-1)]",
+          "calculation": "X₂ = (1/4)(2 + 1 - 1 - 2) = 0"
+        },
+        "coefficient_X3": {
+          "formula": "X₃ = (1/4)Σₙ₌₀³ x[n]e^(-j3πn/2)",
+          "note": "By conjugate symmetry for real signals: X₃ = X₁*",
+          "calculation": "X₃ = (3/4)(1-j)"
+        }
+      },
+      "part_b": {
+        "synthesis": "x[n] = Σₖ₌₀³ Xₖe^(jkπn/2)",
+        "expand": "x[n] = X₀ + X₁e^(jπn/2) + X₂e^(jπn) + X₃e^(j3πn/2)",
+        "use_conjugate_pairs": "X₁e^(jπn/2) + X₃e^(j3πn/2) = X₁e^(jπn/2) + X₁*e^(-jπn/2) = 2Re{X₁e^(jπn/2)}",
+        "simplify": "With X₁ = (3/4)(1+j), X₀ = 1/2, X₂ = 0",
+        "final_form": "x[n] = 1/2 + (3/2)cos(πn/2 + π/4)",
+        "alternative": "If required form is x[n] = α + β cos(πn)",
+        "check_period_2": "cos(πn) has period 2, but signal has period 4",
+        "answer": "α = 1/2, β depends on how we interpret. The signal contains frequency components at ω=0 and ω=π/2, not just ω=π."
+      }
+    },
+    "formulas": [
+      "DTFS Analysis: Xₖ = (1/p)Σₙ₌⟨p⟩ x[n]e^(-jkω₀n)",
+      "DTFS Synthesis: x[n] = Σₖ₌⟨p⟩ Xₖe^(jkω₀n)",
+      "Fundamental frequency: ω₀ = 2π/p",
+      "Conjugate symmetry (real x[n]): X₋ₖ = Xₖ*",
+      "Euler: e^(jθ) = cos θ + j sin θ"
+    ]
+  },
+
+  "sp25_mt2_E2.6": {
+    "exam": "sp25_mt2",
+    "title": "E2.6 - Matching Null Spaces",
+    "topic": "fundamental-subspaces",
+    "points": 25,
+    "description": "Proves the fundamental result that N(A) = N(AᵀA), establishing equivalence of null spaces. Important for understanding least squares and fundamental subspaces.",
+    "concepts": [
+      "Null space: N(A) = {x : Ax = 0}",
+      "Subset notation: S ⊆ T",
+      "Set equality: S = T iff S ⊆ T and T ⊆ S",
+      "Matrix product properties",
+      "Norm properties: ||v|| = 0 iff v = 0"
+    ],
+    "problem_statement": {
+      "theorem": "For matrix A ∈ ℝᵐˣⁿ, prove N(A) = N(AᵀA)",
+      "part_a": "Show N(A) ⊆ N(AᵀA)",
+      "part_b": "Show N(AᵀA) ⊆ N(A)"
+    },
+    "solution": {
+      "part_a": {
+        "goal": "If x ∈ N(A), then x ∈ N(AᵀA)",
+        "proof": [
+          "Assume x ∈ N(A)",
+          "By definition: Ax = 0",
+          "Multiply both sides by Aᵀ: Aᵀ(Ax) = Aᵀ(0)",
+          "Simplify: (AᵀA)x = 0",
+          "By definition: x ∈ N(AᵀA)",
+          "Therefore: N(A) ⊆ N(AᵀA) ✓"
+        ],
+        "key_step": "Left-multiplying by Aᵀ preserves the zero"
+      },
+      "part_b": {
+        "goal": "If x ∈ N(AᵀA), then x ∈ N(A)",
+        "proof": [
+          "Assume x ∈ N(AᵀA)",
+          "By definition: (AᵀA)x = 0",
+          "Take inner product: xᵀ(AᵀA)x = xᵀ·0 = 0",
+          "Rearrange: (Ax)ᵀ(Ax) = 0",
+          "Recognize as squared norm: ||Ax||² = 0",
+          "By norm property: ||Ax|| = 0 ⟹ Ax = 0",
+          "By definition: x ∈ N(A)",
+          "Therefore: N(AᵀA) ⊆ N(A) ✓"
+        ],
+        "key_steps": [
+          "Use quadratic form: xᵀ(AᵀA)x = ||Ax||²",
+          "Apply norm property: ||v||² = 0 ⟺ v = 0"
+        ]
+      },
+      "conclusion": {
+        "result": "Since N(A) ⊆ N(AᵀA) and N(AᵀA) ⊆ N(A), we have N(A) = N(AᵀA)",
+        "significance": "This is crucial for least squares: minimizing ||Ax-b|| leads to solving AᵀAx = Aᵀb. Solutions exist when b - Ax ⊥ N(A) = N(AᵀA)."
+      }
+    },
+    "formulas": [
+      "Null space: N(A) = {x ∈ ℝⁿ : Ax = 0}",
+      "Quadratic form: xᵀ(AᵀA)x = ||Ax||² ≥ 0",
+      "Norm property: ||v|| = 0 ⟺ v = 0",
+      "Normal equations connection: AᵀAx = Aᵀb"
+    ],
+    "applications": [
+      "Least squares theory",
+      "QR decomposition",
+      "Fundamental subspaces",
+      "Pseudoinverse computation"
+    ]
+  }
+}

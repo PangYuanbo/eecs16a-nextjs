@@ -1,0 +1,126 @@
+{
+  "sp25_mt3_E3.1": {
+    "exam": "sp25_mt3",
+    "title": "E3.1 - Special QR Decomposition in 2D",
+    "topic": "gram-schmidt-qr",
+    "points": 35,
+    "description": "Derives QR decomposition for 2×2 matrix with special structure, using geometric insight about orthogonal vectors in 2D.",
+    "concepts": [
+      "QR decomposition: A = QR",
+      "Orthogonal matrix properties",
+      "Gram-Schmidt in 2D",
+      "Finding orthogonal vectors by flipping and negating components"
+    ],
+    "key_formulas": [
+      "Q = (1/√(a²+c²))[[a, -c], [c, a]]",
+      "R = √(a²+c²)[[1, (ab+cd)/(a²+c²)], [0, (ad-bc)/√(a²+c²)]]",
+      "Orthogonal vector to [α, β]ᵀ is [-β, α]ᵀ or [β, -α]ᵀ"
+    ]
+  },
+
+  "sp25_mt3_E3.2": {
+    "exam": "sp25_mt3",
+    "title": "E3.2 - Linear Regression",
+    "topic": "least-squares",
+    "points": 20,
+    "description": "Linear regression through mean-centered data in 2D, finding best-fit line through origin using least squares.",
+    "concepts": [
+      "Mean-centered data",
+      "Linear regression: ax = b",
+      "Least squares solution: x̂ = (aᵀa)⁻¹aᵀb",
+      "Overdetermined system: 6 equations, 1 unknown"
+    ],
+    "problem_data": {
+      "data_matrix": "D = [[3,-4,7,1,-4,-3], [7,-6,8,-1,-1,-7]]",
+      "mean_centered": "Already centered: sum of columns = 0"
+    },
+    "key_formulas": [
+      "x̂ = (aᵀa)⁻¹aᵀb where a = [3,-4,7,1,-4,-3]ᵀ, b = [7,-6,8,-1,-1,-7]ᵀ",
+      "aᵀa = 9 + 16 + 49 + 1 + 16 + 9 = 100",
+      "aᵀb = 21 + 24 + 56 - 1 + 4 + 21 = 125",
+      "x̂ = 125/100 = 1.25"
+    ]
+  },
+
+  "sp25_mt3_E3.3": {
+    "exam": "sp25_mt3",
+    "title": "E3.3 - The Golden State Space",
+    "topic": "state-space",
+    "points": 55,
+    "description": "State-space system generating Fibonacci sequence, with eigenanalysis using golden ratio φ = (1+√5)/2.",
+    "concepts": [
+      "State-space model: q[n+1] = Aq[n]",
+      "Fibonacci sequence generation",
+      "Eigenvalues: λ₁ = φ = (1+√5)/2, λ₂ = φ̂ = (1-√5)/2",
+      "Eigendecomposition: A = VΛV⁻¹",
+      "Closed-form solution: q[n] = Aⁿq[0]",
+      "Binet's formula for Fibonacci"
+    ],
+    "state_transition_matrix": "A = [[1, 1], [1, 0]]",
+    "output_equation": "y[n] = q₁[n] + q₂[n]",
+    "initial_state": "q[0] = [0, 1]ᵀ",
+    "key_formulas": [
+      "Eigenvalues: φ = (1+√5)/2 ≈ 1.618, φ̂ = (1-√5)/2 ≈ -0.618",
+      "Properties: φφ̂ = -1, φ + φ̂ = 1, φ - φ̂ = √5",
+      "Eigenvectors: v₁ = [-1, φ̂]ᵀ, v₂ = [-1, φ]ᵀ",
+      "Output: y[n] = (φⁿ⁺¹ - φ̂ⁿ⁺¹)/√5 (Binet's formula)",
+      "Limit: lim(y[n+1]/y[n]) = φ as n→∞"
+    ]
+  },
+
+  "sp25_mt3_E3.4": {
+    "exam": "sp25_mt3",
+    "title": "E3.4 - Basic SVD",
+    "topic": "eigenanalysis",
+    "points": 35,
+    "description": "Compute compact SVD of 3×2 matrix: A = UΣVᵀ.",
+    "concepts": [
+      "Singular Value Decomposition (SVD)",
+      "Computing AᵀA and AAᵀ",
+      "Eigenvalues of AᵀA give singular values: σᵢ = √λᵢ",
+      "Right singular vectors: eigenvectors of AᵀA",
+      "Left singular vectors: eigenvectors of AAᵀ",
+      "Compact SVD: keep only non-zero singular values"
+    ],
+    "matrix": "A = [[3, 2], [1, 0], [0, √6]]",
+    "key_formulas": [
+      "AᵀA = [[10, 6], [6, 10]] (2×2 matrix)",
+      "Eigenvalues of AᵀA: λ₁ = 16, λ₂ = 4",
+      "Singular values: σ₁ = 4, σ₂ = 2",
+      "V from eigenvectors of AᵀA (2×2)",
+      "U from Avᵢ/σᵢ or eigenvectors of AAᵀ (3×2 for compact)"
+    ]
+  },
+
+  "sp25_mt3_E3.5": {
+    "exam": "sp25_mt3",
+    "title": "E3.5 - Using PCA to Analyze Bacteria",
+    "topic": "eigenanalysis",
+    "points": 40,
+    "description": "Principal Component Analysis (PCA) on gene-expression data to classify bacteria species.",
+    "concepts": [
+      "PCA preprocessing: mean-centering",
+      "SVD decomposition A = UΣVᵀ",
+      "Principal components: columns of U",
+      "Dimensionality reduction",
+      "Singular value decay indicates number of components needed",
+      "Projection onto principal components"
+    ],
+    "data_setup": {
+      "raw_data_matrix": "X (6×50000) - gene expressions for 50000 cells",
+      "mean_vector": "μ = (1/n)Σxₖ",
+      "pca_ready_matrix": "A = X - μ1ᵀ (mean-centered)"
+    },
+    "analysis_results": {
+      "num_principal_components": 2,
+      "interpretation": "Only 2 PCs needed → 2 distinct bacteria types",
+      "singular_value_pattern": "σ₁ ≈ σ₂ >> σ₃ ≈ σ₄ ≈ ... ≈ σ₆ ≈ 0"
+    },
+    "key_formulas": [
+      "Mean-centering: A = X - μ1ᵀ where μ = (1/n)Σxₖ",
+      "SVD: A = UΣVᵀ",
+      "PC projection: z = Uₖᵀa where Uₖ = first k columns of U",
+      "Number of clusters = number of distinct groups in PC space"
+    ]
+  }
+}

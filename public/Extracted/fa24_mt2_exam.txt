@@ -1,0 +1,435 @@
+EECS 16A: Designing Information Devices and Systems I              Midterm 2
+Department of Electrical Engineering and Computer Sciences  29 October 2024
+UNIVERSITY OF CALIFORNIA, BERKELEY
+
+FIRST Name:  LAST Name:  SID (All Digits):
+
+· (5 Points) On every page, print legibly your name and ALL digits of your SID. For
+   every page on which you do not write your name and SID, you forfeit a point, up
+   to the maximum 5 points.
+
+· (10 Points) (Pledge of Academic Integrity) Hand-copy, sign, and date the single-
+   line text (which begins with I have read, . . . ) of the Pledge of Academic Integrity on
+   page 3 of this document. Your solutions will not be evaluated without this.
+
+· Urgent Contact with the Teaching Staff: In case of an urgent matter, raise your
+   hand if in-person, or send an email to eecs16a@berkeley.edu if online.
+
+· This document consists of pages numbered 1 through 17. Verify that your copy of
+   the exam is free of anomalies, and contains all of the specified number of pages. If
+   you find a defect in your copy, contact the teaching staff immediately.
+
+· This exam is designed to be completed within 70 minutes. However, you may use
+   up to 80 minutes total--in one sitting--to tackle the exam.
+
+   The exam starts at 8:10 pm California time. Your allotted window begins with re-
+   spect to this start time. Students who have official accommodations of 1.5× and 2×
+   time windows have 120 and 160 minutes, respectively.
+
+· This exam is closed book. You may not use or access, or cause to be used or ac-
+   cessed, any reference in print or electronic form at any time during the exam, except
+   two double-sided 8.5" × 11" sheets of handwritten, original notes having no ap-
+   pendage.
+
+   Collaboration is not permitted.
+
+   Computing, communication, and other electronic devices (except dedicated time-
+   keepers) must be turned off.
+
+   Scratch paper will be provided to you; ask for more if you run out. You may not use
+   your own scratch paper.
+
+· Please write neatly and legibly, because if we can't read it, we can't evaluate it.
+
+· For each problem, limit your work to the space provided specifically for that prob-
+   lem. No other work will be considered. For example, we will not evaluate scratch work. No
+   exceptions.
+
+· Unless explicitly waived by the specific wording of a problem, you must explain
+   your responses (and reasoning) succinctly, but clearly and convincingly.
+
+· In some parts of a problem, we may ask you to establish a certain result--for exam-
+   ple, "show this" or "prove that." Even if you're unable to establish the result that we
+   ask of you, you may still take that result for granted--and use it in any subsequent
+   part of the problem.
+
+                                                            1 of 17
+FIRST Name:  LAST Name:  SID (All Digits):
+
+· If we ask you to provide a "reasonably simple expression" for something, by default
+   we expect your expression to be in closed form--one not involving a sum or an
+   integral --unless we explicitly tell you otherwise.
+
+· Noncompliance with these or other instructions from the teaching staff--including,
+   for example, commencing work prematurely, or continuing it beyond the allocated time
+   window--is a serious violation of the Code of Student Conduct.
+
+2 of 17
+FIRST Name:  LAST Name:  SID (All Digits):
+
+Pledge of Academic Integrity
+
+By my honor, I affirm that
+  (1) this document--which I have produced for the evaluation of my performance--
+       reflects my original, bona fide work, and that I have neither provided to, nor re-
+       ceived from, anyone excessive or unreasonable assistance that produces unfair ad-
+       vantage for me or for any of my peers;
+
+  (2) as a member of the UC Berkeley community, I have acted with honesty, integrity,
+       respect for others, and professional responsibility--and in a manner consistent with
+       the letter and intent of the campus Code of Student Conduct;
+
+  (3) I have not violated--nor aided or abetted anyone else to violate--the instructions
+       for this exam given by the course staff, including, but not limited to, those on the
+       cover page of this document; and
+
+  (4) More generally, I have not committed any act that violates--nor aided or abetted
+       anyone else to violate--UC Berkeley, state, or Federal regulations, during this exam.
+
+(10 Points) In the space below, hand-write the following sentence, verbatim. Then write
+your name in legible letters, sign, include your full SID, and date before submitting your
+work:
+
+I have read, I understand, and I commit to adhere to the letter and spirit of the pledge above.
+
+Full Name:                Signature:
+Date:                    Student ID:
+
+                                                                                              3 of 17
+FIRST Name:                    LAST Name:                         SID (All Digits):
+
+Potentially Useful Facts That You May Use Without the Need to Prove Them:
+
+· Discrete Fourier Series (DTFS): Complex exponential Fourier series synthesis and
+   analysis equations for a periodic discrete-time signal having period p:
+
+                  x(n) =       Xk eik0n                        1       x(n) e-ik0n ,
+                                                       Xk =
+                                                               p
+                          k=p                                     n=p
+
+                       2
+         where p = 0 and p denotes a suitable discrete interval of length p (i.e., an interval
+
+                                                                            p-1       p
+
+         containing p contiguous integers). For example, may denote or .
+
+                                                          k=p               k=0 k=1
+
+· Parseval's Identity for p-Periodic Discrete-Time Signals: For a p-periodic discrete-
+   time signal x that has DTFS coefficients Xk, the following identity holds:
+
+                                  1 |x(n)|2 = |Xk|2.
+                                  p
+                                      n=p         k=p
+
+         This identity can also be written in vector form, using inner products. Let
+
+                               x()                                     Xm   
+
+                     x =          ..              and        X =       ..   
+                                  .                                    .    
+
+                               x( + p - 1)                        Xm+p-1
+
+         denote the vector of signal values (in one period) and the vector of DTFS coefficients,
+         respectively. Then, Parseval's Identity can be written as follows:
+
+                                              1
+                                                x, x = X, X.
+
+                                              p
+· Inverse of a 2 × 2 matrix: The inverse of the matrix A = a b is given by
+
+                                                                                 cd
+
+         A-1 = 1     d -b , provided that ad - bc = 0.
+            ad - bc -c a
+
+· Some Trigonometric Values:
+
+                               2                                    1                 2     1
+         cos = sin = sin                   3      sin = cos =                    cos        =- .
+         6        3            3                       6            32                   3  2
+                                      =
+                                          2
+
+                                                  3                         3    = -1.
+            sin = 1            cos = cos                  =0           sin
+                                         2        2                         2
+                  2
+
+· Transposition and Inversion: For any invertible matrix A,
+
+                                            T -1       -1 T
+                                            A =A .
+
+4 of 17
+FIRST Name:          LAST Name:                  SID (All Digits):
+
+MT2.1 (40 Points) Rotation! Rotation! Rotation!
+
+Consider the matrix  R = cos  - sin  .
+                              sin  cos 
+
+(a) (7 Points) Determine a reasonably simple form for the matrix R-1.
+     You should be able to do this with little mathematical manipulation. But you must
+
+     provide a succinct and clear explanation.
+
+(b) (8 Points) Determine the Gramian matrix GR = R R. What does your result say
+     about the relationship between the columns of the matrix R? What about the rows?
+
+                                                                    5 of 17
+FIRST Name:                 LAST Name:                          SID (All Digits):
+
+MT2.1 (Continued)
+
+  (c) (10 Points) Determine the matrix Rn . Your expression for the entries of Rn must be
+       in the simplest closed form possible.
+
+(d) (15 Points) Consider the evolving vector
+
+                                  n           - sin  n 
+                             1 n cos 2
+                    z(n) =  2 sin n                   2   z(0)  for n = 0, 1, 2, . . .
+                                                     n
+                                           2  cos
+                                                     2
+
+         Let z(0) = 16 .
+                         0
+
+         Determine, and provide a well-labeled plot of, z(1), z(2), z(3), and z(4) on the two-
+         dimensional plane. What is lim z(n)?
+
+                                                                 n
+
+                 z2
+                10
+
+                  8
+                  6
+                  4
+                  2
+
+         -4 -2 0    2 4 6 8 10 12 14 16 18 z1
+                -2
+                -4
+
+6 of 17
+FIRST Name:  LAST Name:                                        SID (All Digits):
+
+MT2.2 (40 Points) Triangular Matrices
+
+This problem explores certain properties of triangular matrices. A square n × n matrix L
+is lower-triangular if each of its entries above the main diagonal is zero--that is, ij = 0 if
+i - j < 0, where i, j  {1, 2, . . . , n}. The following matrix L is lower-triangular:
+
+               11 0 · · · 0                           
+
+             21 22 · · ·                              0
+             L =  ..                   .. . . .         
+                    ..
+                                                      ..  .
+                                                      .
+
+               n1 n2 · · · nn
+
+It can be proven that a lower-triangular matrix is invertible if, and only if, each of its
+diagonal entries ii is nonzero, where i  {1, 2, . . . , n}.
+
+You're not asked to prove this general result, but rather to use it in the parts below, as
+appropriate.
+
+(a) (8 Points) A square n × n matrix U is upper-triangular if each of its entries below
+     the main diagonal is zero--that is, a matrix whose entries satisfy uij = 0 if i - j > 0,
+     where i, j  {1, 2, . . . , n}. The following matrix U is upper-triangular:
+
+                                       u11 u12 · · · u1n     
+
+                   0                   u22 · · · u2n
+                                       ...       ...  ..  .
+             U =  ..                                  .
+                   .
+
+                                       0 0 · · · unn
+
+Prove that U is invertible if, and only if, each of its diagonal entries uii is nonzero,
+where i  {1, 2, . . . , n}.
+
+Note: To tackle this, use the result given in the problem stem--about lower-triangular
+matrices--plus any additional relevant property or properties of matrix inverses.
+
+                                                                                  7 of 17
+FIRST Name:  LAST Name:  SID (All Digits):
+
+MT2.2 (Continued)
+
+  (b) (20 Points) Consider the lower-triangular 3 × 3 matrix
+                                                          1 0 0
+
+                                                    A = 2 0 0 .
+                                                            321
+
+         (i) (5 Points) Determine a basis for the nullspace N (A).
+
+         (ii) (5 Points) Determine a basis for the column space C(A).
+
+8 of 17
+FIRST Name:  LAST Name:  SID (All Digits):
+
+MT2.2 (b) (Continued)
+       (iii) (5 Points) Determine a basis for the left nullspace N (AT).
+
+(iv) (5 Points) Determine a basis for the row space C(AT).
+
+                                                                          9 of 17
+FIRST Name:                     LAST Name:                        SID (All Digits):
+
+MT2.2 (Continued)
+
+(c) (12 Points) Consider the matrix
+
+                                           1 0 0
+                                     A = 2 3 0 .
+
+                                             456
+
+          Determine the matrix             a 0 0
+                                     B = b c 0
+
+                                             def
+
+          such that AB = BA = I, where I denotes the identity matrix.
+
+          You must evaluate each of the entries in the matrix B.
+
+10 of 17
+FIRST Name:                LAST Name:            SID (All Digits):
+
+MT2.3 (35 Points)
+Consider the 2 × 2 matrix
+
+                           A = 1 -2 .
+                                   3 -6
+
+(a) (5 Points) Explain why A is not invertible.
+
+(b) (15 Points) We want to solve the equation Ax = b, where b = 1 .
+                                                                                         12
+
+     Does a solution exist? If not, explain why. If yes, determine a solution.
+     Does the equation have a unique solution? If not, determine a second solution lin-
+     early independent of the first one.
+
+                                                                    11 of 17
+FIRST Name:  LAST Name:  SID (All Digits):
+
+MT2.3 (Continued)
+
+  (c) (15 Points) We want to solve the equation Ax = b, where b = 2 .
+                                                                                           6
+
+       Does a solution exist? If not, explain why. If yes, determine a solution.
+       Does the equation have a unique solution? If not, determine a second solution lin-
+       early independent of the first one.
+
+12 of 17
+FIRST Name:                LAST Name:                                         SID (All Digits):
+
+MT2.4 (30 Points) QR Decomposition
+
+Consider the 3 × 3 matrix        1 1 0
+                           A = 1 1 1 .
+
+                                   011
+
+This problem explores the QR decomposition of A--that is, the factorization A = QR,
+where Q is an orthogonal matrix (such that QT Q = QQT = I), and R is upper-triangular--
+
+that is, each entry rij = 0 if i - j > 0, where i, j  {1, 2, 3}.
+
+                                                                           1  1 0 -1
+(a) (18 Points) Show that the orthogonal matrix is Q = 
+                                                                              1  0  1.
+                                                                            20 2 0
+
+Hint: Apply the Gram-Schmidt Algorithm to the columns of A to determine the
+
+columns of Q.
+
+                                                                                                 13 of 17
+FIRST Name:  LAST Name:  SID (All Digits):
+
+MT2.4 (Continued)
+
+  (b) (12 Points) Determine the upper-triangular matrix R.
+       Your answer must be in the simplest numerical closed form possible. Fractions--
+       even involving irrational numbers--are fine, but decimals are not.
+
+14 of 17
+FIRST Name:                 LAST Name:   SID (All Digits):
+
+MT2.5 (40 Points) DTFS
+
+Consider a p-periodic discrete-time signal x--that is, x : Z  R, where x(n + p) = x(n) for
+all integers n and some positive integer p called a period of x. If p denotes the fundamental
+period, then 0 = 2/p represents the fundamental frequency of the signal.
+
+The Discrete-Time Fourier Series (DTFS) representation of the signal x is given by
+
+             x(n) =         Xk eik0n     (Synthesis Equation)
+                                          (Analysis Equation)
+                        kp
+
+                     1      x(n) e-ik0n
+             Xk =
+                     p
+                        np
+
+(a) (10 Points) Show that if a p-periodic real-valued discrete-time signal x is odd--
+     x(-n) = -x(n) for all integers n--then the DTFS coefficients
+
+       (i) (5 Points) Xk are odd in k--that is, X-k = -Xk for all k  p.
+           Hints: It's important that x is real-valued. Apply -k to the Analysis Equation,
+           and use a change of variables m = -n.
+
+ (ii) (5 Points) Xk are purely imaginary--of the form Xk = ib for some real value b.
+
+Hint: A complex number z is purely imaginary if, and only if, z = -z. To see this,
+let z = a + ib. Then z = a - ib, and -z = -a - ib. Clearly, z = -z if, and only if,
+a = -a = 0, which means z = ib--purely imaginary.
+
+                                                                                    15 of 17
+FIRST Name:  LAST Name:                          SID (All Digits):
+
+MT2.5 (Continued)
+  (b) (30 Points) Consider the discrete-time periodic signal shown below.
+
+                                x(n)
+
+             · · · -4                      1                   ···
+
+                            -3        -1         2
+                                -2
+                                              1  34                          n
+                                         -1
+
+The signal has fundamental period p = 3.
+   (i) (15 Points) Determine all the DTFS coefficients Xk for the signal x.
+
+16 of 17
+FIRST Name:  LAST Name:  SID (All Digits):
+
+MT2.5 (b) (Continued)
+
+  (ii) (8 Points) Show that the signal x can be described by x(n) =  sin (n) for all inte-
+       gers n, and for some parameters  and .
+       Determine  and  numerically. Your answers must be in the simplest form possi-
+       ble, but not expressed as decimals.
+
+(iii) (7 Points) Evaluate X, X where X denotes the vector of all the DTFS coefficients.
+
+                                            17 of 17

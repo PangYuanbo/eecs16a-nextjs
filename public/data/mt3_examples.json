@@ -1,0 +1,258 @@
+{
+  "sp25_mt3_exam": {
+    "sourceExam": "SP25 MT3",
+    "problems": [
+      {
+        "title": "E3.1 - Special QR Decomposition in 2D",
+        "topic": "gram-schmidt-qr",
+        "snippet": "Derives QR decomposition for 2×2 matrix \\(A = [[a,b],[c,d]]\\) using geometric insight. For orthogonal vector to \\([\\alpha, \\beta]^T\\), use \\([-\\beta, \\alpha]^T\\). Shows \\(Q = (1/\\sqrt{a^2+c^2})[[a, -c], [c, a]]\\) and derives upper-triangular \\(R\\).",
+        "exam": "sp25_mt3"
+      },
+      {
+        "title": "E3.2 - Linear Regression",
+        "topic": "least-squares",
+        "snippet": "Linear regression through mean-centered data in 2D. Given data matrix \\(D = [[3,-4,7,1,-4,-3], [7,-6,8,-1,-1,-7]]\\), find best-fit line \\(y = mx\\) through origin using least squares: \\(\\hat{m} = (a^T a)^{-1}a^T b\\). Computes \\(a^T a = 100\\) and \\(a^T b = 125\\), yielding \\(m = 1.25\\).",
+        "exam": "sp25_mt3"
+      },
+      {
+        "title": "E3.3 - The Golden State Space",
+        "topic": "state-space",
+        "snippet": "State-space system generating Fibonacci sequence: \\(q[n+1] = [[1,1],[1,0]]q[n]\\). Eigenvalues are golden ratio \\(\\phi = (1+\\sqrt{5})/2 \\approx 1.618\\) and \\(\\hat{\\phi} = (1-\\sqrt{5})/2 \\approx -0.618\\). Derives Binet's formula: \\(y[n] = (\\phi^{n+1} - \\hat{\\phi}^{n+1})/\\sqrt{5}\\). Shows \\(\\lim_{n\\to\\infty} y[n+1]/y[n] = \\phi\\).",
+        "exam": "sp25_mt3"
+      },
+      {
+        "title": "E3.4 - Basic SVD",
+        "topic": "eigenanalysis",
+        "snippet": "Computes compact SVD of \\(A = [[3,2],[1,0],[0,\\sqrt{6}]]\\) giving \\(A = U\\Sigma V^T\\). Finds \\(A^T A = [[10,6],[6,10]]\\) with eigenvalues \\(\\lambda_1 = 16, \\lambda_2 = 4\\), yielding singular values \\(\\sigma_1 = 4, \\sigma_2 = 2\\). Constructs \\(V\\) from eigenvectors of \\(A^T A\\) and \\(U\\) from \\(Av_i/\\sigma_i\\).",
+        "exam": "sp25_mt3"
+      },
+      {
+        "title": "E3.5 - Using PCA to Analyze Bacteria",
+        "topic": "eigenanalysis",
+        "snippet": "Principal Component Analysis (PCA) on gene-expression data to classify bacteria species. Centers data matrix, computes covariance matrix \\(C = XX^T/n\\), finds eigenvalues and eigenvectors. Projects data onto principal components for dimensionality reduction and species classification.",
+        "exam": "sp25_mt3"
+      }
+    ]
+  },
+  "fa24_mt3_exam": {
+    "sourceExam": "FA24 MT3",
+    "problems": [
+      {
+        "title": "MT3.1 - Hide and Seek",
+        "topic": "eigenanalysis",
+        "snippet": "Change of basis and eigenvalue decomposition. Given transformation \\(T\\) with eigenvalues \\(\\lambda_i\\) and eigenvectors \\(v_i\\), represents as \\(T = V\\Lambda V^{-1}\\). Analyzes coordinate transformations using change-of-basis matrix \\(x = Cz\\).",
+        "exam": "fa24_mt3"
+      },
+      {
+        "title": "MT3.2 - Ridge Regression",
+        "topic": "least-squares",
+        "snippet": "Compares standard least squares \\(\\hat{x} = (A^T A)^{-1}A^T b\\) with ridge regression \\(\\hat{x} = (A^T A + \\eta I)^{-1}A^T b\\). Shows L2 regularization makes \\(A^T A + \\eta I\\) invertible by shifting eigenvalues: \\(\\lambda_i \\to \\lambda_i + \\eta > 0\\).",
+        "exam": "fa24_mt3"
+      },
+      {
+        "title": "MT3.3 - Robot Grasping with PCA",
+        "topic": "eigenanalysis",
+        "snippet": "Uses PCA for object pose estimation. Finds center \\((\\bar{x}, \\bar{y})\\) of point cloud, computes covariance matrix, and identifies major axis as first principal component (largest eigenvalue). Applies state-space model \\(x[i+1] = Bx[i] + cu[i]\\) for motion planning using SVD for least-norm solution.",
+        "exam": "fa24_mt3"
+      },
+      {
+        "title": "MT3.4 - Damped Harmonic Oscillator",
+        "topic": "state-space",
+        "snippet": "Models continuous-time system \\(\\ddot{y} = -c\\dot{y} - ky\\) as state-space \\(dx/dt = Ax\\) where \\(x = [y, \\dot{y}]^T\\). Analyzes stability using eigenvalues (stable if \\(\\text{Re}(\\lambda) < 0\\)). Solution \\(x(t) = e^{At}x(0) = V e^{\\Lambda t}V^{-1}x(0)\\).",
+        "exam": "fa24_mt3"
+      }
+    ]
+  },
+  "fa23_final_exam": {
+    "sourceExam": "FA23 Final",
+    "problems": [
+      {
+        "title": "Q4 - Strike a Chord",
+        "topic": "vectors-matrices",
+        "snippet": "Inner products, angles between vectors, orthogonality. Computes \\(\\cos(\\theta) = \\langle a,b \\rangle / (||a|| ||b||)\\) for multiple vector pairs. Determines when vectors are orthogonal (\\(\\langle a,b \\rangle = 0\\)).",
+        "exam": "fa23_final"
+      },
+      {
+        "title": "Q6 - Let's Go, Mooncow!",
+        "topic": "least-squares",
+        "snippet": "Vector operations, projections, transformations, least-squares. Projects vector \\(b\\) onto column space of \\(A\\): \\(\\hat{b} = A(A^T A)^{-1}A^T b\\). Computes projection error \\(e = b - \\hat{b}\\) orthogonal to \\(C(A)\\).",
+        "exam": "fa23_final"
+      },
+      {
+        "title": "Q8 - Aficiona-dough",
+        "topic": "state-space",
+        "snippet": "State transitions and Markov chains. Given transition matrix \\(P\\), analyzes steady state where \\(x[\\infty] = Px[\\infty]\\) (eigenvalue 1). Determines convergence conditions using eigenvalue analysis: \\(|\\lambda| < 1\\) for all other eigenvalues ensures convergence.",
+        "exam": "fa23_final"
+      },
+      {
+        "title": "Q9 - Proofs",
+        "topic": "fundamental-subspaces",
+        "snippet": "Nullspace properties and eigenvectors. Proves if \\(v\\) is eigenvector of \\(A\\) with eigenvalue \\(\\lambda\\), then either \\(v \\in N(A - \\lambda I)\\) or \\(Av = \\lambda v\\). Explores relationship between nullspace and eigenspaces.",
+        "exam": "fa23_final"
+      },
+      {
+        "title": "Q10 - Orthonormal Least Squares",
+        "topic": "least-squares",
+        "snippet": "Projection onto column space with orthonormal columns. When \\(Q^T Q = I\\), projection simplifies to \\(P = QQ^T\\) and \\(\\hat{x} = Q^T b\\). Shows orthogonality of residual: \\(\\langle e, Qx \\rangle = 0\\) for any \\(x\\).",
+        "exam": "fa23_final"
+      }
+    ]
+  },
+  "sp23_final_exam": {
+    "sourceExam": "SP23 Final",
+    "problems": [
+      {
+        "title": "Q4 - Least Squares in Pictures",
+        "topic": "least-squares",
+        "snippet": "Visual interpretation of least squares. Column space \\(C(A)\\), projection \\(\\hat{b} = A\\hat{x}\\), and error \\(e = b - \\hat{b} \\perp C(A)\\). Shows geometrically why \\(A^T(b - A\\hat{x}) = 0\\) leads to normal equations \\(A^T A\\hat{x} = A^T b\\).",
+        "exam": "sp23_final"
+      },
+      {
+        "title": "Q5 - Battleships",
+        "topic": "least-squares",
+        "snippet": "Linear regression for trajectory prediction. Formulates overdetermined system \\(Ax = b\\) where \\(A\\) contains observation data. Solves \\(\\hat{x} = (A^T A)^{-1}A^T b\\) to minimize squared error \\(||Ax - b||^2\\).",
+        "exam": "sp23_final"
+      },
+      {
+        "title": "Q9 - Noisy Imaging Revisited",
+        "topic": "fundamental-subspaces",
+        "snippet": "Masking matrices and eigenvalues in image processing. For diagonal masking matrix \\(M\\), analyzes \\(N(M)\\) (pixels to remove) and \\(C(M)\\) (pixels to keep). Uses least squares \\(\\hat{x} = (A^T A)^{-1}A^T b\\) with noise to reconstruct image.",
+        "exam": "sp23_final"
+      },
+      {
+        "title": "Q10 - Charge Pumps",
+        "topic": "state-space",
+        "snippet": "Charge distribution system \\(q[n+1] = Pq[n]\\) where \\(P\\) is transition matrix. Finds steady state by solving \\((P - I)q_{ss} = 0\\) or as eigenvector for \\(\\lambda = 1\\). Analyzes convergence rate using second-largest eigenvalue \\(|\\lambda_2|\\).",
+        "exam": "sp23_final"
+      },
+      {
+        "title": "Q11 - Fun with EECS16(AB)",
+        "topic": "fundamental-subspaces",
+        "snippet": "Invertibility and nullspace proofs. If \\(AB\\) is invertible, proves both \\(A\\) and \\(B\\) must be invertible. Shows \\(N(AB) = \\{0\\}\\) implies \\(N(B) = \\{0\\}\\) using \\(ABx = 0 \\Rightarrow Bx \\in N(A)\\).",
+        "exam": "sp23_final"
+      }
+    ]
+  },
+  "fa22_final_exam": {
+    "sourceExam": "FA22 Final",
+    "problems": [
+      {
+        "title": "Q3 - Least Squares",
+        "topic": "least-squares",
+        "snippet": "Standard least squares problem. Given overdetermined system \\(Ax = b\\), finds \\(\\hat{x}\\) minimizing \\(||Ax - b||^2\\). Derives normal equations \\(A^T A\\hat{x} = A^T b\\). Computes projection \\(\\hat{b} = A\\hat{x}\\) and residual \\(e = b - \\hat{b}\\).",
+        "exam": "fa22_final"
+      },
+      {
+        "title": "Q5 - Eigenstuff",
+        "topic": "eigenanalysis",
+        "snippet": "Eigenvalues, eigenvectors, and eigenspaces. Given matrix \\(A\\), finds characteristic polynomial \\(\\det(A - \\lambda I) = 0\\). Solves for eigenvectors from \\((A - \\lambda I)v = 0\\). Analyzes eigenspace dimensions and geometric/algebraic multiplicities.",
+        "exam": "fa22_final"
+      },
+      {
+        "title": "Q10 - Orthogonal Space",
+        "topic": "gram-schmidt-qr",
+        "snippet": "Orthogonality with respect to subspaces. Given subspace \\(V\\), finds orthogonal complement \\(V^{\\perp} = \\{w : \\langle v,w \\rangle = 0 \\text{ for all } v \\in V\\}\\). Verifies \\(\\dim(V) + \\dim(V^{\\perp}) = n\\) and \\(V \\cap V^{\\perp} = \\{0\\}\\).",
+        "exam": "fa22_final"
+      },
+      {
+        "title": "Q11 - Mixed signals?",
+        "topic": "least-squares",
+        "snippet": "Fits sinusoidal model to noisy data. Given measurements, formulates \\(y(t) = a\\cos(\\omega t) + b\\sin(\\omega t)\\) as linear system \\(Ax = b\\) where \\(A = [[\\cos(\\omega t_1), \\sin(\\omega t_1)], ...]\\). Solves using least squares to find amplitude and phase.",
+        "exam": "fa22_final"
+      }
+    ]
+  },
+  "sp22_final_exam": {
+    "sourceExam": "SP22 Final",
+    "problems": [
+      {
+        "title": "Q4 - Eurovision Song Contest",
+        "topic": "eigenanalysis",
+        "snippet": "Ranking system using eigenvectors. Constructs preference matrix \\(P\\) where \\(P_{ij}\\) represents votes from country \\(i\\) to \\(j\\). Ranking is principal eigenvector (largest eigenvalue) of \\(P\\): solves \\(Pv = \\lambda v\\). Related to PageRank algorithm.",
+        "exam": "sp22_final"
+      },
+      {
+        "title": "Q6 - R-I-P Loads",
+        "topic": "least-squares",
+        "snippet": "Power consumption modeling using least squares. Given voltage and current measurements, fits model \\(P = aV^2 + bV + c\\) for resistive, inductive, and constant power loads. Formulates as \\(Ax = b\\) and solves \\(\\hat{x} = (A^T A)^{-1}A^T b\\).",
+        "exam": "sp22_final"
+      },
+      {
+        "title": "Q7 - Danville Doozy",
+        "topic": "state-space",
+        "snippet": "Conservative state transition system. Matrix \\(P\\) is column-stochastic: columns sum to 1, preserving total quantity. Proves steady state exists as eigenvector for \\(\\lambda = 1\\): \\(Px_{ss} = x_{ss}\\). Analyzes convergence using spectral radius \\(\\rho(P - I) < 1\\).",
+        "exam": "sp22_final"
+      },
+      {
+        "title": "Q12 - Eigenvalues Galore",
+        "topic": "eigenanalysis",
+        "snippet": "Properties of eigenvalues under matrix operations. If \\(\\lambda\\) is eigenvalue of \\(A\\), shows: \\(\\lambda^k\\) is eigenvalue of \\(A^k\\), \\(\\lambda + c\\) is eigenvalue of \\(A + cI\\), and \\(c\\lambda\\) is eigenvalue of \\(cA\\). Proves using \\(Av = \\lambda v\\).",
+        "exam": "sp22_final"
+      }
+    ]
+  },
+  "sp21_final_exam": {
+    "sourceExam": "SP21 Final",
+    "problems": [
+      {
+        "title": "Q3 - Linear Algebra",
+        "topic": "fundamental-subspaces",
+        "snippet": "Gaussian elimination and fundamental subspaces. Reduces matrix to row echelon form to identify pivot columns (basis for \\(C(A)\\)) and free variables (basis for \\(N(A)\\)). Verifies rank-nullity theorem: \\(\\text{rank}(A) + \\dim(N(A)) = n\\). Computes inner products to verify orthogonality.",
+        "exam": "sp21_final"
+      },
+      {
+        "title": "Q4 - Transitioning Back to Campus",
+        "topic": "state-space",
+        "snippet": "Population dynamics model for campus reopening. State \\(x[n] = [\\text{on-campus}, \\text{off-campus}]^T\\) evolves as \\(x[n+1] = Px[n]\\). Matrix \\(P\\) is doubly stochastic (rows and columns sum to 1), ensuring steady state \\(x_{ss} = [1/2, 1/2]^T\\). Eigenvalue 1 guarantees convergence.",
+        "exam": "sp21_final"
+      },
+      {
+        "title": "Q9 - Cool Predictions",
+        "topic": "least-squares",
+        "snippet": "Temperature prediction using polynomial regression. Fits model \\(T(t) = a_0 + a_1 t + a_2 t^2\\) to historical data using least squares. Formulates Vandermonde matrix \\(A = [[1, t_1, t_1^2], ...]\\) and solves \\(\\hat{a} = (A^T A)^{-1}A^T b\\). Computes prediction error \\(||A\\hat{a} - b||^2\\).",
+        "exam": "sp21_final"
+      },
+      {
+        "title": "Q10 - Symmetric and PSD Matrices",
+        "topic": "eigenanalysis",
+        "snippet": "Properties of symmetric and positive semi-definite (PSD) matrices. For symmetric \\(A\\), proves eigenvectors for distinct eigenvalues are orthogonal: \\(\\lambda_i \\neq \\lambda_j \\Rightarrow v_i \\perp v_j\\). Shows PSD means \\(x^T Ax \\geq 0\\) for all \\(x\\), equivalent to all eigenvalues \\(\\lambda_i \\geq 0\\).",
+        "exam": "sp21_final"
+      }
+    ]
+  },
+  "fa21_final_exam": {
+    "sourceExam": "FA21 Final",
+    "problems": [
+      {
+        "title": "Q1 - A Quirky Quantum Question",
+        "topic": "eigenanalysis",
+        "snippet": "Quantum mechanics application with Hermitian matrices. For symmetric matrix \\(H\\), finds eigenvalues (energy levels) and orthonormal eigenvectors (quantum states). Verifies \\(H = Q\\Lambda Q^T\\) spectral decomposition. Computes probabilities using \\(|\\langle \\psi, v_i \\rangle|^2\\).",
+        "exam": "fa21_final"
+      },
+      {
+        "title": "Q3 - Least Squares with Shazam",
+        "topic": "least-squares",
+        "snippet": "Audio signal matching using projections and cross-correlation. Projects query signal onto reference signals to find best match. Computes \\(\\hat{x} = (A^T A)^{-1}A^T b\\) where columns of \\(A\\) are reference signals. Uses \\(\\langle a_i, b \\rangle\\) to measure similarity.",
+        "exam": "fa21_final"
+      },
+      {
+        "title": "Q12 - Orthogonality",
+        "topic": "gram-schmidt-qr",
+        "snippet": "Orthogonality with custom inner product \\(\\langle f,g \\rangle_w = \\int f(x)g(x)w(x)dx\\). Given weight function \\(w(x)\\), verifies orthogonality of polynomials. Applies Gram-Schmidt with weighted inner product to construct orthogonal polynomial basis.",
+        "exam": "fa21_final"
+      },
+      {
+        "title": "Q15 - Charge Sharing Cycles",
+        "topic": "state-space",
+        "snippet": "Capacitor charge redistribution network. Discrete-time model \\(q[n+1] = Mq[n]\\) where \\(M\\) represents charge sharing. Finds steady state by solving \\((M - I)q_{ss} = 0\\). Matrix \\(M\\) is doubly stochastic, ensuring charge conservation and unique steady state.",
+        "exam": "fa21_final"
+      },
+      {
+        "title": "Q16 - Linear Algebra Circuit",
+        "topic": "fundamental-subspaces",
+        "snippet": "Circuit analysis with matrix equations. Represents circuit using \\(Ax = b\\) where \\(A\\) is incidence or admittance matrix. Determines when system has unique solution (\\(A\\) invertible), no solution (\\(b \\notin C(A)\\)), or infinite solutions (\\(\\dim(N(A)) > 0\\)). Uses least squares for overdetermined case.",
+        "exam": "fa21_final"
+      }
+    ]
+  }
+}
