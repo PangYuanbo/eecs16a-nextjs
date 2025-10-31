@@ -1,0 +1,32 @@
+{
+  "header": {
+    "title": "EECS 16A 复习站",
+    "searchPlaceholder": "搜索知识点或示例题...",
+    "lightMode": "浅色模式",
+    "darkMode": "深色模式"
+  },
+  "navigation": {
+    "signalProcessing": "1. 信号处理",
+    "complexExponentials": "1.1 复指数与周期性",
+    "dtfsDft": "1.2 离散傅里叶变换",
+    "linearAlgebraAdvanced": "2. 线性代数进阶",
+    "gramSchmidtQr": "2.1 Gram-Schmidt & QR分解",
+    "fundamentalSubspaces": "2.2 基本子空间",
+    "rankNullspace": "2.3 秩与零空间",
+    "dataAnalysis": "3. 数据分析",
+    "leastSquares": "3.1 最小二乘与线性回归",
+    "systemsAnalysis": "4. 系统分析",
+    "eigenanalysis": "4.1 特征值分析",
+    "stateSpace": "4.2 状态空间 & PageRank",
+    "mt2Sources": "Midterm 2 来源",
+    "mt3Sources": "Midterm 3/Final 来源"
+  },
+  "content": {
+    "concepts": "核心概念",
+    "keyFormulas": "核心公式",
+    "tips": "解题技巧",
+    "exampleProblems": "示例题目",
+    "loading": "加载中...",
+    "noProblemsFound": "未找到相关题目"
+  }
+}

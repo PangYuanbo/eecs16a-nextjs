@@ -1,56 +1,61 @@
 'use client';
 
+import { useTranslation } from 'react-i18next';
+
 interface SidebarProps {
   isOpen: boolean;
   onNavigate: (sectionId: string) => void;
 }
 
-const navigationItems = [
+const getNavigationItems = (t: any) => [
   {
-    title: '1. 信号处理',
+    title: t('navigation.signalProcessing'),
     id: 'signal-processing',
     subitems: [
-      { title: '1.1 复指数与周期性', id: 'complex-exponentials' },
-      { title: '1.2 离散傅里叶变换', id: 'dtfs-dft' },
+      { title: t('navigation.complexExponentials'), id: 'complex-exponentials' },
+      { title: t('navigation.dtfsDft'), id: 'dtfs-dft' },
     ],
   },
   {
-    title: '2. 线性代数进阶',
+    title: t('navigation.linearAlgebraAdvanced'),
     id: 'linear-algebra-advanced',
     subitems: [
-      { title: '2.1 Gram-Schmidt & QR分解', id: 'gram-schmidt-qr' },
-      { title: '2.2 基本子空间', id: 'fundamental-subspaces' },
-      { title: '2.3 秩与零空间', id: 'rank-nullspace' },
+      { title: t('navigation.gramSchmidtQr'), id: 'gram-schmidt-qr' },
+      { title: t('navigation.fundamentalSubspaces'), id: 'fundamental-subspaces' },
+      { title: t('navigation.rankNullspace'), id: 'rank-nullspace' },
     ],
   },
   {
-    title: '3. 数据分析',
+    title: t('navigation.dataAnalysis'),
     id: 'data-analysis',
     subitems: [
-      { title: '3.1 最小二乘与线性回归', id: 'least-squares' },
+      { title: t('navigation.leastSquares'), id: 'least-squares' },
     ],
   },
   {
-    title: '4. 系统分析',
+    title: t('navigation.systemsAnalysis'),
     id: 'systems-analysis',
     subitems: [
-      { title: '4.1 特征值分析', id: 'eigenanalysis' },
-      { title: '4.2 状态空间 & PageRank', id: 'state-space' },
+      { title: t('navigation.eigenanalysis'), id: 'eigenanalysis' },
+      { title: t('navigation.stateSpace'), id: 'state-space' },
     ],
   },
   {
-    title: 'Midterm 2 来源',
+    title: t('navigation.mt2Sources'),
     id: 'mt2-sources',
     subitems: [],
   },
   {
-    title: 'Midterm 3/Final 来源',
+    title: t('navigation.mt3Sources'),
     id: 'mt3-sources',
     subitems: [],
   },
 ];
 
 export default function Sidebar({ isOpen, onNavigate }: SidebarProps) {
+  const { t } = useTranslation();
+  const navigationItems = getNavigationItems(t);
+
   return (
     <>
       <nav

@@ -1,0 +1,32 @@
+{
+  "header": {
+    "title": "EECS 16A Review Hub",
+    "searchPlaceholder": "Search topics or example problems...",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+  "navigation": {
+    "signalProcessing": "1. Signal Processing",
+    "complexExponentials": "1.1 Complex Exponentials & Periodicity",
+    "dtfsDft": "1.2 Discrete Fourier Transform",
+    "linearAlgebraAdvanced": "2. Advanced Linear Algebra",
+    "gramSchmidtQr": "2.1 Gram-Schmidt & QR Decomposition",
+    "fundamentalSubspaces": "2.2 Fundamental Subspaces",
+    "rankNullspace": "2.3 Rank & Nullspace",
+    "dataAnalysis": "3. Data Analysis",
+    "leastSquares": "3.1 Least Squares & Linear Regression",
+    "systemsAnalysis": "4. Systems Analysis",
+    "eigenanalysis": "4.1 Eigenvalue Analysis",
+    "stateSpace": "4.2 State Space & PageRank",
+    "mt2Sources": "Midterm 2 Sources",
+    "mt3Sources": "Midterm 3/Final Sources"
+  },
+  "content": {
+    "concepts": "Core Concepts",
+    "keyFormulas": "Key Formulas",
+    "tips": "Problem-Solving Tips",
+    "exampleProblems": "Example Problems",
+    "loading": "Loading...",
+    "noProblemsFound": "No problems found"
+  }
+}
