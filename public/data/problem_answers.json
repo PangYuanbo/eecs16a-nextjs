@@ -206,5 +206,157 @@
   "fa21_final_Q16": {
     "title": "Q16 - Linear Algebra Circuit",
     "answer": "Circuit as \\(Ax = b\\):\n• Unique solution: \\(A\\) invertible\n• No solution: \\(b \\notin C(A)\\)\n• Infinite solutions: \\(\\dim(N(A)) > 0\\)\n• Least squares for overdetermined"
+  },
+  "hw4_HW4.1": {
+    "title": "HW4.1 - Vector Statistics",
+    "answer": "**Part (a):** avg(x) = 2, rms(x) = √6, std(x) = √2\n\n**Part (b):** avg(x+y) = avg(x) + avg(y) 通过内积的线性性质证明\n\n**Part (c):** avg(x)² + std(x)² = rms(x)² 通过展开std(x)²并化简得到\n\n**Part (d):** 若x与y正交，则rms(x+y) = √(rms(x)² + rms(y)²) 利用‖x+y‖² = ‖x‖² + ‖y‖²\n\n**Part (e):** 若x̃与ỹ正交，则std(x+y) = √(std(x)² + std(y)²)\n\n**Part (f):** 若x与y线性相关且同向，则std(x+y) = std(x) + std(y)"
+  },
+  "hw4_HW4.2": {
+    "title": "HW4.2 - Orthonormal Norms",
+    "answer": "‖x‖² = ∑ᵢ₌₁ⁿ aᵢ² ⟹ ‖x‖ = √(∑ᵢ₌₁ⁿ aᵢ²)\n\n通过展开‖x‖² = ⟨a₁v₁+...+aₙvₙ, a₁v₁+...+aₙvₙ⟩，利用vᵢ正交归一性（⟨vᵢ,vⱼ⟩ = δᵢⱼ），所有交叉项为0，只剩下aᵢ²项的和。"
+  },
+  "hw4_HW4.3": {
+    "title": "HW4.3 - Orthogonal Constructions",
+    "answer": "构造V = {v₁,...,vₙ,-v₁,...,-vₙ}共2n个向量\n\n设v₁...vₙ为Rⁿ的正交基，定义vₙ₊ᵢ = -vᵢ。对于i≠j：\n• 若i,j都≤n或都>n：⟨vᵢ,vⱼ⟩ = 0（正交基性质）\n• 若j>n, i≤n且i+n≠j：⟨vᵢ,vⱼ⟩ = -⟨vᵢ₊ₙ,vⱼ⟩ = 0\n• 若j>n, i≤n且i+n=j：⟨vᵢ,-vᵢ⟩ = -‖vᵢ‖² ≤ 0\n\n因此V span Rⁿ且⟨vᵢ,vⱼ⟩ ≤ 0对所有i≠j成立"
+  },
+  "hw4_HW4.4": {
+    "title": "HW4.4 - Matching Frequencies",
+    "answer": "**Part (a):** cos(ωt+φ₁) + cos(ωt+φ₂) = Acos(ωt+φ)\n其中A = 2cos((φ₁-φ₂)/2), φ = (φ₁+φ₂)/2\n\n利用欧拉公式和复指数因式分解：e^(iφ₁) + e^(iφ₂) = e^(i(φ₁+φ₂)/2)[e^(i(φ₁-φ₂)/2) + e^(-i(φ₁-φ₂)/2)] = 2cos((φ₁-φ₂)/2)e^(i(φ₁+φ₂)/2)\n\n**Part (b):** ∑ₖ₌₁ᴺ Aₖcos(ωt+φₖ) = Acos(ωt+φ)\n\n令∑ₖAₖe^(iφₖ) = Ae^(iφ)（极坐标形式），两边乘以e^(iωt)，取实部得证"
+  },
+  "hw4_HW4.5": {
+    "title": "HW4.5 - DTFS Warmup",
+    "answer": "**Part (a):** 基本周期pₓ = 2，基本频率ω₀ = π\n\n**Part (b):** x[n] = (-1)ⁿ + 1 = e^(iπn) + e⁰\n\n**Part (c):** X₀ = 1, X₁ = 1（使用分析方程计算）\n\n**Part (d):** 验证：x[2ℓ] = ∑ₖ₌₀¹ Xₖe^(ikπ(2ℓ)) = 1+1 = 2; x[2ℓ+1] = ∑ₖ₌₀¹ Xₖe^(ikπ(2ℓ+1)) = 1-1 = 0 ✓"
+  },
+  "hw4_HW4.6": {
+    "title": "HW4.6 - Polar Orthogonality",
+    "answer": "**向量表示：**\n• r = [Rcosθ, Rsinθ]ᵀ（径向）\n• t的方向由斜率dy/dx = -cosθ/sinθ给出，取t̂ = [1, -cosθ/sinθ]ᵀ\n\n**正交性证明：**\n⟨r,t̂⟩ = Rcosθ·1 + Rsinθ·(-cosθ/sinθ) = Rcosθ - Rcosθ = 0 ✓\n\n因为r⊥t̂且t是t̂的标量倍数，所以r⊥t。作为R²中的两个正交向量，{r,t}构成R²的正交基"
+  },
+  "hw4_HW4.7": {
+    "title": "HW4.7 - Signal Analysis with Orthogonal Projections",
+    "answer": "**Part (a-c):** 实现complex_inner_product, generate_basis_vector, get_projection_coefficient函数。⟨ψ₃,ψ₁₀⟩ ≈ 0（数值误差范围内）\n\n**Part (d):** p=64, f₁=2Hz, f₂=8Hz时，|cₖ|在k=2和k=8处有峰值，幅度约为A₁/2和A₂/2\n\n**Part (e):** f₁=24, f₂=26时，离散信号表现为25Hz载波被2Hz调制。DTFS系数在k=24,26处有峰，但时域信号不显示这两个频率的直接叠加"
+  },
+  "hw5_HW5.1": {
+    "title": "HW5.1 - DTFS Expansion",
+    "answer": "**Part (a):** p=10, ω₀=π/5, X₋₄=1/6, X₋₃=1/2, X₃=1/2, X₄=1/6\n\n**Part (b):** 不存在DTFS，因为√(2π/5)·p = 5√2k非整数，信号非周期\n\n**Part (c):** p=6, ω₀=π/3, X₋₂=1/2, X₂=1/2, X₃=1\n\n**Part (d):** p-周期δ函数：所有系数Xₖ = 1/p, x[n] = (1/p)∑ₖ₌₀ᵖ⁻¹ e^(ikω₀n)"
+  },
+  "hw5_HW5.2": {
+    "title": "HW5.2 - DTFS & DFT Properties",
+    "answer": "**Part (a):** ‖ψₖ‖ = √p（因为⟨ψₖ,ψₖ⟩ = ∑ₙ₌₀ᵖ⁻¹ e⁰ = p）\n\n**Part (b):** DTFS线性：f(ax+by) = (1/p)[⟨ax+by,ψ₀⟩...⟨ax+by,ψₚ₋₁⟩]ᵀ = af(x) + bf(y)\n\n**Part (c):** DFT也是线性变换，因为缩放基向量不破坏线性性"
+  },
+  "hw5_HW5.3": {
+    "title": "HW5.3 - Mystery DTFS",
+    "answer": "从条件推导：p=3, ω₀=2π/3, X₀=0, X₁=-X₂, |X₂|²=1/4\n\n取X₂=1/2, X₁=-1/2：\nx[n] = -(1/2)e^(i2πn/3) + (1/2)e^(i4πn/3) = e^(iπn)·e^(iπ/2)·sin(πn/3)\n\n因此A=π, B=π/2, C=π/3使得x[n]=e^(i(An+B))sin(Cn)"
+  },
+  "hw5_HW5.4": {
+    "title": "HW5.4 - Parseval's Theorem",
+    "answer": "**Part (a):** 对正交基V（每个向量范数m）：⟨y,y⟩ = ∑ₖ₌₁ⁿ yₖ² = m²·∑ₖ₌₁ⁿ |bₖ|²\n\n**Part (b):** DTFS是范数√p的正交基，系数为X₀,...,Xₚ₋₁：\n⟨x,x⟩ = ∑ₖ₌₁ᵖ x[k]² = p·∑ₖ₌₁ᵖ |Xₖ|²\n\n**Part (c):** DFT基向量范数1/√p：(1/p)∑ₖ₌₀ᵖ⁻¹ |Yₖ|² = ∑ₖ₌₀ᵖ⁻¹ x[k]²"
+  },
+  "hw5_HW5.5": {
+    "title": "HW5.5 - Signal Properties",
+    "answer": "**Part (a):** 奇信号x[n]=-x[-n]的DTFS系数Xₖ满足X₋ₖ = -Xₖ（通过变量替换m=-n证明）\n\n**Part (b):** 奇信号的系数纯虚：Xₖ* = -Xₖ（同样使用变量替换）\n\n**Part (c):** 偶信号y[n]=y[-n]的系数纯实：Yₖ* = Yₖ"
+  },
+  "hw5_HW5.6": {
+    "title": "HW5.6 - Square Waves",
+    "answer": "**Part (a):** X₀ = (a+b)/2（DC分量是平均值）\n\n**Part (b):** Yₖ = (a/p)∑ₙ₌₀^(p/2-1) e^(-ik2πn/p)（只有前半周期非零）\n\n**Part (c):** 半波对称z[n]=y[n]-y[n+p/2]：Zₖ = Yₖ(1-e^(ikπ)) = Yₖ(1-(-1)ᵏ)\n\n**Part (d):** k偶数时Zₖ=0（因为e^(i2cπ)=1）"
+  },
+  "hw5_HW5.7": {
+    "title": "HW5.7 - 2-D DTFS",
+    "answer": "**Part (a):** 实现2-D DTFS及其逆。测试图像重构误差接近0\n\n**Part (b):** 可视化ψₖ,ₗ：增大k增加垂直振荡，增大ℓ增加水平振荡\n\n**Part (c):** 验证正交性：(k,ℓ)≠(k',ℓ')时内积≈0，相等时=NM\n\n**Part (d):** Parseval定理：∑ₙ,ₘ|x[n,m]|² = NM·∑ₖ,ₗ|X[k,ℓ]|²\n\n**Part (e-f):** 频谱热图显示不同图案的频率特征。重构时max set表现最佳（完美重构仅需64系数），square和circular sets显示边缘效应"
+  },
+  "hw6_HW6.1": {
+    "title": "HW6.1 - Continuous-Time Complex Exponential Projections",
+    "answer": "将连续信号x(t)=t投影到复指数基：α₀=p/2, α₁=i/ω₀, α₋₁=-i/ω₀\n\n用前三项重构的近似误差能量为p²(1/12 - 1/(2π²))\n\n使用积分内积⟨f,g⟩=∫₀ᵖ f(t)g*(t)dt计算投影系数"
+  },
+  "hw6_HW6.2": {
+    "title": "HW6.2 - Mechanical Gram-Schmidt",
+    "answer": "对三组向量应用Gram-Schmidt正交归一化：\n\n**(a)** 3D向量：q₁=[1/√2, 1/√2, 0]ᵀ, q₂=[-1/√2, 1/√2, 0]ᵀ, q₃=[0, 0, 1]ᵀ\n\n**(b)** 5D向量：产生标准正交基，分量为±1/√2组合\n\n**(c)** 复向量：q₁=[1/√2, 1/√2]ᵀ, q₂=[i/√2, -i/√2]ᵀ"
+  },
+  "hw6_HW6.3": {
+    "title": "HW6.3 - Functional Gram-Schmidt",
+    "answer": "对多项式{1,x}在区间[-1,1]上正交归一化\n\n内积定义：⟨f,g⟩ = ∫₋₁¹ f(t)g(t)dt\n\n结果：q₁ = 1/√2（常数项归一化），q₂ = √(3/2)·x（线性项）\n\n验证：⟨q₁,q₂⟩ = 0, ‖q₁‖ = ‖q₂‖ = 1"
+  },
+  "hw6_HW6.4": {
+    "title": "HW6.4 - Correctness of Gram-Schmidt Algorithm",
+    "answer": "证明Gram-Schmidt算法的三个性质：\n\n**(a)** 单位范数：若vₖ≠0则‖qₖ‖=1（通过归一化步骤qₖ=vₖ/‖vₖ‖）\n\n**(b)** 相互正交：通过强归纳法证明⟨qᵢ,qⱼ⟩=0对所有i<j\n\n**(c)** 张成相同空间：双向包含证明span{q₁,...,qₖ}=span{a₁,...,aₖ}"
+  },
+  "hw6_HW6.5": {
+    "title": "HW6.5 - QR Proofs",
+    "answer": "**(a)** 若A可逆则R可逆：R的对角元rᵢᵢ=‖qᵢ‖>0（Gram-Schmidt保证），因此det(R)=∏rᵢᵢ>0，R可逆\n\n**(b)** A和Q有相同列空间：C(A)=C(QR)=C(Q)因为右乘可逆矩阵R不改变列空间"
+  },
+  "hw6_HW6.6": {
+    "title": "HW6.6 - A Cute Decomposition",
+    "answer": "通过反向Gram-Schmidt得到下三角分解A=QT：\n\n对列从右到左正交化，得到正交矩阵Q和下三角矩阵T\n\n示例：Q的列为{[1/√2,1/√2,0]ᵀ, [1/√6,-1/√6,2/√6]ᵀ, [1/√3,-1/√3,-1/√3]ᵀ}，T为下三角"
+  },
+  "hw7_HW7.1": {
+    "title": "HW7.1 - Mechanical Projections",
+    "answer": "**(a)** 标量投影：projₐ(b) = (⟨a,b⟩/‖a‖²)a = a，误差‖b-a‖²=12\n\n**(b)** 列空间投影：x̂=(AᵀA)⁻¹Aᵀb，得到投影Ax̂=[-2,4,-2]ᵀ，误差‖b-Ax̂‖²=18"
+  },
+  "hw7_HW7.2": {
+    "title": "HW7.2 - Least Squares and QR Factorization",
+    "answer": "**(a)** 证明Ax̂=QQᵀb：因为C(A)=C(Q)，所以Ax̂是b在C(Q)上的投影=QQᵀb\n\n**(b)** 误差公式：‖Ax̂-b‖² = ‖b‖² - ‖QQᵀb‖² = ‖b‖² - ‖Qᵀb‖²\n\n利用正交分解和投影性质证明"
+  },
+  "hw7_HW7.3": {
+    "title": "HW7.3 - Linear Regression",
+    "answer": "拟合物体位置y(t)=α+βt：\n\n**(a)** AᵀA和Aᵀy用∑tᵢ和∑yᵢ表示\n\n**(b)** 正交向量：z₁=1（常数），z₂=t-t̄（去均值）满足⟨z₁,z₂⟩=0\n\n**(c)** 示例解：y(t)=1+2t，通过投影到正交基计算系数"
+  },
+  "hw7_HW7.4": {
+    "title": "HW7.4 - Proof: Least Squares",
+    "answer": "直接证明Aᵀε=0：\n\n将x̂=(AᵀA)⁻¹Aᵀb代入误差ε=b-Ax̂：\nAᵀε = Aᵀ(b-Ax̂) = Aᵀb - AᵀA(AᵀA)⁻¹Aᵀb = Aᵀb - Aᵀb = 0 ✓"
+  },
+  "hw7_HW7.5": {
+    "title": "HW7.5 - Noise Canceling Headphones",
+    "answer": "最小化‖Rγ+n‖求增益向量γ：\n\n**(a-b)** 最小二乘解：γ = -(RᵀR)⁻¹Rᵀn\n\n**(c-d)** 计算具体增益向量\n\n**(e-h)** Python模拟显示：噪声消除对静态噪声有效，降噪幅度显著"
+  },
+  "hw7_HW7.6": {
+    "title": "HW7.6 - Image Analysis",
+    "answer": "拟合细胞边界：\n\n**圆形拟合：** 最小化‖Axc-b‖²得xc=[4.87,-7.89,-0.23]ᵀ\n方程：4.87(x²+y²)-7.89x-0.23y=1，归一化误差0.137\n\n**椭圆拟合：** 包含xy交叉项，误差降至0.0128，拟合更好"
+  },
+  "hw8_HW8.1": {
+    "title": "HW8.1 - Mechanical: Linear Least Squares",
+    "answer": "**(a)** 过原点b=ax：x̂=1.1167，误差3.367\n\n**(b)** 含截距b=a₀+a₁x：x̂=[0.95, 1]ᵀ，改进误差2.7\n\n添加y截距参数改善拟合质量"
+  },
+  "hw8_HW8.2": {
+    "title": "HW8.2 - Study Spaces: Grimes vs Doe",
+    "answer": "学生位置动态模型（带外部输入）：\n\nx[1]=[140,80]ᵀ, x[2]=[180,110]ᵀ, x[3]=[170,120]ᵀ\n\n总人数守恒：T[n+1] = T[n] + 1ᵀu[n]（保守系统性质）"
+  },
+  "hw8_HW8.3": {
+    "title": "HW8.3 - Quadcopter Transformations",
+    "answer": "3D旋转矩阵组合：\n\n**(a)** Rz(π/3)Rx(π/6)：包含√3/4, 3/4项\n\n**(b)** Rx(π/6)Rz(π/3)：不同结果\n\n**(c)** 初始位置[1,1,2]ᵀ映射到不同终点，确认矩阵乘法非交换性"
+  },
+  "hw8_HW8.4": {
+    "title": "HW8.4 - Braincells",
+    "answer": "邻接矩阵操作：\n\n**(a)** 初始断开：B=0\n\n**(b)** 除对角线外加1：B'=B+1ₙₓₙ-Iₙ\n\n**(c)** 四倍速度：C=4B\n\n**(d)** 选择性增强：D=B+A（Aₗₖ=10）\n\n**(e)** 对称通信⟹对称矩阵"
+  },
+  "hw8_HW8.5": {
+    "title": "HW8.5 - Adjacency Matrix Walks",
+    "answer": "证明bᵢⱼ=∑ₖ aᵢₖaₖⱼ计数从j到i的长度为2的路径：\n\n乘积aᵢₖaₖⱼ仅当边j→k和k→i都存在时非零\n\n因此求和统计所有通过中间节点k的2步路径数"
+  },
+  "hw8_HW8.6": {
+    "title": "HW8.6 - Social Media",
+    "answer": "平台切换转移矩阵：\n\n**(a)** A为分块上三角（流媒体状态不回到工作）\n\n**(b)** 应用一次：[110,60,10,140]ᵀ → [162,78,66,14]ᵀ\n\n**(c)** 列和为1（保守性）\n\n**(d-f)** 模拟显示稳态迁移到流媒体服务"
+  },
+  "hw8_HW8.7": {
+    "title": "HW8.7 - Labeling Patients Using Gene Expression",
+    "answer": "基因数据线性分类器：\n\n训练：x=(AᵀA)⁻¹Aᵀb得到α系数\n\n预测：sign(Ax)判断糖尿病标签\n\n测试集准确率75%（4只小鼠中正确预测3只）"
+  },
+  "hw9_HW9.1": {
+    "title": "HW9.1 - Linear Neural Networks",
+    "answer": "**(a)** 单神经元：bⱼ=xⱼᵀa\n\n**(b)** 网络输出：b=Xᵀa\n\n**(c-d)** 单层训练：X*=(AᵀA)⁻¹AᵀBᵀ（矩阵最小二乘）\n\n**(e-f)** 两层网络简化为单层：N*=(AᵀA)⁻¹AᵀCᵀ"
+  },
+  "hw9_HW9.2": {
+    "title": "HW9.2 - Eigenvalues and Determinants: Proofs",
+    "answer": "**(a)** A可逆且λ是特征值⟹A⁻¹有特征值1/λ：Av=λv ⟹ A⁻¹v=v/λ\n\n**(b)** A和Aᵀ共享特征值：det(λI-A)=det(λI-Aᵀ)\n\n**(c)** A可逆B不可逆⟹AB和BA都不可逆（det=0）"
+  },
+  "hw9_HW9.3": {
+    "title": "HW9.3 - Mechanical Diagonalization",
+    "answer": "**(a)** A=[3/2,1/2;1/2,3/2]：λ=1,2; Vₐ=[1,1;-1,1]; Λₐ=diag(1,2)\n\n**(b)** B=[1,0;-2,-1]：λ=1,-1; Vᵦ=[1,0;-1,1]; Λᵦ=diag(1,-1)\n\n**(c)** C对角化：λ=2,1,0; 特征空间维数=2"
+  },
+  "hw9_HW9.4": {
+    "title": "HW9.4 - PageRank",
+    "answer": "**(a)** 图A（两节点交换）：稳态[0.5, 0.5]ᵀ\n\n**(b)** 图B（四节点）：numpy.linalg.eig求解，稳态[1/3, 1/6, 1/8, 3/8]ᵀ\n\n**(c)** 图D（五节点，两连通分量）：特征空间维数2，向量描述独立系统"
+  },
+  "hw9_HW9.5": {
+    "title": "HW9.5 - Short Proofs",
+    "answer": "**(a)** ‖Avᵢ‖²=λᵢ：由vᵢᵀAᵀAvᵢ=λᵢ‖vᵢ‖²=λᵢ（假设‖vᵢ‖=1）\n\n**(b)** Avᵢ ⊥ Avⱼ：因为vᵢᵀAᵀAvⱼ=λⱼvᵢᵀvⱼ=0（正交特征向量）\n\n**(c)** 正交V保范：‖Vx‖²=xᵀVᵀVx=xᵀx=‖x‖²"
   }
 }
