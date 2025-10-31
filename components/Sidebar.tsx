@@ -50,6 +50,11 @@ const getNavigationItems = (t: any) => [
     id: 'mt3-sources',
     subitems: [],
   },
+  {
+    title: t('navigation.hwSources'),
+    id: 'hw-sources',
+    subitems: [],
+  },
 ];
 
 export default function Sidebar({ isOpen, onNavigate }: SidebarProps) {

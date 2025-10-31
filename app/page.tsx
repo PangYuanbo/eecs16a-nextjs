@@ -15,17 +15,20 @@ export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mt2Data, setMt2Data] = useState<ExamCollection | null>(null);
   const [mt3Data, setMt3Data] = useState<ExamCollection | null>(null);
+  const [hwData, setHwData] = useState<ExamCollection | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       fetch('/data/mt2_examples.json').then(res => res.json()),
-      fetch('/data/mt3_examples.json').then(res => res.json())
+      fetch('/data/mt3_examples.json').then(res => res.json()),
+      fetch('/data/hw_problems.json').then(res => res.json())
     ])
-      .then(([mt2, mt3]) => {
+      .then(([mt2, mt3, hw]) => {
         setMt2Data(mt2);
         setMt3Data(mt3);
+        setHwData(hw);
         setLoading(false);
       })
       .catch((err) => {
@@ -87,6 +90,17 @@ export default function Home() {
     // Collect problems from MT3
     if (mt3Data) {
       Object.values(mt3Data).forEach((exam) => {
+        exam.problems.forEach((problem) => {
+          if (problem.topic === topic) {
+            problems.push(problem);
+          }
+        });
+      });
+    }
+
+    // Collect problems from HW
+    if (hwData) {
+      Object.values(hwData).forEach((exam) => {
         exam.problems.forEach((problem) => {
           if (problem.topic === topic) {
             problems.push(problem);
@@ -741,6 +755,17 @@ export default function Home() {
                 <p className="mb-2">本复习站整理了以下学期的 MT3/Final 考试题目：</p>
                 <ul className="list-disc list-inside space-y-1">
                   {mt3Data && Object.keys(mt3Data).map((examId) => <li key={examId}>{examId}</li>)}
+                </ul>
+              </div>
+            </section>
+
+            {/* Homework Sources */}
+            <section className="mb-7" id="hw-sources">
+              <h2 className="text-2xl font-bold mb-4">作业题目 (Homework) 来源</h2>
+              <div className="topic-notes">
+                <p className="mb-2">本复习站整理了以下作业题目：</p>
+                <ul className="list-disc list-inside space-y-1">
+                  {hwData && Object.keys(hwData).map((hwId) => <li key={hwId}>{hwId.toUpperCase()}</li>)}
                 </ul>
               </div>
             </section>

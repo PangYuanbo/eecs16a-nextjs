@@ -1,0 +1,260 @@
+{
+  "hw4": {
+    "sourceExam": "HW4",
+    "problems": [
+      {
+        "title": "HW4.1 - Vector Statistics",
+        "topic": "vectors-matrices",
+        "snippet": "计算向量的统计量：平均值(average)、均方根(RMS)、标准差(standard deviation)和去均值向量(demeaned vector)。给定向量 \\(v = [1, 2, 3, 4, 5]^T\\)，计算这些统计量并理解它们的意义。",
+        "exam": "hw4"
+      },
+      {
+        "title": "HW4.2 - Orthonormal Norms",
+        "topic": "gram-schmidt-qr",
+        "snippet": "证明标准正交基的范数性质。给定标准正交向量集 \\(\\{q_1, q_2, \\ldots, q_n\\}\\)，证明对于任意向量 \\(v\\) 在这些基向量上的投影，有 Parseval恒等式：\\(||v||^2 = \\sum_{i=1}^n |\\langle v, q_i \\rangle|^2\\)。",
+        "exam": "hw4"
+      },
+      {
+        "title": "HW4.3 - Orthogonal Constructions",
+        "topic": "gram-schmidt-qr",
+        "snippet": "构造正交向量集。给定向量 \\(a = [1, 2, 3]^T\\)，构造与 \\(a\\) 正交的两个线性无关向量。探索使用负向量和极坐标方法构造正交向量。",
+        "exam": "hw4"
+      },
+      {
+        "title": "HW4.4 - Matching Frequencies",
+        "topic": "complex-exponentials",
+        "snippet": "使用 Euler 公式匹配余弦信号频率。给定 \\(x(t) = 3\\cos(\\omega t + \\phi_1) + 2\\cos(\\omega t + \\phi_2)\\)，将其表示为单一余弦波 \\(A\\cos(\\omega t + \\phi)\\)。应用复指数表示和相位叠加原理。",
+        "exam": "hw4"
+      },
+      {
+        "title": "HW4.5 - DTFS Warmup",
+        "topic": "dtfs-dft",
+        "snippet": "DTFS基础练习。给定周期信号 \\(x[n]\\) 的一个周期，计算DTFS系数 \\(X_k\\)。使用分析方程 \\(X_k = (1/N)\\sum_{n=0}^{N-1} x[n]e^{-jk\\omega_0 n}\\) 和验证正交性质 \\(\\langle \\psi_k, \\psi_\\ell \\rangle = N\\delta_{k\\ell}\\)。",
+        "exam": "hw4"
+      },
+      {
+        "title": "HW4.6 - Polar Orthogonality",
+        "topic": "gram-schmidt-qr",
+        "snippet": "极坐标正交性。在极坐标系统中验证向量的正交性。给定向量的极坐标表示，证明它们的内积为零，理解几何意义。",
+        "exam": "hw4"
+      },
+      {
+        "title": "HW4.7 - Signal Analysis",
+        "topic": "dtfs-dft",
+        "snippet": "使用正交投影进行信号分析。给定信号 \\(x[n]\\) 和正交基，将信号投影到各个基向量上，分析频率成分。使用 Python 实现信号重构，计算投影系数并验证能量守恒。",
+        "exam": "hw4"
+      }
+    ]
+  },
+  "hw5": {
+    "sourceExam": "HW5",
+    "problems": [
+      {
+        "title": "HW5.1 - DTFS Expansion",
+        "topic": "dtfs-dft",
+        "snippet": "DTFS展开与周期性判断。判断离散信号 \\(x[n] = e^{j\\omega n}\\) 的周期性。使用条件：当且仅当 \\(\\omega N/(2\\pi)\\) 是有理数时信号周期。应用最小公倍数(LCM)方法确定复合信号周期。",
+        "exam": "hw5"
+      },
+      {
+        "title": "HW5.2 - DTFS & DFT Properties",
+        "topic": "dtfs-dft",
+        "snippet": "DTFS和DFT性质。探索线性性、时移性质、频移性质。DFT作为归一化DTFS：\\(X_{DFT}[k] = N \\cdot X_{DTFS}[k]\\)。验证DFT基向量的范数为 \\(\\sqrt{N}\\)。",
+        "exam": "hw5"
+      },
+      {
+        "title": "HW5.3 - Mystery DTFS",
+        "topic": "dtfs-dft",
+        "snippet": "神秘信号的DTFS分析。给定DTFS系数，推断原始信号的性质。使用对称性质：奇信号 → 纯虚系数，偶信号 → 纯实系数。通过系数模式识别信号特征。",
+        "exam": "hw5"
+      },
+      {
+        "title": "HW5.4 - Parseval's Theorem",
+        "topic": "dtfs-dft",
+        "snippet": "Parseval定理应用。证明时域能量等于频域能量：\\(\\sum_{n=0}^{N-1} |x[n]|^2 = \\sum_{k=0}^{N-1} |X_k|^2\\)。使用正交基性质和能量守恒原理验证定理。",
+        "exam": "hw5"
+      },
+      {
+        "title": "HW5.5 - Signal Properties",
+        "topic": "dtfs-dft",
+        "snippet": "信号对称性质分析。探索奇偶对称性和半波对称性。奇函数：\\(x[n] = -x[-n]\\) 导致纯虚DTFS系数。偶函数：\\(x[n] = x[-n]\\) 导致纯实系数。半波对称消除偶次谐波。",
+        "exam": "hw5"
+      },
+      {
+        "title": "HW5.6 - Square Waves",
+        "topic": "dtfs-dft",
+        "snippet": "方波信号的DTFS分析。计算周期方波的DTFS系数，理解吉布斯现象。方波展开为奇次谐波的和：\\(x[n] = \\sum_{k=odd} \\frac{4}{k\\pi}\\sin(k\\omega_0 n)\\)。分析收敛性和频谱特征。",
+        "exam": "hw5"
+      },
+      {
+        "title": "HW5.7 - 2-D DTFS",
+        "topic": "dtfs-dft",
+        "snippet": "二维DTFS与图像处理。给定 \\(M \\times N\\) 图像，计算2D DTFS系数 \\(X_{k,\\ell} = (1/MN)\\sum_{m,n} x[m,n]e^{-j(k\\omega_m m + \\ell\\omega_n n)}\\)。应用于图像重构、压缩和频域滤波。使用低频系数重建图像。",
+        "exam": "hw5"
+      }
+    ]
+  },
+  "hw6": {
+    "sourceExam": "HW6",
+    "problems": [
+      {
+        "title": "HW6.1 - Continuous-Time Projections",
+        "topic": "gram-schmidt-qr",
+        "snippet": "连续时间信号投影。将函数投影到连续时间基函数上，如 \\(\\phi_k(t) = e^{jk\\omega_0 t}\\)。使用积分计算内积：\\(\\langle f, g \\rangle = \\int_T f(t)\\overline{g(t)} dt\\)。应用分部积分处理复指数。",
+        "exam": "hw6"
+      },
+      {
+        "title": "HW6.2 - Mechanical Gram-Schmidt",
+        "topic": "gram-schmidt-qr",
+        "snippet": "机械Gram-Schmidt练习。给定3个向量（包括复向量），执行完整的Gram-Schmidt正交化过程。计算正交向量 \\(q_i\\)：\\(q_i = a_i - \\sum_{j<i} \\text{proj}_{q_j}(a_i)\\)，然后归一化。处理实数和复数情况。",
+        "exam": "hw6"
+      },
+      {
+        "title": "HW6.3 - Functional Gram-Schmidt",
+        "topic": "gram-schmidt-qr",
+        "snippet": "函数空间Gram-Schmidt。对多项式函数 \\(\\{1, t, t^2\\}\\) 在区间 \\([0,1]\\) 上执行Gram-Schmidt正交化。使用内积 \\(\\langle f, g \\rangle = \\int_0^1 f(t)g(t) dt\\)。生成勒让德多项式的归一化版本。",
+        "exam": "hw6"
+      },
+      {
+        "title": "HW6.4 - Correctness of Gram-Schmidt",
+        "topic": "gram-schmidt-qr",
+        "snippet": "Gram-Schmidt算法正确性证明。使用数学归纳法证明算法产生正交向量集。归纳假设：前 \\(k-1\\) 个向量正交。归纳步骤：证明第 \\(k\\) 个向量与所有前面向量正交。",
+        "exam": "hw6"
+      },
+      {
+        "title": "HW6.5 - QR Proofs",
+        "topic": "gram-schmidt-qr",
+        "snippet": "QR分解定理证明。给定 \\(A = QR\\) 其中 \\(Q\\) 正交，\\(R\\) 上三角：(a) 证明如果 \\(A\\) 列线性无关，则 \\(R\\) 可逆；(b) 证明 \\(C(Q) = C(A)\\)（列空间相等）。使用秩、零空间和正交性质。",
+        "exam": "hw6"
+      },
+      {
+        "title": "HW6.6 - A Cute Decomposition",
+        "topic": "gram-schmidt-qr",
+        "snippet": "Cute分解 (QT分解)。给定可逆方阵 \\(A\\)，证明存在分解 \\(A = QT\\) 其中 \\(Q\\) 正交，\\(T\\) 下三角且可逆。方法：对 \\(A^T\\) 执行QR分解得 \\(A^T = Q_1R_1\\)，则 \\(A = R_1^T Q_1^T\\)。",
+        "exam": "hw6"
+      }
+    ]
+  },
+  "hw7": {
+    "sourceExam": "HW7",
+    "problems": [
+      {
+        "title": "HW7.1 - Mechanical Projections",
+        "topic": "gram-schmidt-qr",
+        "snippet": "机械投影练习。(a) 将向量 \\(b = [3,2,-1]^T\\) 投影到 \\(a = [1,0,1]^T\\)，计算平方误差 \\(||\\epsilon||^2\\)。(b) 将 \\(b = [1,4,-5]^T\\) 投影到矩阵 \\(A\\) 的列空间，使用 \\(P_A(b) = A(A^TA)^{-1}A^Tb\\)。",
+        "exam": "hw7"
+      },
+      {
+        "title": "HW7.2 - Least Squares and QR Factorization",
+        "topic": "least-squares",
+        "snippet": "最小二乘与QR分解。给定 \\(A = QR\\)：(a) 证明 \\(A\\hat{x} = QQ^Tb\\) 是 \\(b\\) 在 \\(C(A)\\) 上的投影（提示：\\(C(Q) = C(A)\\)）。(b) 证明最小二乘误差公式：\\(||A\\hat{x} - b||^2 = ||b||^2 - ||Q^Tb||^2\\)。",
+        "exam": "hw7"
+      },
+      {
+        "title": "HW7.3 - Linear Regression",
+        "topic": "least-squares",
+        "snippet": "线性回归应用。物体以恒定速度运动：\\(y(t) = \\alpha + \\beta t\\)。在 \\(M\\) 个时刻测量位置（有误差）。(a) 推导 \\(A^TA\\)、\\((A^TA)^{-1}\\) 和 \\(A^Ty\\) 的简化形式。(b) 使用Gram-Schmidt正交化时间轴，简化计算。(c) 具体计算示例。",
+        "exam": "hw7"
+      },
+      {
+        "title": "HW7.4 - Proof: Least Squares",
+        "topic": "least-squares",
+        "snippet": "最小二乘正交性证明。设 \\(\\hat{x}\\) 是最小二乘解，证明误差向量 \\(\\epsilon = b - A\\hat{x}\\) 正交于 \\(A\\) 的列空间。即证明 \\(A^T\\epsilon = A^T(b - A\\hat{x}) = 0\\)。直接代入 \\(\\hat{x} = (A^TA)^{-1}A^Tb\\) 验证。",
+        "exam": "hw7"
+      },
+      {
+        "title": "HW7.5 - Noise Canceling Headphones",
+        "topic": "least-squares",
+        "snippet": "降噪耳机系统设计。音乐信号 \\(m\\) 加上噪声 \\(n\\)，用户听到 \\(s = m + n\\)。使用3个麦克风录制噪声（有误差）：\\(r_A, r_B, r_C\\)。(a) 最小化 \\(||R\\gamma + n||\\) 找最优增益。(b) Python实现。(c) 手工计算示例。(d-h) 实际音频信号测试。",
+        "exam": "hw7"
+      },
+      {
+        "title": "HW7.6 - Image Analysis",
+        "topic": "least-squares",
+        "snippet": "图像分析与形状拟合。医学成像：从边缘检测点拟合细胞形状。给定点 \\((x_i, y_i)\\)：(a) 拟合圆 \\(a_1(x^2+y^2) + d_1x + e_1y = 1\\)，设置最小二乘问题。(b) 拟合椭圆 \\(a_1x^2 + b_1xy + c_1y^2 + d_1x + e_1y = 1\\)。(c-d) Python实现并比较误差。",
+        "exam": "hw7"
+      }
+    ]
+  },
+  "hw8": {
+    "sourceExam": "HW8",
+    "problems": [
+      {
+        "title": "HW8.1 - Mechanical: Linear Least Squares",
+        "topic": "least-squares",
+        "snippet": "机械最小二乘练习。给定数据点，拟合模型。(a) 无截距模型 \\(b = ax\\)，强制过原点，计算误差。(b) 带截距模型 \\(b = x_1a + x_2\\)，增广矩阵 \\(A = [a \\mathbf{1}]\\)，比较误差。观察截距如何改善拟合质量。",
+        "exam": "hw8"
+      },
+      {
+        "title": "HW8.2 - Study Spaces: Grimes vs Doe",
+        "topic": "state-space",
+        "snippet": "学习空间马尔可夫链。学生在两个地点学习：Grimes工程中心和Doe图书馆。状态转移矩阵 \\(A = \\begin{bmatrix} 0.7 & 0.4 \\\\ 0.3 & 0.6 \\end{bmatrix}\\)。(a) 计算 \\(x[1], x[2], x[3]\\) 给定初始状态和外部输入。(b) 证明保守性：\\(T[n+1] = T[n] + \\mathbf{1}^Tu[n]\\)。(c) 定性分析长期行为。",
+        "exam": "hw8"
+      },
+      {
+        "title": "HW8.3 - Quadcopter Transformations",
+        "topic": "state-space",
+        "snippet": "四轴飞行器3D旋转。位置向量 \\(r = [x,y,z]^T\\)，旋转矩阵 \\(R_x(\\theta), R_y(\\psi), R_z(\\phi)\\)。(a) 先绕x轴转 \\(\\pi/6\\)，再绕z轴转 \\(\\pi/3\\)：计算 \\(R_z(\\pi/3)R_x(\\pi/6)\\)。(b) 相反顺序：\\(R_x(\\pi/6)R_z(\\pi/3)\\)。(c) 验证矩阵乘法不可交换，飞行器到达不同位置。",
+        "exam": "hw8"
+      },
+      {
+        "title": "HW8.4 - Braincells",
+        "topic": "fundamental-subspaces",
+        "snippet": "脑细胞连接网络。邻接矩阵 \\(B \\in \\mathbb{R}^{n \\times n}\\)，\\(B_{ij}\\) 表示细胞 \\(j \\to i\\) 的通信速度。(a) 初始：所有断开，\\(A = 0\\)。(b) 休息后：每对速度+1，\\(B' = B + (\\mathbf{1}\\mathbf{1}^T - I)\\)。(c) 咖啡因：速度×4，\\(C = 4B\\)。(d) 特定连接：\\(D = B + A\\) 其中 \\(A_{lk} = 10\\)。(e) 对称情况：\\(B = B^T\\)。",
+        "exam": "hw8"
+      },
+      {
+        "title": "HW8.5 - Adjacency Matrix Walks",
+        "topic": "eigenanalysis",
+        "snippet": "邻接矩阵与图路径。有向图的邻接矩阵 \\(A\\)：\\(a_{ij} = 1\\) 如果存在边 \\(j \\to i\\)。证明 \\(B = A^2\\) 中，\\(b_{ij}\\) 表示从 \\(j\\) 到 \\(i\\) 长度为2的路径数。使用 \\(b_{ij} = \\sum_k a_{ik}a_{kj}\\)，每项对应中间节点 \\(k\\)。",
+        "exam": "hw8"
+      },
+      {
+        "title": "HW8.6 - Social Media",
+        "topic": "eigenanalysis",
+        "snippet": "社交媒体使用模型。4个状态：Netflix、Hulu、看猫视频、工作。(a) 推导转移矩阵 \\(A\\)（块上三角）。(b) 计算一个时间步后的状态。(c) 验证保守性（列和为1）。(d) Python模拟直到稳态。(e-f) 策略优化：调整参数使更多学生工作，尝试不同干预措施。",
+        "exam": "hw8"
+      },
+      {
+        "title": "HW8.7 - Labeling Patients Using Gene Expression",
+        "topic": "least-squares",
+        "snippet": "基因表达数据分类。特征向量：[年龄, 体重, tomosinB, tsA, chnA]^T。基因表达用 ±1 表示。(a) 建立模型 \\(Ax = b\\)，\\(b_i = ±1\\) 表示是否患病。(b) 训练：用最小二乘找 \\(\\alpha_i\\)。(c) 测试：预测新样本，计算准确率。机器学习分类基础。",
+        "exam": "hw8"
+      }
+    ]
+  },
+  "hw9": {
+    "sourceExam": "HW9",
+    "problems": [
+      {
+        "title": "HW9.1 - Linear Neural Networks",
+        "topic": "least-squares",
+        "snippet": "线性神经网络。全连接线性网络：\\(b_j = \\sum_i x_{ij}a_i\\)。(a) 表示为内积 \\(b_j = \\mathbf{x}_j^T\\mathbf{a}\\)。(b) 矩阵形式 \\(\\mathbf{b} = X^T\\mathbf{a}\\)（推理）。(c) 训练单列：\\(\\min ||\\mathbf{x}_j^TA^T - \\mathbf{b}_j^T||\\)，解为 \\(\\mathbf{x}_j^* = (A^TA)^{-1}A^T\\mathbf{b}_j\\)。(d) 完整矩阵：\\(X^* = (A^TA)^{-1}A^TB^T\\)（Frobenius范数）。(e) 两层网络：\\(\\mathbf{c} = (XY)^T\\mathbf{a}\\)。(f) 结论：多层线性网络等价于单层。",
+        "exam": "hw9"
+      },
+      {
+        "title": "HW9.2 - Eigenvalues and Determinants: Proofs",
+        "topic": "eigenanalysis",
+        "snippet": "特征值与行列式证明。(a) 若 \\(\\lambda\\) 是 \\(A\\) 的特征值，证明 \\(1/\\lambda\\) 是 \\(A^{-1}\\) 的特征值（\\(A\\) 可逆）。(b) 给定 \\(\\det(A) = \\det(A^T)\\)，证明 \\(A\\) 和 \\(A^T\\) 有相同特征值。(c) \\(A\\) 可逆但 \\(B\\) 不可逆，证明 \\(AB\\) 和 \\(BA\\) 都不可逆（使用行列式或零空间）。",
+        "exam": "hw9"
+      },
+      {
+        "title": "HW9.3 - Mechanical Diagonalization",
+        "topic": "eigenanalysis",
+        "snippet": "机械对角化练习。(a) 对角化 \\(A = \\begin{bmatrix} 3/2 & 1/2 \\\\ 1/2 & 3/2 \\end{bmatrix}\\)，找 \\(V_A, \\Lambda_A, V_A^{-1}\\)。(b) 对角化 \\(B = \\begin{bmatrix} 1 & 0 \\\\ -2 & -1 \\end{bmatrix}\\)。(c) 对角化 \\(C \\in \\mathbb{R}^{3 \\times 3}\\)，给定两个特征值2和1，找第三个特征值（使用迹或列依赖性），计算所有特征向量。",
+        "exam": "hw9"
+      },
+      {
+        "title": "HW9.4 - PageRank",
+        "topic": "eigenanalysis",
+        "snippet": "PageRank算法。连接矩阵 \\(C\\)：\\(c_{ji}\\) 是从网页 \\(i\\) 点击到 \\(j\\) 的比例。(a) 图A：两网页互链，找稳态频率（特征值1的特征向量，归一化）。(b) 图B：4网页复杂连接，用numpy.linalg.eig计算。(c) 图D：不相交图（两个独立网络），特征空间维度为2，两个独立稳态分布。",
+        "exam": "hw9"
+      },
+      {
+        "title": "HW9.5 - Short Proofs",
+        "topic": "eigenanalysis",
+        "snippet": "简短证明题。设 \\(S = A^TA\\)，\\(V = [\\mathbf{v}_1 \\cdots \\mathbf{v}_n]\\) 是 \\(S\\) 的归一化特征向量，特征值 \\(\\lambda_1, \\ldots, \\lambda_n\\)。(a) 证明 \\(||A\\mathbf{v}_i||^2 = \\lambda_i\\)（\\(\\lambda_i \\neq 0\\)）。(b) 证明 \\(A\\mathbf{v}_i \\perp A\\mathbf{v}_j\\)（提示：谱定理）。(c) 若 \\(V\\) 正交方阵，证明 \\(||\\mathbf{x}|| = ||V\\mathbf{x}||\\)（正交变换保持范数）。",
+        "exam": "hw9"
+      }
+    ]
+  }
+}
